@@ -1,4 +1,68 @@
 
+body {
+  font-family: 'Recoleta', serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #000;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.logo-img {
+  height: 60px;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  line-height: 1.1;
+}
+.logo-text .line1,
+.logo-text .line2 {
+  font-size: 1.2rem;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  z-index: 100;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.hero {
+  padding: 100px;
+  text-align: center;
+}
 .align-bullet li {
   display: flex;
   align-items: center;
