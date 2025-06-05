@@ -1,91 +1,75 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Works – Architecture</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../style.css" />
   <style>
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 40px;
-      padding: 60px 0;
-      max-width: 1200px;
-      margin: auto;
+    body {
+      font-family: sans-serif;
+      background-color: #fff;
+      padding: 40px;
     }
 
-    .project-card {
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .project-item {
       position: relative;
+      width: 150px;
+      height: 150px;
       overflow: hidden;
       border-radius: 4px;
-      transition: transform 0.3s ease;
     }
 
-    .project-card img {
+    .project-item img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.3s ease, filter 0.3s ease;
+      display: block;
     }
 
-    .project-card:hover img {
+    .project-item:hover img {
       transform: scale(1.05);
-      filter: brightness(85%);
+      filter: blur(2px) brightness(0.7);
       cursor: pointer;
     }
 
-    .project-card h3 {
+    .project-title-overlay {
       position: absolute;
-      bottom: 16px;
-      left: 16px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: white;
-      font-size: 1.1rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 6px 12px;
-      border-radius: 4px;
-      margin: 0;
+      font-family: 'Neutraface Text Bold', sans-serif;
+      font-size: 1em;
+      opacity: 0;
       transition: opacity 0.3s ease;
+      pointer-events: none;
+      text-align: center;
+      padding: 5px 10px;
+    }
+
+    .project-item:hover .project-title-overlay {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
-      <div class="logo-text">
-        <span class="line1">Andrea</span>
-        <span class="line2">Pasqua</span>
-      </div>
+  <h1>Architecture Projects</h1>
+  <div class="projects-grid">
+    <div class="project-item">
+      <a href="../projects/01_Velodrome_Vigorelli_project/index.html">
+        <img src="../projects/01_Velodrome_Vigorelli_project/cover.jpg" alt="Velodromo Vigorelli">
+        <div class="project-title-overlay">Velodromo Vigorelli</div>
+      </a>
     </div>
-    <nav>
-      <ul>
-        <li><a href="about.html">About</a></li>
-        <li class="dropdown">
-          <a href="#">Works</a>
-          <ul class="dropdown-content">
-            <li><a href="works_architecture.html">• Architecture</a></li>
-            <li><a href="works_graphic.html">• Graphics</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main style="padding: 60px 20px;">
-    <h1 style="text-align: center;">Architecture Projects</h1>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <a href="projects/01_Velodrome_Vigorelli_project/index.html">
-          <img src="projects/01_Velodrome_Vigorelli_project/cover.jpg" alt="Velodromo Vigorelli" />
-          <h3>Velodromo Vigorelli</h3>
-        </a>
-      </div>
-
-    </div>
-  </main>
+  </div>
 </body>
 </html>
