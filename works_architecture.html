@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Architecture Projects – Andrea Pasqua</title>
+  <title>Works – Architecture</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
+      <div class="logo-text">
+        <span class="line1">Andrea</span>
+        <span class="line2">Pasqua</span>
+      </div>
+    </div>
     <nav>
       <ul>
         <li><a href="about.html">About</a></li>
         <li class="dropdown">
           <a href="#">Works</a>
-          <ul class="dropdown-content align-bullet">
-            <li><a href="works_architecture.html"><span class="bullet">●</span><span class="label">Architecture</span></a></li>
-            <li><a href="works_graphic.html"><span class="bullet">●</span><span class="label">Graphics</span></a></li>
+          <ul class="dropdown-content">
+            <li><a href="works_architecture.html">• Architecture</a></li>
+            <li><a href="works_graphic.html">• Graphics</a></li>
           </ul>
         </li>
         <li><a href="contact.html">Contact</a></li>
@@ -23,9 +30,37 @@
       </ul>
     </nav>
   </header>
-  <main class="works-section">
-    <h1 style="text-align:center;">Architecture Projects</h1>
-    <p style="text-align:center;">Coming soon...</p>
+
+  <main style="padding: 60px;">
+    <h1 style="text-align: center;">Architecture Projects</h1>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <a href="projects/01_Velodrome_Vigorelli_project/index.html">
+          <img src="projects/01_Velodrome_Vigorelli_project/cover.jpg" alt="Velodromo Vigorelli" />
+          <h3>Velodromo Vigorelli</h3>
+        </a>
+      </div>
+
+    </div>
   </main>
+
+  <style>
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding: 40px 0;
+    }
+    .project-card img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+    }
+    .project-card h3 {
+      font-size: 1.1rem;
+      margin-top: 12px;
+    }
+  </style>
 </body>
 </html>
