@@ -1,4 +1,22 @@
+/* Importa Neutraface */
+@font-face {
+  font-family: 'Neutraface Text';
+  src: url('/fonts/NeutrafaceText-Bold.woff') format('woff');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Neutraface';
+  src: url('/fonts/Neutraface-Book.woff') format('woff');
+  font-weight: normal;
+}
 
+/* Applica i font a tutto il sito */
+body {
+  font-family: 'Neutraface', sans-serif;
+}
+h1, h2, h3, h4 {
+  font-family: 'Neutraface Text', sans-serif;
+}
 body {
   font-family: 'Recoleta', serif;
   margin: 0;
