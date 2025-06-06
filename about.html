@@ -4,25 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About – Andrea Pasqua</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <header>
+  <!-- HEADER UNIFICATO -->
+  <header class="site-header">
     <div class="logo-container">
       <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
-      <div class="logo-text">
-        <span class="line1">Andrea</span>
-        <span class="line2">Pasqua</span>
-      </div>
+      <div class="logo-text">Andrea Pasqua</div>
     </div>
+    
     <nav>
-      <ul>
-        <li><a href="about.html">About</a></li>
+      <ul class="nav-menu">
+        <li><a href="about.html" class="active">About</a></li>
         <li class="dropdown">
           <a href="#">Works</a>
-          <ul class="dropdown-content custom-bullets">
-            <li><a href="works_architecture.html"><span class="bullet">●</span> Architecture</a></li>
-            <li><a href="works_graphic.html"><span class="bullet">●</span> Graphics</a></li>
+          <ul class="dropdown-content">
+            <li><a href="works_architecture.html">Architecture</a></li>
+            <li><a href="works_graphic.html">Graphics</a></li>
           </ul>
         </li>
         <li><a href="contact.html">Contact</a></li>
@@ -30,16 +29,64 @@
       </ul>
     </nav>
   </header>
-  <main class="about-section">
+
+  <!-- SEZIONE FOTO E TESTO -->
+  <section class="about-section">
     <div class="about-container">
-      <div class="about-photo"></div>
+      <div class="about-photo">
+        <img src="images/profile-photo.jpg" alt="Andrea Pasqua" class="profile-photo">
+      </div>
+      
       <div class="about-text">
-        <p>Andrea Pasqua was born in Treviso in 1989...</p>
-        <p>In 2025, he opened his own studio in Guangzhou...</p>
-        <p>Alongside his professional path, Andrea has studied Taijiquan...</p>
-        <p>His work reflects a careful attention to materials, light, and the in-between...</p>
+        <h1 class="about-title">About</h1>
+        
+        <p class="bio-text">
+          Andrea Pasqua was born in Treviso in 1989. He studied Architecture, Construction and Conservation at IUAV University of Venice, where he graduated in 2016.
+        </p>
+        
+        <p class="bio-text">
+          Over the years, he worked with different architecture studios in Italy, the Netherlands (Rotterdam), and China, gaining experience across diverse cultural and design contexts.
+        </p>
+        
+        <p class="bio-text">
+          In 2025, he opened his own studio in Guangzhou, continuing his work in architecture and visual design. His approach combines a strong interest in space, nature, people and atmosphere, shaped by a minimal aesthetic and a focus on clarity and balance.
+        </p>
+        
+        <p class="bio-text">
+          Alongside his professional path, Andrea has studied Taijiquan, a traditional Chinese martial art. The discipline’s core ideas—balance, full and empty, adaptability—have deeply influenced the way he thinks about architecture, encouraging a design process that values flow, structural tension, and intentional simplicity.
+        </p>
+        
+        <p class="bio-text">
+          His work reflects a careful attention to materials, light, and the in-between. He believes in reuse, sustainability, and the ability of space to quietly shape the way we feel and live.
+        </p>
+        
+        <div class="experience-section">
+          <h2>Key Experiences</h2>
+          <ul class="experience-list">
+            <li>MSc in Architecture - Politecnico di Milano</li>
+            <li>Lavorazione con Foster+Partners</li>
+            <li>Insegnante ospite all'Accademia Domus</li>
+          </ul>
+        </div>
+        
+        <div class="bio-call-to-action">
+          <p>Desire to explore Andrea's work further? Visit his portfolio or contact him directly!</p>
+          <a href="/works.html" class="view-work">View Work</a>
+        </div>
       </div>
     </div>
-  </main>
+  </section>
+
+  <!-- FOOTER COERENTE -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>© 2025 Andrea Pasqua Studio</p>
+      <div class="footer-social">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="mailto:info@andreapasqua.com">Email</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
