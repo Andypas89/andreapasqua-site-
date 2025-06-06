@@ -49,7 +49,34 @@
   --transition-fast: 0.2s;
   --transition-normal: 0.3s;
 }
+/* ========== PROJECT PAGE STYLES ========== */
+.project-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
 
+.project-page h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--space-md);
+}
+
+.project-page .description {
+  text-align: justify;
+  margin-bottom: var(--space-lg);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 800px; /* Limita la larghezza massima delle immagini */
+  height: auto;
+}
 /* ========== BASE STYLES ========== */
 * {
   box-sizing: border-box;
