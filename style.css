@@ -1,4 +1,3 @@
-
 /* ========== HEADER FISSO ========== */
 .site-header {
   position: fixed;
@@ -20,7 +19,9 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--color-black);
-}/* ========== NEUTRAFONT SETUP ========== */
+}
+
+/* ========== NEUTRAFONT SETUP ========== */
 @font-face {
   font-family: 'Neutraface';
   src: url('fonts/NeutrafaceText-Bold.woff') format('woff');
@@ -49,34 +50,7 @@
   --transition-fast: 0.2s;
   --transition-normal: 0.3s;
 }
-/* ========== PROJECT PAGE STYLES ========== */
-.project-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: var(--space-lg) var(--space-md);
-}
 
-.project-page h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: var(--space-md);
-}
-
-.project-page .description {
-  text-align: justify;
-  margin-bottom: var(--space-lg);
-}
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--space-lg);
-}
-
-.image-container img {
-  width: 100%;
-  max-width: 800px; /* Limita la larghezza massima delle immagini */
-  height: auto;
-}
 /* ========== BASE STYLES ========== */
 * {
   box-sizing: border-box;
@@ -296,6 +270,7 @@ img:hover {
     font-size: 2.5rem;
   }
 }
+
 /* ========== ABOUT SECTION ========== */
 .about-section {
   max-width: 700px;
@@ -317,30 +292,18 @@ img:hover {
   line-height: 1.8;
   margin-bottom: var(--space-sm);
 }
-.back-link {
-  position: absolute;
-  left: var(--space-md);
-  top: var(--space-sm);
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--color-black);
-  text-decoration: none;
-  z-index: 999;
-}
-.back-link:hover {
-  color: var(--color-hover);
-}
+
 /* ========== PROJECT PAGE STYLES ========== */
 .project-page {
   max-width: 900px;
   margin: 0 auto;
-  padding: var(--space-lg) var(--space-md);
+  padding: 120px var(--space-md) var(--space-lg);
 }
 
 .project-page h1 {
   font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: var(--space-md);
-  text-align: center; /* Centra il titolo */
+  text-align: center;
 }
 
 .project-page .description {
@@ -356,11 +319,21 @@ img:hover {
 
 .image-container img {
   width: 100%;
-  max-width: 800px; /* Limita la larghezza massima delle immagini */
+  max-width: 800px;
   height: auto;
 }
 
-/* Aggiungi lo spazio superiore per evitare l'overlay con l'header */
-.project-page main {
-  margin-top: 100px; /* Adatta il valore se necessario */
+.back-link {
+  position: absolute;
+  left: var(--space-md);
+  top: var(--space-sm);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-black);
+  text-decoration: none;
+  z-index: 999;
+}
+
+.back-link:hover {
+  color: var(--color-hover);
 }
