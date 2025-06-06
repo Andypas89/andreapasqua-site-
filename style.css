@@ -1,4 +1,26 @@
-/* ========== NEUTRAFONT SETUP ========== */
+
+/* ========== HEADER FISSO ========== */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.header-name {
+  margin-left: var(--space-xs);
+  font-family: 'Neutraface', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-black);
+}/* ========== NEUTRAFONT SETUP ========== */
 @font-face {
   font-family: 'Neutraface';
   src: url('fonts/NeutrafaceText-Bold.woff') format('woff');
