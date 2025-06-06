@@ -290,3 +290,16 @@ img:hover {
   line-height: 1.8;
   margin-bottom: var(--space-sm);
 }
+.back-link {
+  position: absolute;
+  left: var(--space-md);
+  top: var(--space-sm);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-black);
+  text-decoration: none;
+  z-index: 999;
+}
+.back-link:hover {
+  color: var(--color-hover);
+}
