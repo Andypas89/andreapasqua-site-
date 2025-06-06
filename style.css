@@ -337,3 +337,37 @@ img:hover {
 .back-link:hover {
   color: var(--color-hover);
 }
+/* ========== NAVIGAZIONE BACK / NEXT ========== */
+.project-navigation {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+  z-index: 999;
+}
+
+.nav-link {
+  display: block;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.nav-icon {
+  width: 60px;
+  height: 60px;
+  fill: #000; /* Freccia nera */
+  transition: transform 0.3s ease;
+}
+
+.nav-back .nav-icon {
+  transform: rotate(180deg); /* Ruota la freccia a sinistra */
+}
