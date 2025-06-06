@@ -1,69 +1,210 @@
-
+/* ========== NEUTRAFONT SETUP ========== */
 @font-face {
-  font-family: 'NeutrafaceText';
+  font-family: 'Neutraface';
   src: url('fonts/NeutrafaceText-Bold.woff') format('woff');
   font-weight: bold;
 }
 @font-face {
-  font-family: 'NeutrafaceText';
+  font-family: 'Neutraface';
   src: url('fonts/NeutrafaceText-Light.woff') format('woff');
   font-weight: 300;
 }
-body {
+
+/* ========== DESIGN SYSTEM ========== */
+:root {
+  /* Colori */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-hover: #333333;
+
+  /* Spaziature */
+  --space-xs: 10px;
+  --space-sm: 20px;
+  --space-md: 40px;
+  --space-lg: 80px;
+
+  /* Transizioni */
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
+}
+
+/* ========== BASE STYLES ========== */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'NeutrafaceText', sans-serif;
-  font-weight: 300;
-  background-color: white;
-  color: black;
 }
+
+body {
+  font-family: 'Neutraface', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-black);
+  background: var(--color-white);
+  padding-top: 80px; /* Compensa header fisso */
+}
+
+/* ========== HEADER ========== */
 .site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
+
 .logo-container {
   display: flex;
   align-items: center;
+  transition: transform var(--transition-normal);
 }
+
+.logo-container:hover {
+  transform: scale(1.03);
+}
+
 .logo-img {
   width: 100px;
   height: auto;
-  margin-right: 15px;
+  margin-right: var(--space-xs);
+  transition: opacity var(--transition-fast);
 }
-.logo-text {
-  font-family: 'NeutrafaceText';
-  font-weight: bold;
+
+.logo-img:hover {
+  opacity: 0.8;
 }
+
+/* ========== NAVIGATION ========== */
 .nav-menu {
-  list-style: none;
   display: flex;
-  gap: 20px;
+  gap: var(--space-md);
+  list-style: none;
 }
+
 .nav-menu a {
+  position: relative;
+  color: var(--color-black);
   text-decoration: none;
-  color: black;
   font-weight: bold;
+  padding: var(--space-xs) 0;
 }
-.nav-menu .dropdown {
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--transition-normal) ease-out;
+}
+
+.nav-menu a:hover {
+  color: var(--color-hover);
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* ========== DROPDOWN ========== */
+.dropdown {
   position: relative;
 }
+
 .dropdown-content {
-  display: none;
   position: absolute;
-  top: 100%;
-  background: white;
-  padding: 10px;
-  list-style: none;
+  top: calc(100% + var(--space-xs));
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-white);
+  padding: var(--space-sm);
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  transition: all var(--transition-normal) ease;
 }
+
 .dropdown:hover .dropdown-content {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
 }
+
+/* ========== HERO SECTION ========== */
 .hero {
-  padding: 80px 40px;
+  padding: var(--space-lg) var(--space-md);
   text-align: center;
 }
-h1 {
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3, h4 {
   font-weight: bold;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: var(--space-sm);
+}
+
+p {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* ========== INTERACTIVE ELEMENTS ========== */
+a, button {
+  transition: all var(--transition-fast);
+}
+
+img {
+  transition: transform var(--transition-normal), 
+              opacity var(--transition-fast);
+}
+
+img:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/* ========== PROJECT GRID (ESEMPIO) ========== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.project-card {
+  transition: all var(--transition-normal);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  :root {
+    --space-md: 20px;
+    --space-lg: 60px;
+  }
+
+  .site-header {
+    padding: var(--space-sm) var(--space-sm);
+  }
+
+  .nav-menu {
+    gap: var(--space-sm);
+  }
 }
