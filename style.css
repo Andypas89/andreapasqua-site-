@@ -5,9 +5,9 @@
   font-weight: bold;
 }
 @font-face {
-  font-family: 'Neutraface';
-  src: url('fonts/NeutrafaceText-Light.woff') format('woff');
-  font-weight: 300;
+  font-family: 'Neutraface Book';
+  src: url('fonts/neutraface-book.otf') format('otf');
+  font-weight: 400;
 }
 
 /* ========== DESIGN SYSTEM ========== */
