@@ -330,3 +330,37 @@ img:hover {
 .back-link:hover {
   color: var(--color-hover);
 }
+/* ========== PROJECT PAGE STYLES ========== */
+.project-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.project-page h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--space-md);
+  text-align: center; /* Centra il titolo */
+}
+
+.project-page .description {
+  text-align: justify;
+  margin-bottom: var(--space-lg);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 800px; /* Limita la larghezza massima delle immagini */
+  height: auto;
+}
+
+/* Aggiungi lo spazio superiore per evitare l'overlay con l'header */
+.project-page main {
+  margin-top: 100px; /* Adatta il valore se necessario */
+}
