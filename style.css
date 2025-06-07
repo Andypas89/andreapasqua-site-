@@ -29,6 +29,27 @@
   --transition-normal: 0.3s;
 }
 
+/* ========== BASE STILI ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Neutraface', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-black);
+  background: var(--color-white);
+  padding-top: 80px; /* Compensa header fisso */
+}
+
 /* ========== HEADER FISSO ========== */
 .site-header {
   position: fixed;
@@ -207,7 +228,7 @@ img:hover {
 
 .project-card:hover img {
   transform: scale(1.03); /* Zoom leggero */
-  filter: blur(50px); /* Sfocatura molto marcata su hover */
+  filter: blur(50px); /* Sfocatura molto marcata */
 }
 
 /* ========== TESTO SU COVER DEI PROGETTI ========== */
@@ -228,11 +249,14 @@ img:hover {
 }
 
 .project-info h2 {
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
   font-size: 1.8rem;
   margin: 0;
   color: #000;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 /* ========== ABOUT SECTION ========== */
@@ -265,6 +289,8 @@ img:hover {
 }
 
 .project-page h1 {
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
   font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: var(--space-md);
   text-align: center;
@@ -287,6 +313,7 @@ img:hover {
   height: auto;
 }
 
+/* ========== BACK / NEXT LINK CON ICONE ========== */
 .back-link {
   position: absolute;
   left: var(--space-md);
@@ -319,5 +346,9 @@ img:hover {
 
   .hero h1 {
     font-size: 2.5rem;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
