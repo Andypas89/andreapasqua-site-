@@ -51,6 +51,7 @@
   --transition-normal: 0.3s;
 }
 
+
 /* ========== BASE STYLES ========== */
 * {
   box-sizing: border-box;
@@ -499,4 +500,60 @@ img:hover {
   color: #000;
   text-transform: uppercase; /* Testo maiuscolo */
   letter-spacing: 0.05em; /* Spazio tra le lettere per migliorare la leggibilità */
+}
+/* ========== GRIGLIA PROGETTI REGOLARE MA PIU' GRANDE ========== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.project-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: transform var(--transition-normal);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.project-card:hover img {
+  transform: scale(1.03); /* Zoom leggero */
+  filter: blur(2px); /* Sfocatura su hover */
+}
+
+/* ========== TESTO CENTRATO SU COVER ========== */
+.project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.project-card:hover .project-info {
+  opacity: 1;
+}
+
+.project-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
