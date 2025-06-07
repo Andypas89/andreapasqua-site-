@@ -371,3 +371,63 @@ img:hover {
 .nav-back .nav-icon {
   transform: rotate(180deg); /* Ruota la freccia a sinistra */
 }
+/* ========== WORKS ARCHITECTURE STILE TIPO GALEOTTIRIZATO ========== */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.project-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: transform var(--transition-normal);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.project-card:hover img {
+  transform: scale(1.03); /* Zoom leggero */
+}
+
+/* ========== TESTO CENTRATO SU COVER ========== */
+.project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.project-card:hover .project-info {
+  opacity: 1;
+}
+
+.project-info h2 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #000;
+}
