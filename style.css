@@ -474,7 +474,7 @@ img:hover {
 
 .project-card:hover img {
   transform: scale(1.03); /* Zoom leggero */
-  filter: blur(15px); /* Sfocatura doppia rispetto a prima */
+  filter: blur(50px); /* Sfocatura doppia rispetto a prima */
 }
 
 /* ========== TESTO CENTRATO SU COVER ========== */
