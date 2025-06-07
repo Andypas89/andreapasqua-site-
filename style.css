@@ -431,3 +431,33 @@ img:hover {
   margin: 0;
   color: #000;
 }
+/* ========== TESTO CENTRATO SU COVER ========== */
+.project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.project-card:hover .project-info {
+  opacity: 1;
+}
+
+.project-info h2 {
+  font-size: 1.8rem; /* Font size più grande */
+  margin-bottom: 6px;
+  color: #000;
+  text-transform: uppercase; /* Testo maiuscolo */
+  letter-spacing: 0.05em; /* Spazio tra le lettere per migliorare la leggibilità */
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #000;
+}
