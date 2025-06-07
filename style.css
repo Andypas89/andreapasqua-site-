@@ -530,7 +530,7 @@ img:hover {
 
 .project-card:hover img {
   transform: scale(1.03); /* Zoom leggero */
-  filter: blur(10px); /* Sfocatura su hover */
+  filter: blur(50px); /* Sfocatura su hover */
 }
 
 /* ========== TESTO CENTRATO SU COVER ========== */
