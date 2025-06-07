@@ -1,32 +1,10 @@
-/* ========== HEADER FISSO ========== */
-.site-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-sm) var(--space-md);
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(8px);
-  z-index: 1000;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.header-name {
-  margin-left: var(--space-xs);
-  font-family: 'Neutraface', sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--color-black);
-}
-
 /* ========== NEUTRAFONT SETUP ========== */
 @font-face {
   font-family: 'Neutraface';
   src: url('fonts/NeutrafaceText-Bold.woff') format('woff');
   font-weight: bold;
 }
+
 @font-face {
   font-family: 'Neutraface Book';
   src: url('fonts/neutraface-book.otf') format('otf');
@@ -51,29 +29,7 @@
   --transition-normal: 0.3s;
 }
 
-
-/* ========== BASE STYLES ========== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Neutraface', sans-serif;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 1.8;
-  color: var(--color-black);
-  background: var(--color-white);
-  padding-top: 80px; /* Compensa header fisso */
-}
-
-/* ========== HEADER ========== */
+/* ========== HEADER FISSO ========== */
 .site-header {
   position: fixed;
   top: 0;
@@ -94,10 +50,6 @@ body {
   transition: transform var(--transition-normal);
 }
 
-.logo-container:hover {
-  transform: scale(1.03);
-}
-
 .logo-img {
   width: 100px;
   height: auto;
@@ -107,6 +59,14 @@ body {
 
 .logo-img:hover {
   opacity: 0.8;
+}
+
+.header-name {
+  margin-left: var(--space-xs);
+  font-family: 'Neutraface', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-black);
 }
 
 /* ========== NAVIGATION ========== */
@@ -122,6 +82,7 @@ body {
   text-decoration: none;
   font-weight: bold;
   padding: var(--space-xs) 0;
+  transition: color var(--transition-fast);
 }
 
 .nav-menu a::after {
@@ -170,7 +131,7 @@ body {
   top: 100%;
 }
 
-/* ========== HERO SECTION ========== */
+/* ========== HERO SECTION (Homepage) ========== */
 .hero {
   padding: var(--space-lg) var(--space-md);
   text-align: center;
@@ -220,15 +181,18 @@ img:hover {
 /* ========== PROJECT GRID ========== */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: var(--space-md);
   padding: var(--space-md);
 }
 
 .project-card {
+  position: relative;
+  overflow: hidden;
   display: block;
   text-decoration: none;
   color: inherit;
+  border-radius: 4px;
   transition: transform var(--transition-normal);
 }
 
@@ -236,40 +200,39 @@ img:hover {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.3s ease, opacity 0.2s ease;
-}
-
-.project-card h2 {
-  margin-top: var(--space-sm);
-  font-size: 1.5rem;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
+  transition: transform 0.5s ease, filter 0.5s ease;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 .project-card:hover img {
-  transform: scale(1.03);
+  transform: scale(1.03); /* Zoom leggero */
+  filter: blur(50px); /* Sfocatura molto marcata su hover */
 }
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  :root {
-    --space-md: 20px;
-    --space-lg: 60px;
-  }
+/* ========== TESTO SU COVER DEI PROGETTI ========== */
+.project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
 
-  .site-header {
-    padding: var(--space-sm) var(--space-sm);
-  }
+.project-card:hover .project-info {
+  opacity: 1;
+}
 
-  .nav-menu {
-    gap: var(--space-sm);
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
+.project-info h2 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* ========== ABOUT SECTION ========== */
@@ -338,222 +301,23 @@ img:hover {
 .back-link:hover {
   color: var(--color-hover);
 }
-/* ========== NAVIGAZIONE BACK / NEXT ========== */
-.project-navigation {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: space-between;
-  padding: 0 var(--space-md);
-  z-index: 999;
-}
 
-.nav-link {
-  display: block;
-  opacity: 0.6;
-  transition: all 0.3s ease;
-}
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  :root {
+    --space-md: 20px;
+    --space-lg: 60px;
+  }
 
-.nav-link:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
+  .site-header {
+    padding: var(--space-sm) var(--space-sm);
+  }
 
-.nav-icon {
-  width: 60px;
-  height: 60px;
-  fill: #000; /* Freccia nera */
-  transition: transform 0.3s ease;
-}
+  .nav-menu {
+    gap: var(--space-sm);
+  }
 
-.nav-back .nav-icon {
-  transform: rotate(180deg); /* Ruota la freccia a sinistra */
-}
-/* ========== WORKS ARCHITECTURE STILE TIPO GALEOTTIRIZATO ========== */
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-md);
-  padding: var(--space-md);
-}
-
-.project-card {
-  position: relative;
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  overflow: hidden;
-  border-radius: 4px;
-  transition: transform var(--transition-normal);
-}
-
-.project-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.project-card:hover img {
-  transform: scale(1.03); /* Zoom leggero */
-}
-
-/* ========== TESTO CENTRATO SU COVER ========== */
-.project-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
-.project-card:hover .project-info {
-  opacity: 1;
-}
-
-.project-info h2 {
-  font-size: 1.4rem;
-  margin-bottom: 6px;
-  color: #000;
-}
-
-.project-info p {
-  font-size: 0.9rem;
-  margin: 0;
-  color: #000;
-}
-/* ========== TESTO CENTRATO SU COVER ========== */
-.project-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
-.project-card:hover .project-info {
-  opacity: 1;
-}
-
-.project-info h2 {
-  font-size: 1.8rem; /* Font size più grande */
-  margin-bottom: 6px;
-  color: #000;
-  text-transform: uppercase; /* Testo maiuscolo */
-  letter-spacing: 0.05em; /* Spazio tra le lettere per migliorare la leggibilità */
-}
-
-.project-info p {
-  font-size: 0.9rem;
-  margin: 0;
-  color: #000;
-}
-/* ========== EFFETTO SFUOCATURA SU HOVER ========== */
-.project-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease, filter 0.5s ease;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.project-card:hover img {
-  transform: scale(1.03); /* Zoom leggero */
-  filter: blur(4px); /* Sfocatura doppia rispetto a prima */
-}
-
-/* ========== TESTO CENTRATO SU COVER ========== */
-.project-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
-.project-card:hover .project-info {
-  opacity: 1;
-}
-
-.project-info h2 {
-  font-size: 1.8rem; /* Font size più grande */
-  margin-bottom: 6px;
-  color: #000;
-  text-transform: uppercase; /* Testo maiuscolo */
-  letter-spacing: 0.05em; /* Spazio tra le lettere per migliorare la leggibilità */
-}
-/* ========== GRIGLIA PROGETTI REGOLARE MA PIU' GRANDE ========== */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: var(--space-md);
-  padding: var(--space-md);
-}
-
-.project-card {
-  position: relative;
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  overflow: hidden;
-  border-radius: 4px;
-  transition: transform var(--transition-normal);
-}
-
-.project-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease, filter 0.5s ease;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.project-card:hover img {
-  transform: scale(1.03); /* Zoom leggero */
-  filter: blur(50px); /* Sfocatura su hover */
-}
-
-/* ========== TESTO CENTRATO SU COVER ========== */
-.project-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
-.project-card:hover .project-info {
-  opacity: 1;
-}
-
-.project-info h2 {
-  font-size: 1.8rem;
-  margin-bottom: 6px;
-  color: #000;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  .hero h1 {
+    font-size: 2.5rem;
+  }
 }
