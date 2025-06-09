@@ -352,3 +352,21 @@ img:hover {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
+/* ========== CAPTION E DESCRIZIONE PROGETTI ========== */
+
+.caption {
+  font-family: 'Neutraface Book', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-hover); /* #333 di default */
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.description {
+  font-family: 'Lora', serif; /* Per contrasto elegante */
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: var(--space-lg);
+}
