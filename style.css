@@ -315,7 +315,7 @@ img:hover {
 
 /* ========== BACK / NEXT LINK CON ICONE ========== */
 .back-link {
-  position: absolute;
+  position: fixed;
   left: var(--space-md);
   top: var(--space-sm);
   font-size: 1.2rem;
