@@ -356,7 +356,7 @@ img:hover {
 
 .caption {
   font-family: 'Neutraface Book', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: var(--color-hover); /* #333 di default */
   text-align: center;
@@ -365,7 +365,7 @@ img:hover {
 
 .description {
   font-family: 'Lora', serif; /* Per contrasto elegante */
-  font-size: 1rem;
+  font-size: 1.3rem;
   line-height: 1.8;
   text-align: justify;
   margin-bottom: var(--space-lg);
