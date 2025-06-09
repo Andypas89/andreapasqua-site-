@@ -359,7 +359,7 @@ img:hover {
   font-size: 1.3rem;
   font-weight: bold;
   color: var(--color-hover); /* #333 di default */
-  text-align: center;
+  text-align: justify;
   margin-bottom: var(--space-md);
 }
 
