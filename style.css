@@ -201,7 +201,7 @@ img:hover {
 
 /* ========== MASONRY LAYOUT PER PROGETTI ========== */
 .project-grid {
-  column-count: 3;
+  column-count: 3; /* 3 colonne scorrevoli */
   column-gap: var(--space-md);
   padding: var(--space-md);
   max-width: 1200px;
@@ -211,7 +211,7 @@ img:hover {
 .project-card {
   break-inside: avoid;
   display: inline-block;
-  width: 578px; /* Larghezza fissa per ogni card */
+  width: 578px; /* Larghezza fissa come francescarizzato.com */
   margin-bottom: var(--space-md);
   position: relative;
   text-decoration: none;
@@ -224,8 +224,8 @@ img:hover {
 .project-card img {
   width: 100%;
   height: auto;
-  display: block;
   object-fit: cover;
+  display: block;
   transition: transform 0.5s ease, filter 0.5s ease;
   border-radius: 4px;
 }
@@ -256,6 +256,7 @@ img:hover {
   font-family: 'Neutraface', sans-serif;
   font-weight: bold;
   font-size: 1.8rem;
+  margin: 0;
   color: #000;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -316,7 +317,7 @@ img:hover {
   height: auto;
 }
 
-/* ========== NAVIGAZIONE BACK / NEXT ========== */
+/* ========== BACK / NEXT LINK CON ICONE ========== */
 .project-navigation {
   position: fixed;
   top: 50%;
@@ -351,10 +352,30 @@ img:hover {
 }
 
 /* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .project-grid {
+    column-count: 2;
+  }
+
+  .project-card {
+    width: 578px;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --space-md: 20px;
     --space-lg: 60px;
+  }
+
+  .project-grid {
+    column-count: 1;
+    padding: var(--space-md);
+  }
+
+  .project-card {
+    width: 100%;
+    margin-bottom: var(--space-md);
   }
 
   .site-header {
@@ -368,36 +389,4 @@ img:hover {
   .hero h1 {
     font-size: 2.5rem;
   }
-
-/* ========== CAPTION E DESCRIZIONE PROGETTI ========== */
-
-.caption {
-  font-family: 'Neutraface Book', sans-serif;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: var(--color-hover); /* #333 di default */
-  text-align: center;
-  margin-bottom: var(--space-md);
-}
-
-.description {
-  font-family: 'Lora', serif; /* Per contrasto elegante */
-  font-size: 1.3rem;
-  line-height: 1.8;
-  text-align: justify;
-  margin-bottom: var(--space-lg);
-}
-/* ========== CARD PROGETTO MIGLIORATE PER LAYOUT MASONRY ========== */
-.project-card {
-  break-inside: avoid;
-  margin-bottom: var(--space-md);
-  width: 100%;
-  display: block;
-}
-
-.project-card img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 4px;
 }
