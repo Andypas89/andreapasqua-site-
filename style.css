@@ -206,6 +206,8 @@ img:hover {
   padding: var(--space-md);
   max-width: 1200px;
   margin: 0 auto;
+  min-width: 578px; /* Assicura una larghezza minima */
+}
 }
 
 .project-card {
