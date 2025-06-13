@@ -201,7 +201,7 @@ img:hover {
 
 /* ========== MASONRY LAYOUT PER PROGETTI ========== */
 .project-grid {
-  column-count: 3; /* 3 colonne su desktop */
+  column-count: 3;
   column-gap: var(--space-md);
   padding: var(--space-md);
   max-width: 1200px;
@@ -210,9 +210,10 @@ img:hover {
 
 .project-card {
   break-inside: avoid;
+  display: inline-block;
+  width: 578px; /* Larghezza fissa per ogni card */
   margin-bottom: var(--space-md);
   position: relative;
-  display: block;
   text-decoration: none;
   color: inherit;
   border-radius: 4px;
@@ -224,14 +225,14 @@ img:hover {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.5s ease, filter 0.5s ease;
   object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
   border-radius: 4px;
 }
 
 .project-card:hover img {
   transform: scale(1.03); /* Zoom leggero */
-  filter: blur(50px); /* Sfocatura molto marcata */
+  filter: blur(50px); /* Sfocatura marcata */
 }
 
 /* ========== TESTO SU COVER DEI PROGETTI ========== */
@@ -255,7 +256,6 @@ img:hover {
   font-family: 'Neutraface', sans-serif;
   font-weight: bold;
   font-size: 1.8rem;
-  margin: 0;
   color: #000;
   text-transform: uppercase;
   letter-spacing: 0.05em;
