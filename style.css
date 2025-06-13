@@ -199,21 +199,24 @@ img:hover {
   opacity: 0.9;
 }
 
-/* ========== PROJECT GRID ========== */
+/* ========== MASONRY LAYOUT PER PROGETTI ========== */
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: var(--space-md);
+  column-count: 3; /* 3 colonne su desktop */
+  column-gap: var(--space-md);
   padding: var(--space-md);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .project-card {
+  break-inside: avoid;
+  margin-bottom: var(--space-md);
   position: relative;
-  overflow: hidden;
   display: block;
   text-decoration: none;
   color: inherit;
   border-radius: 4px;
+  overflow: hidden;
   transition: transform var(--transition-normal);
 }
 
