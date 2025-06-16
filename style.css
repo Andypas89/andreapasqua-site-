@@ -207,10 +207,14 @@ img:hover {
 }
 
 .project-card {
-  width: 578px; /* Larghezza fissa per ogni card */
-  margin-bottom: var(--space-md); /* Spazio verticale tra i progetti */
-  display: inline-block; /* Per compatibilità con Masonry */
-  vertical-align: top; /* Evita allineamenti strani */
+  width: 578px;
+  margin-bottom: var(--space-md);
+  float: left; /* Richiesto da Masonry */
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: transform var(--transition-normal);
 }
 
 .project-card img {
@@ -223,8 +227,8 @@ img:hover {
 }
 
 .project-card:hover img {
-  transform: scale(1.03);
-  filter: blur(50px);
+  transform: scale(1.03); /* Zoom leggero */
+  filter: blur(50px); /* Sfocatura marcata */
 }
 
 /* ========== TESTO SU COVER DEI PROGETTI ========== */
@@ -359,6 +363,11 @@ img:hover {
   .project-card {
     width: 100%;
     margin-bottom: var(--space-md);
+  }
+
+  .project-card:hover img {
+    transform: scale(1.02);
+    filter: blur(2px);
   }
 
   .site-header {
