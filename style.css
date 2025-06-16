@@ -209,11 +209,8 @@ img:hover {
 .project-card {
   width: 578px; /* Larghezza fissa per ogni card */
   margin-bottom: var(--space-md); /* Spazio verticale tra i progetti */
-  float: left; /* Richiesto da Masonry */
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-  transition: transform var(--transition-normal);
+  display: inline-block; /* Per compatibilità con Masonry */
+  vertical-align: top; /* Evita allineamenti strani */
 }
 
 .project-card img {
