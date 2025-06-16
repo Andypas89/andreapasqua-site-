@@ -199,33 +199,21 @@ img:hover {
   opacity: 0.9;
 }
 
-/* ========== MASONRY LAYOUT PER PROGETTI ========== */
+/* ========== MASONRY JS LAYOUT ========== */
 .project-grid {
-  column-count: 3;
-  column-gap: var(--space-md);
-  padding: var(--space-md);
   max-width: 1200px;
   margin: 0 auto;
-  /* Aggiunta importante: evita problemi di rendering su alcuni browser */
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid;
+  padding: var(--space-md);
 }
 
 .project-card {
-  break-inside: avoid;
-  display: inline-block;
-  width: 578px;
-  margin-bottom: var(--space-md);
+  width: 578px; /* Larghezza fissa per ogni card */
+  margin-bottom: var(--space-md); /* Spazio verticale tra i progetti */
+  float: left; /* Richiesto da Masonry */
   position: relative;
-  text-decoration: none;
-  color: inherit;
-  border-radius: 4px;
   overflow: hidden;
+  border-radius: 4px;
   transition: transform var(--transition-normal);
-  /* Per alcuni browser, meglio forzare la posizione */
-  float: none;
-  display: block;
 }
 
 .project-card img {
@@ -238,8 +226,8 @@ img:hover {
 }
 
 .project-card:hover img {
-  transform: scale(1.03); /* Zoom leggero */
-  filter: blur(50px); /* Sfocatura marcata */
+  transform: scale(1.03);
+  filter: blur(50px);
 }
 
 /* ========== TESTO SU COVER DEI PROGETTI ========== */
@@ -360,14 +348,8 @@ img:hover {
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 1024px) {
-  .project-grid {
-    column-count: 2;
-    padding: var(--space-md);
-  }
-
   .project-card {
-    width: 578px;
-    margin-bottom: var(--space-md);
+    width: 400px;
   }
 }
 
@@ -375,11 +357,6 @@ img:hover {
   :root {
     --space-md: 20px;
     --space-lg: 60px;
-  }
-
-  .project-grid {
-    column-count: 1;
-    padding: var(--space-md);
   }
 
   .project-card {
