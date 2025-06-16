@@ -199,41 +199,67 @@ img:hover {
   opacity: 0.9;
 }
 
-/* ========== MASONRY LAYOUT PER PROGETTI ========== */
+/* ========== GRID LAYOUT MODERNO (simile a francescarizzato.com) ========== */
 .project-grid {
-  column-count: 3;
-  column-gap: var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); /* Min 360px – massimo fluido */
+  gap: var(--space-md); /* Spazio uniforme tra le card */
   padding: var(--space-md);
   max-width: 1200px;
   margin: 0 auto;
+  justify-items: center;
 }
 
 .project-card {
-  break-inside: avoid;
-  display: inline-block;
-  width: 578px;
-  margin-bottom: var(--space-md);
   position: relative;
-  text-decoration: none;
-  color: inherit;
-  border-radius: 4px;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Mantieni proporzioni uniformi (opzionale) */
   overflow: hidden;
+  border-radius: 4px;
   transition: transform var(--transition-normal);
-  vertical-align: top; /* 🔧 Aggiunta qui */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-card img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  display: block;
   transition: transform 0.5s ease, filter 0.5s ease;
   border-radius: 4px;
 }
 
 .project-card:hover img {
-  transform: scale(1.03); /* Zoom leggero */
-  filter: blur(50px); /* Sfocatura marcata */
+  transform: scale(1.03);
+  filter: blur(2px);
+}
+
+/* ========== TESTO SU COVER DEI PROGETTI ========== */
+.project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.project-card:hover .project-info {
+  opacity: 1;
+}
+
+.project-info h2 {
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 /* ========== TESTO SU COVER DEI PROGETTI ========== */
