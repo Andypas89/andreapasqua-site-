@@ -1,10 +1,26 @@
-_GL<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Works – Architecture | Andrea Pasqua - Architecture Projects</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Carica Masonry -->
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> 
+  <style>
+    /* Stile specifico per Masonry (puoi spostarlo in style.css) */
+    .project-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-md);
+    }
+
+    .project-card {
+      width: 578px; /* Larghezza fissa per ogni card */
+      margin-bottom: var(--space-md); /* Spazio tra i progetti */
+      float: left; /* Per compatibilità con alcuni browser */
+    }
+  </style>
 </head>
 <body>
 
@@ -30,8 +46,7 @@ _GL<!DOCTYPE html>
     </nav>
   </header>
 
-  <main class="project-grid">
-    
+  <main class="project-grid" id="masonry-grid">    
 
             <!-- Progetto Baoshui Primary School -->
     <a class="project-card" href="projects/09_Baoshui_primary_school/index.html">
@@ -106,6 +121,21 @@ _GL<!DOCTYPE html>
     </a>
 
   </main>
+
+  <!-- Inizializza Masonry dopo il caricamento della pagina -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const grid = document.querySelector('#masonry-grid');
+      if (grid) {
+        new Masonry(grid, {
+          itemSelector: '.project-card',
+          columnWidth: 578,
+          gutter: 40,
+          fitWidth: true
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
