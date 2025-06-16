@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Works – Architecture | Andrea Pasqua - Architecture Projects</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Carica Masonry -->
+  <!-- Libreria Masonry -->
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> 
   <style>
-    /* Stile specifico per Masonry (puoi spostarlo in style.css) */
-    .project-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--space-md);
+    /* Per evitare che il browser ritardi il layout */
+    .project-card {
+      width: 578px;
+      margin-bottom: 40px;
+      display: inline-block;
+      vertical-align: top;
     }
 
-    .project-card {
-      width: 578px; /* Larghezza fissa per ogni card */
-      margin-bottom: var(--space-md); /* Spazio tra i progetti */
-      float: left; /* Per compatibilità con alcuni browser */
+    /* Solo per alcuni browser mobili */
+    @media (max-width: 768px) {
+      .project-card {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -46,7 +48,7 @@
     </nav>
   </header>
 
-  <main class="project-grid" id="masonry-grid">    
+  <main class="project-grid" id="masonry-grid">  
 
             <!-- Progetto Baoshui Primary School -->
     <a class="project-card" href="projects/09_Baoshui_primary_school/index.html">
@@ -122,23 +124,22 @@
 
   </main>
 
-  <!-- Inizializza Masonry dopo il caricamento della pagina -->
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const grid = document.querySelector('#masonry-grid');
-    if (grid) {
-      new Masonry(grid, {
-        itemSelector: '.project-card',
-        columnWidth: 578,
-        gutter: 40,
-        fitWidth: false, /* Scorrimento VERTICALE */
-        originLeft: true,
-        originTop: true
-      });
-    }
-  });
-</script>
+  <!-- Inizializza Masonry -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const grid = document.querySelector('#masonry-grid');
+      if (grid) {
+        new Masonry(grid, {
+          itemSelector: '.project-card',
+          columnWidth: 578,
+          gutter: 40,
+          fitWidth: false,
+          originLeft: true,
+          originTop: true
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
