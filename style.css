@@ -201,19 +201,17 @@ img:hover {
 
 /* ========== MASONRY LAYOUT PER PROGETTI ========== */
 .project-grid {
-  column-count: 3; /* 3 colonne scorrevoli */
+  column-count: 3;
   column-gap: var(--space-md);
   padding: var(--space-md);
   max-width: 1200px;
   margin: 0 auto;
-  min-width: 578px; /* Assicura una larghezza minima */
-}
 }
 
 .project-card {
   break-inside: avoid;
   display: inline-block;
-  width: 578px; /* Larghezza fissa come francescarizzato.com */
+  width: 578px;
   margin-bottom: var(--space-md);
   position: relative;
   text-decoration: none;
@@ -391,31 +389,4 @@ img:hover {
   .hero h1 {
     font-size: 2.5rem;
   }
-}
-/* ========== TESTO SU COVER DEI PROGETTI ========== */
-.project-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
-.project-card:hover .project-info {
-  opacity: 1;
-}
-
-.project-info h2 {
-  font-family: 'Neutraface', sans-serif;
-  font-weight: bold;
-  font-size: 1.8rem;
-  margin: 0;
-  color: #000;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
 }
