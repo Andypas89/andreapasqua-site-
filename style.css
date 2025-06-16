@@ -352,23 +352,20 @@ img:hover {
   transform: rotate(180deg);
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========== RESPONSIVE MASONRY LAYOUT ========== */
 @media (max-width: 1024px) {
   .project-grid {
     column-count: 2;
+    padding: var(--space-md);
   }
 
   .project-card {
-    width: 578px;
+    width: 578px; /* Usa la stessa larghezza ma solo su desktop medio */
+    margin-bottom: var(--space-md);
   }
 }
 
 @media (max-width: 768px) {
-  :root {
-    --space-md: 20px;
-    --space-lg: 60px;
-  }
-
   .project-grid {
     column-count: 1;
     padding: var(--space-md);
@@ -377,6 +374,8 @@ img:hover {
   .project-card {
     width: 100%;
     margin-bottom: var(--space-md);
+  }
+}
   }
 
   .site-header {
