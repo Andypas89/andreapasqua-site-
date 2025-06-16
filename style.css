@@ -206,6 +206,10 @@ img:hover {
   padding: var(--space-md);
   max-width: 1200px;
   margin: 0 auto;
+  /* Aggiunta importante: evita problemi di rendering su alcuni browser */
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 .project-card {
@@ -219,6 +223,9 @@ img:hover {
   border-radius: 4px;
   overflow: hidden;
   transition: transform var(--transition-normal);
+  /* Per alcuni browser, meglio forzare la posizione */
+  float: none;
+  display: block;
 }
 
 .project-card img {
@@ -359,7 +366,7 @@ img:hover {
   }
 
   .project-card {
-    width: 100%;
+    width: 578px;
     margin-bottom: var(--space-md);
   }
 }
