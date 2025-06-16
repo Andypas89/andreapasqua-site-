@@ -199,29 +199,26 @@ img:hover {
   opacity: 0.9;
 }
 
-/* ========== GRID PROGETTI SU WORKS ARCHITECTURE ========== */
+/* ========== MASONRY LAYOUT PER PROGETTI ========== */
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); /* Adattabile */
-  gap: var(--space-md); /* Spazio uniforme tra le card */
+  column-count: 3;
+  column-gap: var(--space-md);
   padding: var(--space-md);
   max-width: 1200px;
   margin: 0 auto;
-  justify-items: center;
 }
 
 .project-card {
   break-inside: avoid;
+  display: inline-block;
+  width: 578px;
+  margin-bottom: var(--space-md);
   position: relative;
-  width: 578px; /* Larghezza fissa per ogni card */
-  margin: 0 auto; /* Centrato orizzontalmente */
-  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
   border-radius: 4px;
+  overflow: hidden;
   transition: transform var(--transition-normal);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
 .project-card img {
@@ -358,12 +355,12 @@ img:hover {
 @media (max-width: 1024px) {
   .project-grid {
     column-count: 2;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: var(--space-md);
   }
 
   .project-card {
     width: 100%;
-    margin: 0 auto;
+    margin-bottom: var(--space-md);
   }
 }
 
@@ -374,7 +371,7 @@ img:hover {
   }
 
   .project-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    column-count: 1;
     padding: var(--space-md);
   }
 
