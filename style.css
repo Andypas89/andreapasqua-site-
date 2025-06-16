@@ -219,6 +219,7 @@ img:hover {
   border-radius: 4px;
   overflow: hidden;
   transition: transform var(--transition-normal);
+  vertical-align: top; /* 🔧 Aggiunta qui */
 }
 
 .project-card img {
