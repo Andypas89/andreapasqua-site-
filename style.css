@@ -29,29 +29,31 @@ body {
 
 /* ========== PROJECT GRID ========== */
 .project-grid {
-  column-count: 3;
-  column-gap: 40px;
-  padding: 40px;
-  max-width: 1600px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 580px);
+  gap: var(--space-md);
+  justify-content: center;
+  padding: var(--space-md);
+  max-width: 1920px;
   margin: 0 auto;
 }
 
 .project-card {
-  width: 100%;
-  margin-bottom: 40px;
-  display: inline-block;
-  break-inside: avoid;
+  width: 580px;
+  aspect-ratio: auto;
+  overflow: hidden;
+  transition: transform var(--transition-normal);
   position: relative;
-  transition: transform 0.3s ease;
 }
 
 .project-card img {
   width: 100%;
-  max-width: 100%;
   height: auto;
-  display: block;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  border-radius: 4px;
 }
+
 
 .project-card:hover img {
   transform: scale(1.03);
