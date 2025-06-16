@@ -123,19 +123,22 @@
   </main>
 
   <!-- Inizializza Masonry dopo il caricamento della pagina -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const grid = document.querySelector('#masonry-grid');
-      if (grid) {
-        new Masonry(grid, {
-          itemSelector: '.project-card',
-          columnWidth: 578,
-          gutter: 40,
-          fitWidth: true
-        });
-      }
-    });
-  </script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const grid = document.querySelector('#masonry-grid');
+    if (grid) {
+      new Masonry(grid, {
+        itemSelector: '.project-card',
+        columnWidth: 578,
+        gutter: 40,
+        fitWidth: false, /* Scorrimento VERTICALE */
+        originLeft: true,
+        originTop: true
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
