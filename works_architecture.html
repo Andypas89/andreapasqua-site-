@@ -5,17 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Works – Architecture | Andrea Pasqua - Architecture Projects</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Libreria Masonry -->
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+  <style>
+    .page-title {
+      text-align: center;
+      font-family: 'Neutraface', sans-serif;
+      font-weight: bold;
+      font-size: 2.5rem;
+      margin-top: 120px;
+      margin-bottom: 60px;
+    }
+    .project-grid {
+      width: 100%;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+    .project-card {
+      width: 578px;
+      margin-bottom: 40px;
+      float: left;
+      display: block;
+    }
+    .project-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .project-card {
+        width: 100%;
+        float: none;
+      }
+    }
+  </style>
 </head>
 <body>
-
   <header class="site-header">
     <div class="logo-container">
-      <a href="index.html">
-        <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
-      </a>
+      <a href="index.html"><img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/></a>
       <span class="header-name">Andrea Pasqua</span>
     </div>
     <nav>
@@ -32,32 +59,57 @@
       </ul>
     </nav>
   </header>
-
+  <h1 class="page-title">ARCHITECTURE PROJECTS</h1>
   <main class="project-grid" id="masonry-grid">
-
-    <!-- Progetti (esempio di uno solo, puoi replicare) -->
     <a class="project-card" href="projects/09_Baoshui_primary_school/index.html">
-      <div class="project-info">
-        <h2>BAOSHUI PRIMARY SCHOOL (CN)</h2>
-      </div>
+      <div class="project-info"><h2>BAOSHUI PRIMARY SCHOOL (CN)</h2></div>
       <img src="projects/09_Baoshui_primary_school/cover_BA.jpg" alt="Baoshui Primary School" />
     </a>
-
-    <!-- Altri progetti da aggiungere come sopra -->
-
+    <a class="project-card" href="projects/08_Zhuhai_port_competition/index.html">
+      <div class="project-info"><h2>ZHUHAI PORT (CN)</h2></div>
+      <img src="projects/08_Zhuhai_port_competition/cover_ZHU.jpg" alt="Zhuhai Port Competition" />
+    </a>
+    <a class="project-card" href="projects/07_Vleutensevaart/index.html">
+      <div class="project-info"><h2>VLEUTENSEVAART (NL)</h2></div>
+      <img src="projects/07_Vleutensevaart/cover_VL.jpg" alt="Vleutensevaart" />
+    </a>
+    <a class="project-card" href="projects/06_Glashaven/index.html">
+      <div class="project-info"><h2>GLASHAVEN (NL)</h2></div>
+      <img src="projects/06_Glashaven/cover_GL.jpg" alt="Glashaven" />
+    </a>
+    <a class="project-card" href="projects/05_The_Flower_Towers/index.html">
+      <div class="project-info"><h2>THE FLOWER TOWERS (NL)</h2></div>
+      <img src="projects/05_The_Flower_Towers/cover_FT.jpg" alt="The Flower Towers" />
+    </a>
+    <a class="project-card" href="projects/04_San_Polo_House/index.html">
+      <div class="project-info"><h2>SAN POLO (IT)</h2></div>
+      <img src="projects/04_San_Polo_House/cover_SP.jpg" alt="San Polo House" />
+    </a>
+    <a class="project-card" href="projects/03_Green_oasis_Kommerlin/index.html">
+      <div class="project-info"><h2>GREEN OASIS (IT)</h2></div>
+      <img src="projects/03_Green_oasis_Kommerlin/cover_KOM.jpg" alt="Green Oasis Kommerlin" />
+    </a>
+    <a class="project-card" href="projects/02_Boltiere_primary_school/index.html">
+      <div class="project-info"><h2>BOLTIÈRE PRIMARY SCHOOL (IT)</h2></div>
+      <img src="projects/02_Boltiere_primary_school/cover_BPS.jpg" alt="Boltiere Primary School" />
+    </a>
+    <a class="project-card" href="projects/01_Velodrome_Vigorelli_project/index.html">
+      <div class="project-info"><h2>VIGORELLI VELODROME (IT)</h2></div>
+      <img src="projects/01_Velodrome_Vigorelli_project/cover_VI.jpg" alt="Velodrome Vigorelli" />
+    </a>
   </main>
-
-  <!-- Inizializza Masonry -->
   <script>
-    window.addEventListener('load', function () {
-      new Masonry('#masonry-grid', {
-        itemSelector: '.project-card',
-        columnWidth: '.project-card',
-        gutter: 40,
-        percentPosition: true
-      });
+    document.addEventListener('DOMContentLoaded', function () {
+      const grid = document.querySelector('#masonry-grid');
+      if (grid) {
+        new Masonry(grid, {
+          itemSelector: '.project-card',
+          columnWidth: 578,
+          gutter: 40,
+          fitWidth: true
+        });
+      }
     });
   </script>
-
 </body>
 </html>
