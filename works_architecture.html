@@ -1,28 +1,94 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Works – Architecture | Andrea Pasqua - Architecture Projects</title>
+  <title>Works – Architecture | Andrea Pasqua</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Libreria Masonry -->
-  <script src="js/masonry.pkgd.min.js"></script>
-
+  <!-- Stili specifici per questa pagina -->
   <style>
-    /* Stile per il layout Masonry */
-    .project-card {
-      width: 578px;
-      margin-bottom: var(--space-md);
-      float: left; /* Richiesto da Masonry */
-      display: block;
+    body {
+      padding-top: 120px; /* Compensa l'header fisso */
+      font-family: 'Neutraface', sans-serif;
     }
 
-    /* Per mobile */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: var(--space-md);
+    }
+
+    .column {
+      width: 580px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      transition: transform var(--transition-normal);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.03); /* Zoom leggero */
+      filter: blur(50px); /* Sfocatura marcata */
+    }
+
+    .project-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-info {
+      opacity: 1;
+    }
+
+    .project-info h2 {
+      font-family: 'Neutraface', sans-serif;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
     @media (max-width: 768px) {
-      .project-card {
-        width: 100%;
-        float: none;
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .column {
+        width: 90%;
+        max-width: 600px;
+        gap: var(--space-sm);
+      }
+
+      .project-info h2 {
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -51,98 +117,82 @@
     </nav>
   </header>
 
-  <main class="project-grid" id="masonry-grid">
+  <h1 style="text-align: center; font-family: 'Neutraface', sans-serif; font-weight: bold; font-size: 2rem; margin-bottom: 60px;">
+    Architecture Projects
+  </h1>
 
-    <!-- Progetto Baoshui Primary School -->
-    <a class="project-card" href="projects/09_Baoshui_primary_school/index.html">
-      <div class="project-info">
-        <h2>BAOSHUI PRIMARY SCHOOL (CN)</h2>
-      </div>
-      <img src="projects/09_Baoshui_primary_school/cover_BA.jpg" alt="Baoshui Primary School" />
-    </a>
+  <div class="container">
 
-    <!-- Progetto Zhuhai port competition -->
-    <a class="project-card" href="projects/08_Zhuhai_port_competition/index.html">
-      <div class="project-info">
-        <h2>ZHUHAI PORT (CN)</h2>
-      </div>
-      <img src="projects/08_Zhuhai_port_competition/cover_ZHU.jpg" alt="Zhuhai Port Competition" />
-    </a>
+    <!-- Colonna 1 -->
+    <div class="column">
 
-    <!-- Progetto Vleutensevaart -->
-    <a class="project-card" href="projects/07_Vleutensevaart/index.html">
-      <div class="project-info">
-        <h2>VLEUTENSEVAART (NL)</h2>
-      </div>
-      <img src="projects/07_Vleutensevaart/cover_VL.jpg" alt="Vleutensevaart" />
-    </a>
+      <!-- Progetto Baoshui Primary School -->
+      <a class="project-card" href="projects/09_Baoshui_primary_school/index.html">
+        <div class="project-info"><h2>BAOSHUI (CN)</h2></div>
+        <img src="projects/09_Baoshui_primary_school/cover_BA.jpg" alt="Baoshui Primary School" />
+      </a>
 
-    <!-- Progetto Glashaven -->
-    <a class="project-card" href="projects/06_Glashaven/index.html">
-      <div class="project-info">
-        <h2>GLASHAVEN (NL)</h2>
-      </div>
-      <img src="projects/06_Glashaven/cover_GL.jpg" alt="Glashaven" />
-    </a>
+      <!-- Progetto Glashaven -->
+      <a class="project-card" href="projects/06_Glashaven/index.html">
+        <div class="project-info"><h2>GLASHAVEN (NL)</h2></div>
+        <img src="projects/06_Glashaven/cover_GL.jpg" alt="Glashaven" />
+      </a>
 
-    <!-- Progetto The Flower Towers -->
-    <a class="project-card" href="projects/05_The_Flower_Towers/index.html">
-      <div class="project-info">
-        <h2>THE FLOWER TOWERS (NL)</h2>
-      </div>
-      <img src="projects/05_The_Flower_Towers/cover_FT.jpg" alt="The Flower Towers" />
-    </a>
+      <!-- Progetto Boltiere Primary School -->
+      <a class="project-card" href="projects/02_Boltiere_primary_school/index.html">
+        <div class="project-info"><h2>BOLTIÈRE (IT)</h2></div>
+        <img src="projects/02_Boltiere_primary_school/cover_BPS.jpg" alt="Boltiere Primary School" />
+      </a>
 
-    <!-- Progetto San Polo House -->
-    <a class="project-card" href="projects/04_San_Polo_House/index.html">
-      <div class="project-info">
-        <h2>SAN POLO (IT)</h2>
-      </div>
-      <img src="projects/04_San_Polo_House/cover_SP.jpg" alt="San Polo House" />
-    </a>
+    </div>
 
-    <!-- Progetto Green Oasis Kommerlin -->
-    <a class="project-card" href="projects/03_Green_oasis_Kommerlin/index.html">
-      <div class="project-info">
-        <h2>GREEN OASIS (IT)</h2>
-      </div>
-      <img src="projects/03_Green_oasis_Kommerlin/cover_KOM.jpg" alt="Green Oasis Kommerlin" />
-    </a>
+    <!-- Colonna 2 -->
+    <div class="column">
 
-    <!-- Progetto Boltiere Primary School -->
-    <a class="project-card" href="projects/02_Boltiere_primary_school/index.html">
-      <div class="project-info">
-        <h2>BOLTIÈRE PRIMARY SCHOOL (IT)</h2>
-      </div>
-      <img src="projects/02_Boltiere_primary_school/cover_BPS.jpg" alt="Boltiere Primary School" />
-    </a>
+      <!-- Progetto Zhuhai Port Competition -->
+      <a class="project-card" href="projects/08_Zhuhai_port_competition/index.html">
+        <div class="project-info"><h2>ZHUHAI (CN)</h2></div>
+        <img src="projects/08_Zhuhai_port_competition/cover_ZHU.jpg" alt="Zhuhai port competition" />
+      </a>
 
-    <!-- Progetto Velodrome Vigorelli -->
-    <a class="project-card" href="projects/01_Velodrome_Vigorelli_project/index.html">
-      <div class="project-info">
-        <h2>VIGORELLI VELODROME (IT)</h2>
-      </div>
-      <img src="projects/01_Velodrome_Vigorelli_project/cover_VI.jpg" alt="Velodrome Vigorelli" />
-    </a>
+      <!-- Progetto The Flower Towers -->
+      <a class="project-card" href="projects/05_The_Flower_Towers/index.html">
+        <div class="project-info"><h2>FLOWER TOWERS (NL)</h2></div>
+        <img src="projects/05_The_Flower_Towers/cover_FT.jpg" alt="The Flower Towers" />
+      </a>
 
-  </main>
+      <!-- Progetto Velodrome Vigorelli -->
+      <a class="project-card" href="projects/01_Velodrome_Vigorelli_project/index.html">
+        <div class="project-info"><h2>VIGORELLI (IT)</h2></div>
+        <img src="projects/01_Velodrome_Vigorelli_project/cover_VI.jpg" alt="Velodrome Vigorelli" />
+      </a>
 
-  <!-- Inizializza Masonry DOPO aver caricato i progetti -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const grid = document.querySelector('#masonry-grid');
-      if (grid) {
-        new Masonry(grid, {
-          itemSelector: '.project-card',
-          columnWidth: 578,
-          gutter: 40,
-          fitWidth: false,
-          originLeft: true,
-          originTop: true
-        });
-      }
-    });
-  </script>
+    </div>
+
+    <!-- Colonna 3 -->
+    <div class="column">
+
+      <!-- Progetto Vleutensevaart -->
+      <a class="project-card" href="projects/07_Vleutensevaart/index.html">
+        <div class="project-info"><h2>VLEUTENSEVAART (NL)</h2></div>
+        <img src="projects/07_Vleutensevaart/cover_VL.jpg" alt="Vleutensevaart" />
+      </a>
+
+      <!-- Progetto San Polo House -->
+      <a class="project-card" href="projects/04_San_Polo_House/index.html">
+        <div class="project-info"><h2>SAN POLO (IT)</h2></div>
+        <img src="projects/04_San_Polo_House/cover_SP.jpg" alt="San Polo House" />
+      </a>
+
+      <!-- Progetto Green Oasis Kommerlin -->
+      <a class="project-card" href="projects/03_Green_oasis_Kommerlin/index.html">
+        <div class="project-info"><h2>GREEN OASIS (IT)</h2></div>
+        <img src="projects/03_Green_oasis_Kommerlin/cover_KOM.jpg" alt="Green Oasis Kommerlin" />
+      </a>
+
+    </div>
+
+  </div>
 
 </body>
 </html>
