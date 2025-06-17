@@ -256,3 +256,20 @@ body {
   object-fit: cover;
   border-radius: 4px;
 }
+/* ========== DIDASCALIA PROGETTO ========== */
+.caption {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #666; /* Grigio chiaro */
+  margin-bottom: var(--space-lg);
+}
+
+.description {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: justify;
+}
