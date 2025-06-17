@@ -261,8 +261,9 @@ body {
   font-family: 'Lora', serif;
   font-size: 1.2rem;
   text-align: center;
-  color: #666; /* Grigio chiaro */
+  color: #000; /* Nero */
   margin-bottom: var(--space-lg);
+}
 }
 
 .description {
@@ -272,4 +273,6 @@ body {
   font-size: 1.2rem;
   line-height: 1.8;
   text-align: justify;
+  font-weight: normal; /* Rimuovi il grassetto */
+  color: #333; /* Colore nero scuro */
 }
