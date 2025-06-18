@@ -256,7 +256,7 @@ body {
   object-fit: cover;
   border-radius: 4px;
 }
-/* ========== DIDASCALIA PROGETTO ========== */
+/* ========== PROJECT PAGE STYLES ========== */
 .project-page {
   max-width: 900px;
   margin: 0 auto;
@@ -272,10 +272,32 @@ body {
   text-align: center;
 }
 
-.caption {
+.project-page p {
   font-family: 'Lora', serif;
   font-size: 1.2rem;
-  text-align: center; /* Centra il testo */
-  color: #000; /* Nero */
-  margin-bottom: var(--space-md); /* Spazio inferiore */
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: var(--space-lg);
+}
+
+.project-page .caption {
+  text-align: center;
+  color: #000;
+  margin-bottom: var(--space-md);
+  font-weight: normal;
+  display: block;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
 }
