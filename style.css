@@ -257,21 +257,17 @@ body {
   border-radius: 4px;
 }
 /* ========== DIDASCALIA PROGETTO ========== */
-.caption {
-  font-family: 'Lora', serif;
-  font-size: 1.2rem;
+.project-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 120px 40px 80px;
   text-align: center;
-  color: #000; /* Nero */
-  margin-bottom: var(--space-lg);
 }
 
-.description {
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-family: 'Lora', serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: justify;
-  font-weight: normal; /* Rimuovi il grassetto */
-  color: #333; /* Colore nero scuro */
+.project-page h1 {
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--space-sm);
+  text-align: center;
 }
