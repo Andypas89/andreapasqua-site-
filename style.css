@@ -271,6 +271,7 @@ body {
   margin-bottom: var(--space-sm);
   text-align: center;
 }
+
 .caption {
   font-family: 'Lora', serif;
   font-size: 1.2rem;
