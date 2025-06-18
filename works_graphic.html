@@ -3,11 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Works – Graphics | Andrea Pasqua - Graphic Design</title>
+  <title>Works – Graphics | Andrea Pasqua</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Stili specifici per questa pagina -->
+  <style>
+    /* Centra tutto */
+    .project-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+      text-align: center;
+    }
+
+    /* Immagini */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      border-radius: 4px;
+      transition: transform var(--transition-normal);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      border-radius: 4px;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.03); /* Zoom leggero */
+      filter: blur(50px); /* Sfocatura marcata */
+    }
+
+    /* Didascalia sotto l'immagine */
+    .project-info {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    /* Effetto zoom su click */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay img {
+      max-width: 90%; /* Limita la larghezza dell'immagine ingrandita */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  </style>
 </head>
 <body>
 
+  <!-- HEADER FISSO -->
   <header class="site-header">
     <div class="logo-container">
       <a href="index.html">
@@ -22,7 +86,7 @@
           <a href="#">Works</a>
           <ul class="dropdown-content">
             <li><a href="works_architecture.html">Architecture</a></li>
-            <li><a href="works_graphic.html">Graphics</a></li>
+            <li><a href="works_graphics.html">Graphics</a></li>
           </ul>
         </li>
         <li><a href="contact.html">Contact</a></li>
@@ -30,19 +94,52 @@
     </nav>
   </header>
 
+  <!-- CONTENUTO DELLE IMMAGINI -->
   <main class="project-grid">
 
-    <!-- Progetto esempio -->
-    <a class="project-card" href="projects/02_Esempio_Grafica/index.html">
-      <div class="project-info">
-        <h2>ESEMPIO GRAFICO</h2>
-      </div>
-      <img src="projects/02_Esempio_Grafica/cover.jpg" alt="Esempio Grafico" />
+    <!-- Progetto 1 -->
+    <a class="project-card" href="#" onclick="openImage('projects/graphics/render_1.jpg')">
+      <div class="project-info"><h2>Progetto 1</h2></div>
+      <img src="projects/graphics/thumb_render_1.jpg" alt="Render Architettonico 1" />
     </a>
 
-    <!-- Altri progetti grafici -->
+    <!-- Progetto 2 -->
+    <a class="project-card" href="#" onclick="openImage('projects/graphics/render_2.jpg')">
+      <div class="project-info"><h2>Progetto 2</h2></div>
+      <img src="projects/graphics/thumb_render_2.jpg" alt="Render Architettonico 2" />
+    </a>
+
+    <!-- Progetto 3 -->
+    <a class="project-card" href="#" onclick="openImage('projects/graphics/render_3.jpg')">
+      <div class="project-info"><h2>Progetto 3</h2></div>
+      <img src="projects/graphics/thumb_render_3.jpg" alt="Render Architettonico 3" />
+    </a>
+
+    <!-- Altri progetti... -->
 
   </main>
+
+  <!-- Overlay per l'immagine ingrandita -->
+  <div id="overlay" class="overlay">
+    <img id="expanded-image" src="" alt="Immagine ingrandita">
+    <button onclick="closeOverlay()">Chiudi</button>
+  </div>
+
+  <!-- Script per l'effetto zoom -->
+  <script>
+    function openImage(imageUrl) {
+      const overlay = document.getElementById('overlay');
+      const expandedImage = document.getElementById('expanded-image');
+
+      expandedImage.src = imageUrl;
+      overlay.style.display = 'flex';
+    }
+
+    function closeOverlay() {
+      const overlay = document.getElementById('overlay');
+      overlay.style.display = 'none';
+    }
+  </script>
 
 </body>
 </html>
