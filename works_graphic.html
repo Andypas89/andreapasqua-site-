@@ -8,7 +8,6 @@
 
   <!-- Stili specifici per questa pagina -->
   <style>
-    /* Centra tutto */
     .project-grid {
       max-width: 900px;
       margin: 0 auto;
@@ -16,7 +15,6 @@
       text-align: center;
     }
 
-    /* Immagini */
     .project-card {
       position: relative;
       overflow: hidden;
@@ -35,11 +33,10 @@
     }
 
     .project-card:hover img {
-      transform: scale(1.03); /* Zoom leggero */
-      filter: blur(50px); /* Sfocatura marcata */
+      transform: scale(1.03);
+      filter: blur(50px);
     }
 
-    /* Didascalia sotto l'immagine */
     .project-info {
       font-family: 'Lora', serif;
       font-size: 1.2rem;
@@ -47,9 +44,9 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       white-space: nowrap;
+      margin-top: 10px;
     }
 
-    /* Effetto zoom su click */
     .overlay {
       display: none;
       position: fixed;
@@ -61,10 +58,11 @@
       z-index: 999;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
     }
 
     .overlay img {
-      max-width: 90%; /* Limita la larghezza dell'immagine ingrandita */
+      max-width: 90%;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
   </style>
@@ -98,9 +96,9 @@
   <main class="project-grid">
 
     <!-- Progetto 1 -->
-    <a class="project-card" href="#" onclick="openImage('/graphic/01.jpg')">
+    <a class="project-card" href="#" onclick="openImage('projects/graphic/01.jpg')">
       <div class="project-info"><h2>Kitchen</h2></div>
-      <img src="graphic/thumb_01.jpg" alt="Render Architettonico 1" />
+      <img src="projects/graphic/thumb_01.jpg" alt="Render Architettonico 1" />
     </a>
 
     <!-- Progetto 2 -->
@@ -125,7 +123,7 @@
     <button onclick="closeOverlay()">Chiudi</button>
   </div>
 
-  <!-- Script per l'effetto zoom -->
+  <!-- Script per effetto zoom -->
   <script>
     function openImage(imageUrl) {
       const overlay = document.getElementById('overlay');
