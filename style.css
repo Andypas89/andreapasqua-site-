@@ -218,7 +218,6 @@ body {
   .project-info h2 {
     font-size: 1.5rem;
   }
-}
 /* ========== PROJECT PAGE STYLES ========== */
 .project-page {
   max-width: 900px;
@@ -263,7 +262,6 @@ body {
   text-align: center;
   color: #000; /* Nero */
   margin-bottom: var(--space-lg);
-}
 }
 
 .description {
