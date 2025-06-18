@@ -33,8 +33,8 @@
     }
 
     .project-card:hover img {
-      transform: scale(1.03);
-      filter: blur(50px);
+      transform: scale(1.03); /* Zoom leggero */
+      filter: blur(50px); /* Sfocatura marcata */
     }
 
     .project-info {
@@ -94,27 +94,56 @@
 
   <!-- CONTENUTO DELLE IMMAGINI -->
   <main class="project-grid">
+    <h1>Works – Graphics</h1>
 
-    <!-- Progetto 1 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/01.jpg')">
-      <div class="project-info"><h2>Kitchen</h2></div>
-      <img src="projects/graphic/01_cover.jpg" alt="Render Architettonico 1" />
-    </a>
+    <div class="container">
 
-    <!-- Progetto 2 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/02.jpg')">
-      <div class="project-info"><h2>Villa</h2></div>
-      <img src="projects/graphic/02_cover.jpg" alt="Render Architettonico 2" />
-    </a>
+      <!-- Colonna 1 -->
+      <div class="column">
+        <!-- Progetto 1 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/01.jpg')">
+          <div class="project-info"><h2>Kitchen</h2></div>
+          <img src="projects/graphic/01_cover.jpg" alt="Render Architettonico 1" />
+        </a>
 
-    <!-- Progetto 3 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/03.jpg')">
-      <div class="project-info"><h2>Progetto 3</h2></div>
-      <img src="projects/graphic/03_cover.jpg" alt="Render Architettonico 3" />
-    </a>
+        <!-- Progetto 4 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/04.jpg')">
+          <div class="project-info"><h2>Villa</h2></div>
+          <img src="projects/graphic/04_cover.jpg" alt="Render Architettonico 4" />
+        </a>
+      </div>
 
-    <!-- Altri progetti... -->
+      <!-- Colonna 2 -->
+      <div class="column">
+        <!-- Progetto 2 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/02.jpg')">
+          <div class="project-info"><h2>VILLA</h2></div>
+          <img src="projects/graphic/02_cover.jpg" alt="Render Architettonico 2" />
+        </a>
 
+        <!-- Progetto 5 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/05.jpg')">
+          <div class="project-info"><h2>UFFICIO</h2></div>
+          <img src="projects/graphic/05_cover.jpg" alt="Render Architettonico 5" />
+        </a>
+      </div>
+
+      <!-- Colonna 3 -->
+      <div class="column">
+        <!-- Progetto 3 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/03.jpg')">
+          <div class="project-info"><h2>PROGETTO 3</h2></div>
+          <img src="projects/graphic/03_cover.jpg" alt="Render Architettonico 3" />
+        </a>
+
+        <!-- Progetto 6 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/06.jpg')">
+          <div class="project-info"><h2>SHOWROOM</h2></div>
+          <img src="projects/graphic/06_cover.jpg" alt="Render Architettonico 6" />
+        </a>
+      </div>
+
+    </div>
   </main>
 
   <!-- Overlay per l'immagine ingrandita -->
