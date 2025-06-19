@@ -177,11 +177,13 @@
     </div>
   </main>
 
-  <!-- Overlay per l'immagine ingrandita -->
-  <div id="overlay" class="overlay">
-    <img id="expanded-image" src="" alt="Immagine ingrandita">
-    <button onclick="closeOverlay()">Chiudi</button>
-  </div>
+<!-- Overlay per l'immagine ingrandita -->
+<div id="overlay" class="overlay">
+  <button onclick="prevImage()" class="nav-button prev"><</button>
+  <img id="expanded-image" src="" alt="Immagine ingrandita">
+  <button onclick="nextImage()" class="nav-button next">></button>
+  <button onclick="closeOverlay()">Chiudi</button>
+</div>
 
   <!-- Script per effetto zoom -->
   <script>
