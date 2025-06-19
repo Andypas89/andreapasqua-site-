@@ -5,15 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | Andrea Pasqua - Architecture Projects</title>
   <link rel="stylesheet" href="../style.css" />
+
   <!-- Google Font: Lora -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== STILI SPECIFICI PER LA PAGINA ABOUT ========== */
+    .about-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+      text-align: center;
+    }
+
+    .about-section h1 {
+      font-family: 'Neutraface', sans-serif;
+      font-weight: bold;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: var(--space-md);
+      text-align: center;
+    }
+
+    .about-section p {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: justify;
+      margin-bottom: var(--space-lg);
+    }
+  </style>
 </head>
 <body>
+
+  <!-- HEADER FISSO -->
   <header class="site-header">
     <div class="logo-container">
       <a href="../index.html">
         <img src="../logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
       </a>
+      <span class="header-name">Andrea Pasqua</span>
     </div>
     <nav>
       <ul class="nav-menu">
@@ -30,6 +60,7 @@
     </nav>
   </header>
 
+  <!-- CONTENUTO DELLA PAGINA -->
   <main class="about-section">
     <h1>About</h1>
     <p>
@@ -42,5 +73,6 @@
       Ha partecipato a numerosi concorsi di architettura in Italia e all’estero ed è stato selezionato per diverse mostre dedicate al design contemporaneo.
     </p>
   </main>
+
 </body>
 </html>
