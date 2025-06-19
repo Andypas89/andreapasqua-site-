@@ -8,73 +8,74 @@
 
   <!-- Stili specifici per questa pagina -->
   <style>
-      /* ========== LAYOUT A 3 COLONNE ========== */
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    max-width: 1800px;
-    margin: 0 auto;
-  }
-
-  .column {
-    width: 578px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  /* ========== PROJECT CARD STILI ========== */
-  .project-card {
-    position: relative;
-    overflow: hidden;
-    display: block;
-    border-radius: 4px;
-    transition: transform var(--transition-normal);
-  }
-
-  .project-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-    border-radius: 4px;
-    transition: transform 0.5s ease, filter 0.5s ease;
-  }
-
-  .project-card:hover img {
-    transform: scale(1.03); /* Zoom leggero */
-    filter: blur(50px); /* Sfocatura marcata */
-  }
-
-  /* ========== TESTO SU COVER DEI PROGETTI ========== */
-  .project-info {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-  }
-
-  .project-card:hover .project-info {
-    opacity: 1;
-  }
-
-  .project-info h2 {
-    font-family: 'Neutraface', sans-serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
+    /* ========== LAYOUT A 3 COLONNE ========== */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      max-width: 1800px;
+      margin: 0 auto;
     }
+
+    .column {
+      width: 578px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* ========== PROJECT CARD STILI ========== */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      border-radius: 4px;
+      transition: transform var(--transition-normal);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      border-radius: 4px;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.03); /* Zoom leggero */
+      filter: blur(50px); /* Sfocatura marcata */
+    }
+
+    /* ========== TESTO SU COVER DEI PROGETTI ========== */
+    .project-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+
+    .project-card:hover .project-info {
+      opacity: 1;
+    }
+
+    .project-info h2 {
+      font-family: 'Neutraface', sans-serif;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    /* ========== OVERLAY PER IMMAGINE INGRANDITA ========== */
     .overlay {
       display: none;
       position: fixed;
@@ -121,8 +122,10 @@
   </header>
 
   <!-- CONTENUTO DELLE IMMAGINI -->
-  <main class="project-grid">
-    <h1>Works – Graphics</h1>
+  <main>
+    <h1 style="font-family: 'Neutraface', sans-serif; font-weight: bold; font-size: 2rem; margin-bottom: 60px;">
+      Works – Graphics
+    </h1>
 
     <div class="container">
 
@@ -130,13 +133,13 @@
       <div class="column">
         <!-- Progetto 1 -->
         <a class="project-card" href="#" onclick="openImage('projects/graphic/01.jpg')">
-          <div class="project-info"><h2>Kitchen</h2></div>
+          <div class="project-info"><h2>KITCHEN</h2></div>
           <img src="projects/graphic/01_cover.jpg" alt="Render Architettonico 1" />
         </a>
 
         <!-- Progetto 4 -->
         <a class="project-card" href="#" onclick="openImage('projects/graphic/04.jpg')">
-          <div class="project-info"><h2>Villa</h2></div>
+          <div class="project-info"><h2>HALL</h2></div>
           <img src="projects/graphic/04_cover.jpg" alt="Render Architettonico 4" />
         </a>
       </div>
@@ -160,7 +163,7 @@
       <div class="column">
         <!-- Progetto 3 -->
         <a class="project-card" href="#" onclick="openImage('projects/graphic/03.jpg')">
-          <div class="project-info"><h2>PROGETTO 3</h2></div>
+          <div class="project-info"><h2>CUCINA</h2></div>
           <img src="projects/graphic/03_cover.jpg" alt="Render Architettonico 3" />
         </a>
 
