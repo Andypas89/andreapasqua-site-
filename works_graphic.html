@@ -8,13 +8,7 @@
 
   <!-- Stili specifici per questa pagina -->
   <style>
-    .project-grid {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 120px 40px 80px;
-      text-align: center;
-    }
-  /* ========== LAYOUT A 3 COLONNE ========== */
+      /* ========== LAYOUT A 3 COLONNE ========== */
   .container {
     display: flex;
     justify-content: center;
@@ -80,38 +74,12 @@
     letter-spacing: 0.05em;
     white-space: nowrap;
   }
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      display: block;
-      border-radius: 4px;
-      transition: transform var(--transition-normal);
+    .project-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+      text-align: center;
     }
-
-    .project-card img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      display: block;
-      border-radius: 4px;
-      transition: transform 0.5s ease, filter 0.5s ease;
-    }
-
-    .project-card:hover img {
-      transform: scale(1.03); /* Zoom leggero */
-      filter: blur(50px); /* Sfocatura marcata */
-    }
-
-    .project-info {
-      font-family: 'Lora', serif;
-      font-size: 1.2rem;
-      color: #000;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-      margin-top: 10px;
-    }
-
     .overlay {
       display: none;
       position: fixed;
