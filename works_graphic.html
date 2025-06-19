@@ -83,11 +83,49 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.95);
       z-index: 999;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
+      flex-direction: row; /* Freccia + Immagine + Freccia */
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 15px 25px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .nav-button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-button.prev {
+      left: 20px;
+    }
+
+    .nav-button.next {
+      right: 20px;
+    }
+
+    .overlay button:last-child {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      cursor: pointer;
+      z-index: 1000;
     }
 
     .overlay img {
@@ -177,27 +215,56 @@
     </div>
   </main>
 
-<!-- Overlay per l'immagine ingrandita -->
-<div id="overlay" class="overlay">
-  <button onclick="prevImage()" class="nav-button prev"><</button>
-  <img id="expanded-image" src="" alt="Immagine ingrandita">
-  <button onclick="nextImage()" class="nav-button next">></button>
-  <button onclick="closeOverlay()">Chiudi</button>
-</div>
+  <!-- Overlay per l'immagine ingrandita -->
+  <div id="overlay" class="overlay">
+    <button class="nav-button prev" onclick="prevImage()"><</button>
+    <img id="expanded-image" src="" alt="Immagine ingrandita">
+    <button class="nav-button next" onclick="nextImage()">></button>
+    <button onclick="closeOverlay()">Chiudi</button>
+  </div>
 
-  <!-- Script per effetto zoom -->
+  <!-- Script per effetto zoom e navigazione -->
   <script>
-    function openImage(imageUrl) {
-      const overlay = document.getElementById('overlay');
-      const expandedImage = document.getElementById('expanded-image');
+    // Lista completa delle immagini
+    const images = [
+      'projects/graphic/01.jpg',
+      'projects/graphic/02.jpg',
+      'projects/graphic/03.jpg',
+      'projects/graphic/04.jpg',
+      'projects/graphic/05.jpg',
+      'projects/graphic/06.jpg'
+    ];
 
-      expandedImage.src = imageUrl;
-      overlay.style.display = 'flex';
+    let currentIndex = 0;
+
+    function openImage(imageUrl) {
+      const index = images.indexOf(imageUrl);
+      if (index > -1) {
+        currentIndex = index;
+        updateExpandedImage();
+        document.getElementById('overlay').style.display = 'flex';
+      }
     }
 
     function closeOverlay() {
-      const overlay = document.getElementById('overlay');
-      overlay.style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateExpandedImage();
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateExpandedImage();
+    }
+
+    function updateExpandedImage() {
+      const expandedImage = document.getElementById('expanded-image');
+      if (expandedImage) {
+        expandedImage.src = images[currentIndex];
+      }
     }
   </script>
 
