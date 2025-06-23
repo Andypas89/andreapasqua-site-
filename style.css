@@ -50,26 +50,18 @@ body {
 .site-header {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   display: flex;
-  justify-content: center; /* Centra tutto l'header */
+  justify-content: space-between;
   align-items: center;
-  height: 60px; /* Altezza fissa per allineamento */
+  padding: var(--space-sm) var(--space-md);
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(8px);
   z-index: 1000;
   border-bottom: 1px solid rgba(0,0,0,0.05);
-}
 
-.header-wrapper {
-  max-width: 1800px;
-  width: 100%;
-  padding: 0 var(--space-md); /* Lascia spazio laterale uniforme */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
+  max-width: 1800px; /* Limita la larghezza massima */
+  margin: 0 auto; /* Centra orizzontalmente */
 }
 
 .logo-container {
