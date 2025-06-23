@@ -3,74 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Andrea Pasqua - Architecture Projects</title>
+  <title>Works – Graphics | Andrea Pasqua</title>
   <link rel="stylesheet" href="style.css" />
 
   <!-- Google Font: Lora -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Favicon e manifest -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
-  <!-- Icone per dispositivi mobili -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
-  <!-- Manifest per Progressive Web App -->
-  <link rel="manifest" href="/site.webmanifest">
-
-  <!-- Colore della barra superiore su Android -->
+  <!-- Favicon -->
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="msapplication-config" content="../browserconfig.xml">
   <meta name="theme-color" content="#ffffff"> 
-</head>
-<style>
-  /* ========== STILI PER LA PAGINA ABOUT ========== */
-  .about-section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 120px 40px 80px;
-    text-align: center;
-  }
 
-  .profile-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-    justify-content: center;
-  }
+  <!-- Stili specifici per questa pagina -->
+  <style>
+    /* ========== LAYOUT A 3 COLONNE ========== */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
 
-  .profile-image {
-    width: 300px;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  }
+    .column {
+      width: 578px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
 
-  .profile-text {
-    flex-grow: 1;
-    max-width: 600px;
-    text-align: left;
-  }
+    /* ========== PROJECT CARD STILI ========== */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      border-radius: 4px;
+      transition: transform var(--transition-normal);
+    }
 
-  .about-section h1 {
-    font-family: 'Neutraface', sans-serif;
-    font-weight: bold;
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: var(--space-md);
-    text-align: center;
-  }
+    .project-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      border-radius: 4px;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
 
-  .about-section p {
-    font-family: 'Lora', serif;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    text-align: justify;
-    margin-bottom: var(--space-lg);
-  }
-</style>
+    .project-card:hover img {
+      transform: scale(1.03); /* Zoom leggero */
+      filter: blur(50px); /* Sfocatura marcata */
+    }
 
+    /* ========== TESTO SU COVER DEI PROGETTI ========== */
+    .project-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+
+    .project-card:hover .project-info {
+      opacity: 1;
+    }
+
+    .project-info h2 {
+      font-family: 'Neutraface', sans-serif;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    /* ========== OVERLAY PER IMMAGINE INGRANDITA ========== */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 15px 25px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .nav-button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-button.prev {
+      left: 20px;
+    }
+
+    .nav-button.next {
+      right: 20px;
+    }
+
+    /* Pulsante Chiudi */
+    #overlay button:last-child {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      cursor: pointer;
+      z-index: 1000;
+      border-radius: 4px;
+    }
+
+    .overlay img {
+      max-width: 90vw;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  </style>
 </head>
 <body>
 
@@ -86,7 +167,7 @@
       <ul class="nav-menu">
         <li><a href="../about.html">About</a></li>
         <li class="dropdown">
-          <a href="#">Works</a> 
+          <a href="#">Works</a>
           <ul class="dropdown-content">
             <li><a href="../works_architecture.html">Architecture</a></li>
             <li><a href="../works_graphic.html">Graphics</a></li>
@@ -97,28 +178,211 @@
     </nav>
   </header>
 
-  <!-- CONTENUTO DELLA PAGINA -->
-<main class="about-section">
-  <h1>About</h1>
+  <!-- CONTENUTO DELLE IMMAGINI -->
+  <main>
+    <h1 style="font-family: 'Neutraface', sans-serif; font-weight: bold; font-size: 2rem; margin-bottom: 60px;">
+      Works – Graphics
+    </h1>
 
-  <div class="profile-container">
-    <!-- Immagine -->
-    <img src="../About_image/about_image_bw.jpg" alt="Andrea Pasqua" class="profile-image" />
+    <div class="container">
 
-    <!-- Testo -->
-    <div class="profile-text">
-      <p>
-        Andrea Pasqua was born in Treviso in 1989. He studied Architecture, Construction and Conservation at IUAV University of Venice, where he graduated in 2016. Over the years, he worked with different architecture studios in Italy, the Netherlands (Rotterdam), and China, gaining experience across diverse cultural and design contexts.
-        
-        In 2025, he opened his own studio in Guangzhou, continuing his work in architecture and visual design. His approach combines a strong interest in space, nature, people, and atmosphere, shaped by a minimal aesthetic and a focus on clarity and balance.
-        
-        Alongside his professional path, Andrea has studied Taijiquan, a traditional Chinese martial art. The discipline’s core ideas—balance, full and empty, adaptability—have deeply influenced the way he thinks about architecture, encouraging a design process that values flow, structural tension, and intentional simplicity.
-        
-        His work reflects a careful attention to materials, light, and the in-between. He believes in reuse, sustainability, and the ability of space to quietly shape the way we feel and live.
-      </p>
+      <!-- Colonna 1 -->
+      <div class="column">
+        <!-- Progetto 1 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/01.jpg')">
+          <div class="project-info"><h2>KITCHEN</h2></div>
+          <img src="projects/graphic/01_cover.jpg" alt="Render Architettonico 1" />
+        </a>
+
+        <!-- Progetto 4 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/04.jpg')">
+          <div class="project-info"><h2>SQUARES</h2></div>
+          <img src="projects/graphic/04_cover.jpg" alt="Render Architettonico 4" />
+        </a>
+
+        <!-- Progetto 7 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/07.jpg')">
+          <div class="project-info"><h2>FOSHAN HOUSE</h2></div>
+          <img src="projects/graphic/07_cover.jpg" alt="Render Architettonico 7" />
+        </a>
+
+        <!-- Progetto 10 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/10.jpg')">
+          <div class="project-info"><h2>POOL BY iMESH</h2></div>
+          <img src="projects/graphic/10_cover.jpg" alt="Render Architettonico 10" />
+        </a>
+
+        <!-- Progetto 13 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/13.jpg')">
+          <div class="project-info"><h2>BEDROOM</h2></div>
+          <img src="projects/graphic/13_cover.jpg" alt="Render Architettonico 13" />
+        </a>
+
+        <!-- Progetto 16 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/16.jpg')">
+          <div class="project-info"><h2>SIT.SIP.READ</h2></div>
+          <img src="projects/graphic/16_cover.jpg" alt="Render Architettonico 16" />
+        </a>
+
+        <!-- Progetto 19 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/19.jpg')">
+          <div class="project-info"><h2>ONIX KITCHEN</h2></div>
+          <img src="projects/graphic/19_cover.jpg" alt="Render Architettonico 19" />
+        </a>
+      </div>
+
+      <!-- Colonna 2 -->
+      <div class="column">
+        <!-- Progetto 2 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/02.jpg')">
+          <div class="project-info"><h2>VILLA</h2></div>
+          <img src="projects/graphic/02_cover.jpg" alt="Render Architettonico 2" />
+        </a>
+
+        <!-- Progetto 5 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/05.jpg')">
+          <div class="project-info"><h2>INDONESIAN HOTEL ROOM</h2></div>
+          <img src="projects/graphic/05_cover.jpg" alt="Render Architettonico 5" />
+        </a>
+
+        <!-- Progetto 8 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/08.jpg')">
+          <div class="project-info"><h2>FOSHAN HOUSE</h2></div>
+          <img src="projects/graphic/08_cover.jpg" alt="Render Architettonico 8" />
+        </a>
+
+        <!-- Progetto 11 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/11.jpg')">
+          <div class="project-info"><h2>INDONESIAN VILLA</h2></div>
+          <img src="projects/graphic/11_cover.jpg" alt="Render Architettonico 11" />
+        </a>
+
+        <!-- Progetto 14 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/14.jpg')">
+          <div class="project-info"><h2>STILLNESS IN WOOD</h2></div>
+          <img src="projects/graphic/14_cover.jpg" alt="Render Architettonico 14" />
+        </a>
+
+        <!-- Progetto 17 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/17.jpg')">
+          <div class="project-info"><h2>MINIMAL LIVING</h2></div>
+          <img src="projects/graphic/17_cover.jpg" alt="Render Architettonico 17" />
+        </a>
+
+        <!-- Progetto 20 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/20.jpg')">
+          <div class="project-info"><h2>SPACE BETWEEN</h2></div>
+          <img src="projects/graphic/20_cover.jpg" alt="Render Architettonico 20" />
+        </a>
+      </div>
+
+      <!-- Colonna 3 -->
+      <div class="column">
+        <!-- Progetto 3 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/03.jpg')">
+          <div class="project-info"><h2>MEXICAN VILLA</h2></div>
+          <img src="projects/graphic/03_cover.jpg" alt="Render Architettonico 3" />
+        </a>
+
+        <!-- Progetto 6 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/06.jpg')">
+          <div class="project-info"><h2>FOSHAN HOUSE</h2></div>
+          <img src="projects/graphic/06_cover.jpg" alt="Render Architettonico 6" />
+        </a>
+
+        <!-- Progetto 9 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/09.jpg')">
+          <div class="project-info"><h2>POST-HUMAN HABITAT</h2></div>
+          <img src="projects/graphic/09_cover.jpg" alt="Render Architettonico 9" />
+        </a>
+
+        <!-- Progetto 12 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/12.jpg')">
+          <div class="project-info"><h2>BETWEEN SILENCE AND GLOW</h2></div>
+          <img src="projects/graphic/12_cover.jpg" alt="Render Architettonico 12" />
+        </a>
+
+        <!-- Progetto 15 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/15.jpg')">
+          <div class="project-info"><h2>QUIET LIVES HERE</h2></div>
+          <img src="projects/graphic/15_cover.jpg" alt="Render Architettonico 15" />
+        </a>
+
+        <!-- Progetto 18 -->
+        <a class="project-card" href="#" onclick="openImage('projects/graphic/18.jpg')">
+          <div class="project-info"><h2>MID-CENTURY DIALOGUE</h2></div>
+          <img src="projects/graphic/18_cover.jpg" alt="Render Architettonico 18" />
+        </a>
+      </div>
     </div>
+  </main>
+
+  <!-- Overlay per l'immagine ingrandita -->
+  <div id="overlay" class="overlay">
+    <button class="nav-button prev" onclick="prevImage()"><</button>
+    <img id="expanded-image" src="" alt="Immagine ingrandita">
+    <button class="nav-button next" onclick="nextImage()">></button>
+    <button class="close-button" onclick="closeOverlay()">×</button>
   </div>
-</main>
+
+  <!-- Script per effetto zoom e navigazione -->
+  <script>
+    // Lista completa delle immagini
+    const images = [
+      'projects/graphic/01.jpg',
+      'projects/graphic/02.jpg',
+      'projects/graphic/03.jpg',
+      'projects/graphic/04.jpg',
+      'projects/graphic/05.jpg',
+      'projects/graphic/06.jpg',
+      'projects/graphic/07.jpg',
+      'projects/graphic/08.jpg',
+      'projects/graphic/09.jpg',
+      'projects/graphic/10.jpg',
+      'projects/graphic/11.jpg',
+      'projects/graphic/12.jpg',
+      'projects/graphic/13.jpg',
+      'projects/graphic/14.jpg',
+      'projects/graphic/15.jpg',
+      'projects/graphic/16.jpg',
+      'projects/graphic/17.jpg',
+      'projects/graphic/18.jpg',
+      'projects/graphic/19.jpg',
+      'projects/graphic/20.jpg'
+    ];
+
+    let currentIndex = 0;
+
+    function openImage(imageUrl) {
+      const index = images.indexOf(imageUrl);
+      if (index > -1) {
+        currentIndex = index;
+        updateExpandedImage();
+        document.getElementById('overlay').style.display = 'flex';
+      }
+    }
+
+    function closeOverlay() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateExpandedImage();
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateExpandedImage();
+    }
+
+    function updateExpandedImage() {
+      const expandedImage = document.getElementById('expanded-image');
+      if (expandedImage) {
+        expandedImage.src = images[currentIndex];
+      }
+    }
+  </script>
 
 </body>
 </html>
