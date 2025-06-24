@@ -163,12 +163,15 @@ body {
   transition: all var(--transition-normal) ease;
   z-index: 999;
 }
-.dropdown-content a {
+.dropdown-content a 
+{.dropdown-content li {
+  margin: 2px 0 !important;
+}
   display: block;
   text-decoration: none;
   color: var(--color-black);
   padding: var(--space-xs) var(--space-sm);
-  margin: 1px 0;
+  margin: 2px 0;
   transition: color var(--transition-fast), font-weight var(--transition-fast);
 }
 
