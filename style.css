@@ -77,7 +77,7 @@ body {
 .logo-img {
   width: 100px;
   height: auto;
-  transition: opacity var(--transition-fast);
+  margin-right: var(--space-xs);
 }
 
 .logo-img:hover {
@@ -90,6 +90,22 @@ body {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--color-black);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+.logo-text .line1,
+.logo-text .line2 {
+  display: block;
 }
 
 
