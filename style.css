@@ -163,6 +163,20 @@ body {
   transition: all var(--transition-normal) ease;
   z-index: 999;
 }
+.dropdown-content a {
+  display: block;
+  text-decoration: none;
+  color: var(--color-black);
+  padding: var(--space-xs) var(--space-sm);
+  margin: 6px 0;
+  transition: color var(--transition-fast), font-weight var(--transition-fast);
+}
+
+.dropdown-content a:hover {
+  font-weight: bold;
+  color: var(--color-hover);
+  text-decoration: none;
+}
 
 .dropdown:hover .dropdown-content,
 .dropdown:focus-within .dropdown-content {
