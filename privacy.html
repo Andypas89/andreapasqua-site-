@@ -1,11 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy – Andrea Pasqua</title>
+  <title>Andrea Pasqua - Architecture Projects</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Font: Lora -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet"> <!-- Favicon e manifest --> <link rel="icon" href="/favicon.ico" type="image/x-icon"> <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> <!-- Icone per dispositivi mobili --> <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> <!-- Manifest per Progressive Web App --> <link rel="manifest" href="/site.webmanifest"> <!-- Colore della barra superiore su Android --> <meta name="theme-color" content="#ffffff">
 </head>
+<style>
+  /* ========== STILI PER LA PAGINA ABOUT ========== */
+  .about-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 40px 80px;
+    text-align: center;
+  }
+
+  .profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .profile-image {
+    width: 300px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+
+  .profile-text {
+    flex-grow: 1;
+    max-width: 600px;
+    text-align: left;
+  }
+
+  .about-section h1 {
+    font-family: 'Neutraface', sans-serif;
+    font-weight: bold;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: var(--space-md);
+    text-align: center;
+  }
+
+  .about-section p {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: var(--space-lg);
+  }
+</style>
+
+</head>
+<body>
+
+  <!-- HEADER FISSO -->
+<header class="site-header">
+  <div class="logo-container">
+    <a href="index.html">
+      <img src="logo.png" alt="Logo" class="logo-img" />
+      <div class="logo-text">
+        <span class="line1">Andrea</span><br>
+        <span class="line2">Pasqua</span>
+      </div>
+    </a>
+  </div>
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="about.html">About</a></li>
+      <li class="dropdown">
+        <a href="#">Works</a>
+        <ul class="dropdown-content">
+          <li><a href="works_architecture.html">• Architecture</a></li>
+          <li><a href="works_graphic.html">• Graphics</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+  </nav>
+</header>
 <body>
   <main class="privacy-section" style="padding: 60px; max-width: 800px; margin: auto; font-family: sans-serif; line-height: 1.6;">
     <h1>Privacy Policy</h1>
