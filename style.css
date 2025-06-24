@@ -61,16 +61,22 @@ body {
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
+/* Nuova struttura logo con nome affiancato */
 .logo-container {
   display: flex;
   align-items: center;
   transition: transform var(--transition-normal);
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 .logo-img {
   width: 100px;
   height: auto;
-  margin-right: var(--space-xs);
   transition: opacity var(--transition-fast);
 }
 
@@ -78,13 +84,14 @@ body {
   opacity: 0.8;
 }
 
-.header-name {
-  margin-left: var(--space-xs);
+.logo-link .header-name {
+  margin-left: 10px;
   font-family: 'Neutraface', sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--color-black);
 }
+
 
 /* ========== NAVIGATION ========== */
 .nav-menu {
