@@ -9,19 +9,20 @@
   <!-- Stili specifici per questa pagina -->
 <style>
   body {
-    padding: 120px 40px 0; /* margine sopra + laterali */
+    padding: 120px 40px 0;
     font-family: 'Neutraface', sans-serif;
   }
 
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 40px;
-      max-width: 1800px;
-      margin: 0 auto;
-      padding: 0;(--space-md);
-    }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0; /* <--- RISOLVE IL PROBLEMA */
+  }
+
 
     .column {
       width: 580px;
