@@ -43,7 +43,7 @@ html {
 body {
   font-family: 'Neutraface Book', sans-serif;
   background: white;
-  padding: 80px 40px; /* Compensa header fisso */
+  padding: 80px 40px 0; /* Compensa header fisso */
 }
 
 /* ========== HEADER FISSO ========== */
