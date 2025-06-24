@@ -394,3 +394,7 @@ body {
     font-size: 1.5rem;
   }
 }
+.works-page .container {
+  padding: 0 40px;
+  justify-content: center;
+}
