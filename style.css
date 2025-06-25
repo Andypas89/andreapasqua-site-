@@ -65,19 +65,19 @@ body {
 .logo-container {
   display: flex;
   align-items: center;
-  transition: transform var(--transition-normal);
 }
 
 .logo-link {
   display: flex;
   align-items: center;
+  gap: 12px;
   text-decoration: none;
 }
 
 .logo-img {
   width: 100px;
   height: auto;
-  margin-right: var(--space-xs);
+  transition: opacity 0.2s;
 }
 
 .logo-img:hover {
@@ -96,11 +96,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  line-height: 1.1;
   font-family: 'Neutraface', sans-serif;
   font-weight: bold;
   font-size: 1.3rem;
   color: var(--color-black);
-  line-height: 1.2;
 }
 
 .logo-text .line1,
