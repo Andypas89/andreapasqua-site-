@@ -108,6 +108,14 @@ body {
   display: block;
 }
 
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* o quello che preferisci per allinearlo al contenuto */
+}
+
 
 /* ========== NAVIGATION ========== */
 .nav-menu {
