@@ -21,7 +21,7 @@
   /* Spaziature */
   --space-xs: 10px;
   --space-sm: 20px;
-  --space-md: 20px;
+  --space-md: 40px;
   --space-lg: 80px;
 
   /* Transizioni */
@@ -64,7 +64,7 @@ body {
 /* Nuova struttura logo con nome affiancato */
 .logo-container {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
 .logo-link {
