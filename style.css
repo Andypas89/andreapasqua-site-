@@ -43,7 +43,7 @@ html {
 body {
   font-family: 'Neutraface Book', sans-serif;
   background: white;
-  padding: 80px 40px 80px; /* Compensa header fisso */
+  padding: 80px 40px; /* Compensa header fisso */
 }
 
 /* ========== HEADER FISSO ========== */
@@ -52,6 +52,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,8 +76,7 @@ body {
 /* Nuova struttura logo con nome affiancato */
 .logo-container {
   display: flex;
-  align-items: center; /* ✅ Centro verticale */
-  gap: 12px;            /* ✅ Spazio tra logo e testo */
+  justify-content: center;
 }
 
 .logo-link {
