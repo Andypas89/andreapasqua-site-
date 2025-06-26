@@ -1,4 +1,4 @@
-/* ========== NEUTRAFONT SETUP ========== */
+/* ========== FONT SETUP ========== */
 @font-face {
   font-family: 'Neutraface';
   src: url('fonts/NeutrafaceText-Bold.woff') format('woff');
@@ -13,23 +13,18 @@
 
 /* ========== DESIGN SYSTEM ========== */
 :root {
-  /* Colori */
   --color-black: #000000;
   --color-white: #FFFFFF;
   --color-hover: #333333;
-
-  /* Spaziature */
   --space-xs: 10px;
   --space-sm: 20px;
   --space-md: 40px;
   --space-lg: 80px;
-
-  /* Transizioni */
   --transition-fast: 0.2s;
   --transition-normal: 0.3s;
 }
 
-/* ========== BASE STILI ========== */
+/* ========== RESET ========== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -43,7 +38,7 @@ html {
 body {
   font-family: 'Neutraface Book', sans-serif;
   background: white;
-  padding: 80px 40px; /* Compensa header fisso */
+  padding: 80px 40px;
 }
 
 /* ========== HEADER FISSO ========== */
@@ -67,16 +62,16 @@ body {
   margin: 0 auto;
   width: 100%;
   padding: 0 var(--space-md);
-  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Nuova struttura logo con nome affiancato */
+/* Logo + Testo */
 .logo-container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .logo-link {
@@ -96,38 +91,20 @@ body {
   opacity: 0.8;
 }
 
-.logo-link .header-name {
-  margin-left: 10px;
-  font-family: 'Neutraface', sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--color-black);
-}
-
 .logo-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  line-height: 1.1;
   font-family: 'Neutraface', sans-serif;
   font-weight: bold;
   font-size: 1.3rem;
   color: var(--color-black);
+  line-height: 1.1;
 }
 
 .logo-text .line1,
 .logo-text .line2 {
   display: block;
 }
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px; /* o quello che preferisci per allinearlo al contenuto */
-}
-
 
 /* ========== NAVIGATION ========== */
 .nav-menu {
@@ -153,7 +130,7 @@ body {
   width: 0;
   height: 1px;
   background: currentColor;
-  transition: width var(--transition-normal) ease-out;
+  transition: width var(--transition-normal);
 }
 
 .nav-menu a:hover {
@@ -180,22 +157,22 @@ body {
   opacity: 0;
   visibility: hidden;
   box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-  transition: all var(--transition-normal) ease;
+  transition: all var(--transition-normal);
   z-index: 999;
 }
+
 .dropdown-content a {
   display: block;
-  text-decoration: none;
   color: var(--color-black);
+  text-decoration: none;
   padding: var(--space-xs) var(--space-sm);
   margin: 6px 0;
-  transition: color var(--transition-fast), font-weight var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 .dropdown-content a:hover {
   font-weight: bold;
   color: var(--color-hover);
-  text-decoration: none;
 }
 
 .dropdown:hover .dropdown-content,
@@ -205,7 +182,40 @@ body {
   top: 100%;
 }
 
-/* ========== TESTO SU COVER DEI PROGETTI ========== */
+/* ========== HAMBURGER MENU ========== */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--color-black);
+  z-index: 1001;
+}
+
+/* ========== PROJECT CARD ========== */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-radius: 4px;
+  transition: transform var(--transition-normal);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.03);
+  filter: blur(50px);
+}
+
 .project-info {
   position: absolute;
   top: 50%;
@@ -232,30 +242,7 @@ body {
   white-space: nowrap;
 }
 
-/* ========== PROJECT CARD STILI ========== */
-.project-card {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  border-radius: 4px;
-  transition: transform var(--transition-normal);
-}
-
-.project-card img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  border-radius: 4px;
-  transition: transform 0.5s ease, filter 0.5s ease;
-}
-
-.project-card:hover img {
-  transform: scale(1.03); /* Zoom leggero */
-  filter: blur(50px); /* Sfocatura marcata */
-}
-
-/* ========== LAYOUT A 3 COLONNE ========== */
+/* ========== LAYOUT ========== */
 .container {
   display: flex;
   justify-content: center;
@@ -272,154 +259,14 @@ body {
   gap: 40px;
 }
 
-/* ========== PROJECT PAGE STILI ========== */
-.project-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 120px 40px 80px;
-  text-align: center;
-}
-
-.project-page h1 {
-  font-family: 'Neutraface', sans-serif;
-  font-weight: bold;
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: var(--space-sm);
-  text-align: center;
-}
-
-.project-page p {
-  font-family: 'Lora', serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #333;
-  margin-bottom: var(--space-lg);
-}
-
-.project-page .caption {
-  font-family: 'Lora', serif;
-  font-size: 1.2rem;
-  text-align: center;
-  color: #000;
-  margin-bottom: var(--space-md);
-  font-weight: normal;
-  display: block;
-}
-
-.project-page .description {
-  font-family: 'Lora', serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: justify;
-  max-width: 800px;
-  margin: 0 auto 40px;
-  font-weight: normal;
-  color: #333;
-}
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--space-lg);
-}
-
-.image-container img {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-/* ========== OVERLAY PER IMMAGINE INGRANDITA ========== */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.95);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-
-.nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 15px 25px;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.nav-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.nav-button.prev {
-  left: 20px;
-}
-
-.nav-button.next {
-  right: 20px;
-}
-
-#overlay button:last-child {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.overlay img {
-  max-width: 90vw;
-  max-height: 80vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   body {
     padding: 100px 20px;
   }
 
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .column {
-    width: 90%;
-    max-width: 600px;
-    gap: 20px;
-  }
-
-  .project-info h2 {
-    font-size: 1.5rem;
-  }
-
-  /* AGGIUNTA PER HEADER E NAV SU MOBILE */
   .site-header {
     height: 100px;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 10px 20px;
   }
 
   .logo-img {
@@ -430,30 +277,6 @@ body {
     font-size: 1rem;
   }
 
-  .nav-menu {
-    gap: 10px;
-    font-size: 0.9rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  .header-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-/* ===== HAMBURGER MENU ===== */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: var(--color-black);
-  z-index: 1001;
-}
-
-/* Mostra il bottone hamburger solo su mobile */
-@media (max-width: 768px) {
   .hamburger {
     display: block;
     position: absolute;
@@ -479,5 +302,20 @@ body {
 
   .nav-menu li {
     margin: 10px 0;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    width: 90%;
+    max-width: 600px;
+    gap: 20px;
+  }
+
+  .project-info h2 {
+    font-size: 1.5rem;
   }
 }
