@@ -413,5 +413,32 @@ body {
   .project-info h2 {
     font-size: 1.5rem;
   }
-  
+
+  /* AGGIUNTA PER HEADER E NAV SU MOBILE */
+  .site-header {
+    height: 100px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .logo-img {
+    width: 70px;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  .nav-menu {
+    gap: 10px;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
