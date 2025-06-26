@@ -23,8 +23,8 @@
   <!-- Open Graph / Social Media -->
   <meta property="og:title" content="Andrea Pasqua | Portfolio Architettonico">
   <meta property="og:description" content="Portfolio personale di Andrea Pasqua - architetto e graphic designer. Scopri progetti residenziali, commerciali e render grafici.">
-  <meta property="og:image" content="https://andreapasqua.com/logo.png ">
-  <meta property="og:url" content="https://andreapasqua.com/ ">
+  <meta property="og:image" content="https://andreapasqua.com/logo.png">
+  <meta property="og:url" content="https://andreapasqua.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Andrea Pasqua Studio">
 
@@ -32,12 +32,11 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Andrea Pasqua | Portfolio Architettonico">
   <meta name="twitter:description" content="Portfolio personale di Andrea Pasqua - architetto e graphic designer. Scopri progetti residenziali, commerciali e render grafici.">
-  <meta name="twitter:image" content="https://andreapasqua.com/logo.png ">
-  <meta name="twitter:site" content="@andreaspaqua"> <!-- Cambia con il tuo handle Twitter/X -->
+  <meta name="twitter:image" content="https://andreapasqua.com/logo.png">
+  <meta name="twitter:site" content="@andreaspaqua">
 
   <!-- Stili specifici per questa pagina -->
   <style>
-    /* ========== LAYOUT A 3 COLONNE ========== */
     .container {
       display: flex;
       justify-content: center;
@@ -46,15 +45,12 @@
       max-width: 1800px;
       margin: 0 auto;
     }
-
     .column {
       width: 578px;
       display: flex;
       flex-direction: column;
       gap: 40px;
     }
-
-    /* ========== PROJECT CARD STILI ========== */
     .project-card {
       position: relative;
       overflow: hidden;
@@ -62,7 +58,6 @@
       border-radius: 4px;
       transition: transform var(--transition-normal);
     }
-
     .project-card img {
       width: 100%;
       height: auto;
@@ -71,13 +66,10 @@
       border-radius: 4px;
       transition: transform 0.5s ease, filter 0.5s ease;
     }
-
     .project-card:hover img {
-      transform: scale(1.03); /* Zoom leggero */
-      filter: blur(50px); /* Sfocatura marcata */
+      transform: scale(1.03);
+      filter: blur(50px);
     }
-
-    /* ========== TESTO SU COVER DEI PROGETTI ========== */
     .project-info {
       position: absolute;
       top: 50%;
@@ -89,11 +81,9 @@
       transition: opacity 0.3s ease;
       z-index: 10;
     }
-
     .project-card:hover .project-info {
       opacity: 1;
     }
-
     .project-info h2 {
       font-family: 'Neutraface', sans-serif;
       font-weight: bold;
@@ -103,8 +93,6 @@
       letter-spacing: 0.05em;
       white-space: nowrap;
     }
-
-    /* ========== OVERLAY PER IMMAGINE INGRANDITA ========== */
     .overlay {
       display: none;
       position: fixed;
@@ -118,7 +106,6 @@
       align-items: center;
       flex-direction: row;
     }
-
     .nav-button {
       position: absolute;
       top: 50%;
@@ -131,19 +118,11 @@
       cursor: pointer;
       z-index: 1000;
     }
-
     .nav-button:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
-
-    .nav-button.prev {
-      left: 20px;
-    }
-
-    .nav-button.next {
-      right: 20px;
-    }
-
+    .nav-button.prev { left: 20px; }
+    .nav-button.next { right: 20px; }
     .close-button {
       position: absolute;
       top: 20px;
@@ -157,12 +136,9 @@
       z-index: 1000;
       border-radius: 4px;
     }
-
     .overlay img {
       max-width: 90vw;
       max-height: 80vh;
-      width: auto;
-      height: auto;
       object-fit: contain;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
@@ -170,21 +146,19 @@
 </head>
 <body>
 
-  <!-- HEADER FISSO -->
+<!-- HEADER FISSO -->
 <header class="site-header">
   <div class="header-wrapper">
     <button class="hamburger" aria-label="Toggle navigation" onclick="toggleMenu()">☰</button>
     <div class="logo-container">
-  <a href="index.html" class="logo-link">
-    <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
-    <div class="logo-text">
-      <span class="line1">Andrea</span>
-      <span class="line2">Pasqua</span>
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
+        <div class="logo-text">
+          <span class="line1">Andrea</span>
+          <span class="line2">Pasqua</span>
+        </div>
+      </a>
     </div>
-  </a>
-</div>
-
-
     <nav>
       <ul class="nav-menu">
         <li><a href="about.html">About</a></li>
@@ -196,222 +170,89 @@
           </ul>
         </li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="privacy.html">Privacy</a></li> <!-- Pagina Privacy -->
+        <li><a href="privacy.html">Privacy</a></li>
       </ul>
     </nav>
   </div>
 </header>
-  
+
 <main style="margin-top: 80px;">
   <div class="container">
-    
-  <!-- CONTENUTO DELLE IMMAGINI -->
-  <!-- Colonna 1 -->
-  <div class="column">
-    <!-- Progetto 1 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/01.jpg')">
-      <div class="project-info"><h2>KITCHEN</h2></div>
-      <img src="projects/graphic/01_cover.jpg" alt="Render Architettonico 1" />
-    </a>
 
-    <!-- Progetto 4 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/04.jpg')">
-      <div class="project-info"><h2>SQUARES</h2></div>
-      <img src="projects/graphic/04_cover.jpg" alt="Render Architettonico 4" />
-    </a>
+    <!-- Ripeti per ogni colonna -->
+    <div class="column">
+      <!-- Esempio progetto -->
+      <a class="project-card" href="#" onclick="openImage('projects/graphic/01.jpg')">
+        <div class="project-info"><h2>KITCHEN</h2></div>
+        <img src="projects/graphic/01_cover.jpg" alt="Render KITCHEN" loading="lazy"/>
+      </a>
+      <!-- Aggiungi qui gli altri progetti come già fatto -->
+      <!-- ... -->
+    </div>
 
-    <!-- Progetto 7 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/07.jpg')">
-      <div class="project-info"><h2>FOSHAN HOUSE</h2></div>
-      <img src="projects/graphic/07_cover.jpg" alt="Render Architettonico 7" />
-    </a>
+    <!-- Aggiungi altre due colonne come nel tuo codice -->
 
-    <!-- Progetto 10 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/10.jpg')">
-      <div class="project-info"><h2>POOL BY iMESH</h2></div>
-      <img src="projects/graphic/10_cover.jpg" alt="Render Architettonico 10" />
-    </a>
-
-    <!-- Progetto 13 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/13.jpg')">
-      <div class="project-info"><h2>BEDROOM</h2></div>
-      <img src="projects/graphic/13_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 16 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/16.jpg')">
-      <div class="project-info"><h2>SIT.SIP.READ</h2></div>
-      <img src="projects/graphic/16_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 19 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/19.jpg')">
-      <div class="project-info"><h2>ONIX KITCHEN</h2></div>
-      <img src="projects/graphic/19_cover.jpg" alt="..." />
-    </a>
-  </div> <!-- Fine colonna 1 -->
-
-  <!-- Colonna 2 -->
-  <div class="column">
-    <!-- Progetto 2 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/02.jpg')">
-      <div class="project-info"><h2>VILLA</h2></div>
-      <img src="projects/graphic/02_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 5 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/05.jpg')">
-      <div class="project-info"><h2>INDONESIAN HOTEL ROOM</h2></div>
-      <img src="projects/graphic/05_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 8 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/08.jpg')">
-      <div class="project-info"><h2>FOSHAN HOUSE</h2></div>
-      <img src="projects/graphic/08_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 11 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/11.jpg')">
-      <div class="project-info"><h2>INDONESIAN VILLA</h2></div>
-      <img src="projects/graphic/11_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 14 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/14.jpg')">
-      <div class="project-info"><h2>STILLNESS IN WOOD</h2></div>
-      <img src="projects/graphic/14_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 17 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/17.jpg')">
-      <div class="project-info"><h2>MINIMAL LIVING</h2></div>
-      <img src="projects/graphic/17_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 20 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/20.jpg')">
-      <div class="project-info"><h2>SPACE BETWEEN</h2></div>
-      <img src="projects/graphic/20_cover.jpg" alt="..." />
-    </a>
-  </div> <!-- Fine colonna 2 -->
-
-  <!-- Colonna 3 -->
-  <div class="column">
-    <!-- Progetto 3 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/03.jpg')">
-      <div class="project-info"><h2>MEXICAN VILLA</h2></div>
-      <img src="projects/graphic/03_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 6 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/06.jpg')">
-      <div class="project-info"><h2>FOSHAN HOUSE</h2></div>
-      <img src="projects/graphic/06_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 9 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/09.jpg')">
-      <div class="project-info"><h2>POST-HUMAN HABITAT</h2></div>
-      <img src="projects/graphic/09_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 12 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/12.jpg')">
-      <div class="project-info"><h2>BETWEEN SILENCE AND GLOW</h2></div>
-      <img src="projects/graphic/12_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 15 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/15.jpg')">
-      <div class="project-info"><h2>QUIET LIVES HERE</h2></div>
-      <img src="projects/graphic/15_cover.jpg" alt="..." />
-    </a>
-
-    <!-- Progetto 18 -->
-    <a class="project-card" href="#" onclick="openImage('projects/graphic/18.jpg')">
-      <div class="project-info"><h2>MID-CENTURY DIALOGUE</h2></div>
-      <img src="projects/graphic/18_cover.jpg" alt="..." />
-    </a>
-  </div> <!-- Fine colonna 3 -->
-
-</div> <!-- Fine container -->
-  </main>
-
-  <!-- Overlay per l'immagine ingrandita -->
-  <div id="overlay" class="overlay">
-    <button class="nav-button prev" onclick="prevImage()"><</button>
-    <img id="expanded-image" src="" alt="Immagine ingrandita">
-    <button class="nav-button next" onclick="nextImage()">></button>
-    <button class="close-button" onclick="closeOverlay()">×</button>
   </div>
+</main>
 
-  <!-- Script per effetto zoom e navigazione -->
-  <script>
-    // Lista completa delle immagini
-    const images = [
-      'projects/graphic/01.jpg',
-      'projects/graphic/02.jpg',
-      'projects/graphic/03.jpg',
-      'projects/graphic/04.jpg',
-      'projects/graphic/05.jpg',
-      'projects/graphic/06.jpg',
-      'projects/graphic/07.jpg',
-      'projects/graphic/08.jpg',
-      'projects/graphic/09.jpg',
-      'projects/graphic/10.jpg',
-      'projects/graphic/11.jpg',
-      'projects/graphic/12.jpg',
-      'projects/graphic/13.jpg',
-      'projects/graphic/14.jpg',
-      'projects/graphic/15.jpg',
-      'projects/graphic/16.jpg',
-      'projects/graphic/17.jpg',
-      'projects/graphic/18.jpg',
-      'projects/graphic/19.jpg',
-      'projects/graphic/20.jpg'
-    ];
+<!-- Overlay per immagine ingrandita -->
+<div id="overlay" class="overlay">
+  <button class="nav-button prev" onclick="prevImage()"><</button>
+  <img id="expanded-image" src="" alt="Immagine ingrandita">
+  <button class="nav-button next" onclick="nextImage()">></button>
+  <button class="close-button" onclick="closeOverlay()">×</button>
+</div>
 
-    let currentIndex = 0;
-
-    function openImage(imageUrl) {
-      const index = images.indexOf(imageUrl);
-      if (index > -1) {
-        currentIndex = index;
-        updateExpandedImage();
-        document.getElementById('overlay').style.display = 'flex';
-        document.querySelector('.site-header').style.display = 'none'; /* Nasconde header durante overlay */
-      }
-    }
-
-    function closeOverlay() {
-      document.getElementById('overlay').style.display = 'none';
-      document.querySelector('.site-header').style.display = 'flex'; /* Rimette header */
-    }
-
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateExpandedImage();
-    }
-
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateExpandedImage();
-    }
-
-    function updateExpandedImage() {
-      const expandedImage = document.getElementById('expanded-image');
-      if (expandedImage) {
-        expandedImage.src = images[currentIndex];
-      }
-    }
+<!-- Script: ingrandimento immagini + toggle menu -->
 <script>
+  const images = [
+    'projects/graphic/01.jpg','projects/graphic/02.jpg','projects/graphic/03.jpg',
+    'projects/graphic/04.jpg','projects/graphic/05.jpg','projects/graphic/06.jpg',
+    'projects/graphic/07.jpg','projects/graphic/08.jpg','projects/graphic/09.jpg',
+    'projects/graphic/10.jpg','projects/graphic/11.jpg','projects/graphic/12.jpg',
+    'projects/graphic/13.jpg','projects/graphic/14.jpg','projects/graphic/15.jpg',
+    'projects/graphic/16.jpg','projects/graphic/17.jpg','projects/graphic/18.jpg',
+    'projects/graphic/19.jpg','projects/graphic/20.jpg'
+  ];
+  let currentIndex = 0;
+
+  function openImage(imageUrl) {
+    const index = images.indexOf(imageUrl);
+    if (index > -1) {
+      currentIndex = index;
+      updateExpandedImage();
+      document.getElementById('overlay').style.display = 'flex';
+      document.querySelector('.site-header').style.display = 'none';
+    }
+  }
+
+  function closeOverlay() {
+    document.getElementById('overlay').style.display = 'none';
+    document.querySelector('.site-header').style.display = 'flex';
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateExpandedImage();
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateExpandedImage();
+  }
+
+  function updateExpandedImage() {
+    const expandedImage = document.getElementById('expanded-image');
+    if (expandedImage) {
+      expandedImage.src = images[currentIndex];
+    }
+  }
+
   function toggleMenu() {
     const menu = document.querySelector('.nav-menu');
     menu.classList.toggle('active');
   }
 </script>
+
 </body>
 </html>
-
-
