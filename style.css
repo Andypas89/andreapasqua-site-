@@ -442,3 +442,43 @@ body {
     align-items: flex-start;
   }
 }
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--color-black);
+  z-index: 1001;
+}
+
+/* Mostra il bottone hamburger solo su mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    width: 100%;
+    padding: var(--space-sm);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+}
