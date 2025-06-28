@@ -2,63 +2,23 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contatti – Andrea Pasqua</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contatti | Andrea Pasqua</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-  <style>
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 80vh;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .icon-links {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      margin-top: 40px;
-    }
-
-    .icon-links a img {
-      width: 60px;
-      height: 60px;
-      transition: opacity 0.3s ease;
-    }
-
-    .icon-links a:hover img {
-      opacity: 0.7;
-    }
-
-    @media (max-width: 768px) {
-      .icon-links a img {
-        width: 48px;
-        height: 48px;
-      }
-    }
-
-    #email-container {
-      margin-top: 40px;
-      font-size: 1rem;
-      color: #333;
-    }
-  </style>
+  <!-- Favicon e Meta -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 
 <body>
+  <!-- HEADER FISSO -->
   <header class="site-header">
     <div class="header-wrapper">
       <button class="hamburger" aria-label="Toggle navigation" onclick="toggleMenu()">☰</button>
       <div class="logo-container">
         <a href="index.html" class="logo-link">
-          <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
+          <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img" />
           <div class="logo-text">
             <span class="line1">Andrea</span>
             <span class="line2">Pasqua</span>
@@ -76,44 +36,50 @@
               <li><a href="works_graphic.html">Graphics</a></li>
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contacs.html">Contact</a></li>
           <li><a href="privacy.html">Privacy</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <h1>Contattami</h1>
-
-    <div class="icon-links">
-      <a href="https://www.instagram.com/tuo_profilo" target="_blank" rel="noopener">
-        <img src="icons/instagram.svg" alt="Instagram">
+  <!-- CONTENUTO PRINCIPALE -->
+  <main class="contact-main">
+    <section class="contact-icons">
+      <a href="https://www.instagram.com/tuo_username" target="_blank">
+        <img src="icons/instagram.svg" alt="Instagram" class="icon-social" />
       </a>
-      <a href="https://www.linkedin.com/in/tuo-profilo" target="_blank" rel="noopener">
-        <img src="icons/linkenin-black.svg" alt="LinkedIn">
+      <a href="https://www.linkedin.com/in/tuo_username" target="_blank">
+        <img src="icons/linkenin-black.svg" alt="LinkedIn" class="icon-social" />
       </a>
-      <a href="https://wechat.com" target="_blank" rel="noopener">
-        <img src="icons/wechat-black.svg" alt="WeChat">
+      <a href="icons/wechat-black.svg" target="_blank">
+        <img src="icons/wechat-black.svg" alt="WeChat" class="icon-social" />
       </a>
-    </div>
-
-    <p id="email-container"></p>
+      <a href="#" id="email-link">
+        <img src="icons/gmail.svg" alt="Email" class="icon-social" />
+      </a>
+    </section>
   </main>
 
-  <!-- JavaScript -->
+  <!-- FOOTER MINIMO -->
+  <footer class="footer">
+    <p>© 2025 Andrea Pasqua</p>
+  </footer>
+
+  <!-- SCRIPT: Hamburger + Obfuscazione email -->
   <script>
     function toggleMenu() {
       const menu = document.querySelector('.nav-menu');
       menu.classList.toggle('active');
     }
 
-    // Email offuscata
-    const user = "tuo.nome";
-    const domain = "gmail.com";
-    const email = `${user}@${domain}`;
-    const container = document.getElementById("email-container");
-    container.innerHTML = `oppure scrivimi: <a href="mailto:${email}">${email}</a>`;
+    // Email Obfuscation
+    document.addEventListener("DOMContentLoaded", function () {
+      const user = "andreapasqua";
+      const domain = "gmail.com";
+      const link = document.getElementById("email-link");
+      link.setAttribute("href", "mailto:" + user + "@" + domain);
+    });
   </script>
 </body>
 </html>
