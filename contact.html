@@ -94,18 +94,27 @@
   </header>
 
   <!-- CONTENUTO -->
-  <main>
+<main>
+  <!-- Titolo -->
   <h1>Hit me up here!</h1>
 
+  <!-- Icone Social -->
   <div class="social-icons">
     <a href="https://www.linkedin.com/in/andrea-pasqua/" target="_blank" rel="noopener">
       <img src="icons/linkenin-black.svg" alt="LinkedIn">
     </a>
-    <a href="icons/wechat-black.svg" target="_blank" rel="noopener">
+    <a href="#">
       <img src="icons/wechat-black.svg" alt="WeChat QR">
     </a>
   </div>
-      <form action="https://formspree.io/f/mrbkroqj" method="POST" class="contact-form">
+
+  <!-- QR Code WeChat -->
+  <div class="wechat-qr">
+    <img src="icons/wechat_qrcode.svg" alt="WeChat QR Code">
+  </div>
+
+  <!-- Form Contatto -->
+  <form action="https://formspree.io/f/mrbkroqj" method="POST" class="contact-form">
     <label>
       Your name:
       <input type="text" name="name" required>
@@ -124,7 +133,6 @@
     <button type="submit">Send</button>
   </form>
 </main>
-
 
   <!-- JS Email Obfuscation -->
   <script>
