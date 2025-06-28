@@ -95,21 +95,17 @@
 
   <!-- CONTENUTO -->
 <main>
-  <!-- Titolo -->
   <h1>Hit me up here!</h1>
 
-<!-- Icone Social -->
-<div class="social-icons">
-  <a href="#" onclick="openQR()" rel="noopener">
-    <img src="icons/wechat-black.svg" alt="WeChat QR">
-  </a>
-  <a href="https://www.linkedin.com/in/andrea-pasqua/" target="_blank" rel="noopener">
-    <img src="icons/linkenin-black.svg" alt="LinkedIn">
-  </a>
-</div>
+  <div class="social-icons">
+    <a href="#" onclick="openWeChatQR(event)">
+      <img src="icons/wechat-black.svg" alt="WeChat Icon">
+    </a>
+    <a href="https://www.linkedin.com/in/andrea-pasqua/" target="_blank" rel="noopener">
+      <img src="icons/linkedin-black.svg" alt="LinkedIn Icon">
+    </a>
+  </div>
 
-
-  <!-- Form Contatto -->
   <form action="https://formspree.io/f/mrbkroqj" method="POST" class="contact-form">
     <label>
       Your name:
@@ -128,6 +124,12 @@
 
     <button type="submit">Send</button>
   </form>
+
+  <!-- Overlay per QR Code -->
+  <div id="wechat-overlay" class="overlay" style="display: none;">
+    <button class="close-button" onclick="closeWeChat()">×</button>
+    <img src="icons/wechat_qrcode.svg" alt="WeChat QR Code" style="max-width: 90%; max-height: 90%;">
+  </div>
 </main>
 
   <!-- JS Email Obfuscation -->
