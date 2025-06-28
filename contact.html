@@ -1,50 +1,62 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Andrea Pasqua – Contatti</title>
+  <title>Contact | Andrea Pasqua</title>
   <link rel="stylesheet" href="style.css" />
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <!-- Social Meta Tags -->
-  <meta property="og:title" content="Andrea Pasqua | Contatti">
-  <meta property="og:description" content="Contatta Andrea Pasqua - architetto e graphic designer.">
-  <meta property="og:image" content="https://andreapasqua.com/logo.png">
-  <meta property="og:url" content="https://andreapasqua.com/contact.html">
-  <meta name="twitter:card" content="summary_large_image">
+  <!-- Meta social -->
+  <meta property="og:title" content="Andrea Pasqua | Contacts">
+  <meta property="og:description" content="Get in touch with Andrea Pasqua, architect and visual designer.">
+  <meta property="og:type" content="website">
 
   <style>
     main {
-      padding: 160px 20px 80px;
       text-align: center;
+      padding: 100px 20px;
+    }
+
+    h1 {
+      font-family: 'Neutraface', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 40px;
     }
 
     .social-icons {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 40px;
-      margin: 40px 0;
+      gap: 30px;
+      margin-bottom: 30px;
       flex-wrap: wrap;
     }
 
     .social-icons img {
-      width: 48px;
-      height: 48px;
-      transition: transform 0.3s ease;
+      width: 50px;
+      height: 50px;
+      transition: transform 0.2s ease;
     }
 
     .social-icons a:hover img {
       transform: scale(1.1);
     }
 
+    p {
+      font-size: 1rem;
+      font-family: sans-serif;
+    }
+
     @media (max-width: 768px) {
       .social-icons {
-        gap: 30px;
+        gap: 20px;
+      }
+
+      .social-icons img {
+        width: 40px;
+        height: 40px;
       }
     }
   </style>
@@ -54,16 +66,16 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-wrapper">
-      <button class="hamburger" aria-label="Apri menu" onclick="toggleMenu()">☰</button>
       <div class="logo-container">
         <a href="index.html" class="logo-link">
-          <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img">
+          <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
           <div class="logo-text">
             <span class="line1">Andrea</span>
             <span class="line2">Pasqua</span>
           </div>
         </a>
       </div>
+
       <nav>
         <ul class="nav-menu">
           <li><a href="about.html">About</a></li>
@@ -74,7 +86,7 @@
               <li><a href="works_graphic.html">Graphics</a></li>
             </ul>
           </li>
-          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="privacy.html">Privacy</a></li>
         </ul>
       </nav>
@@ -85,40 +97,39 @@
   <main>
     <h1>Hit me up here!</h1>
 
-<div class="social-icons">
-  <a href="https://www.instagram.com/tuo_profilo" target="_blank" rel="noopener">
-    <img src="icons/instagram.svg" alt="Instagram">
-  </a>
-  <a href="https://www.linkedin.com/in/tuo_profilo" target="_blank" rel="noopener">
-    <img src="icons/linkenin-black.svg" alt="LinkedIn">
-  </a>
-  <a href="https://wechat.com/tuo_profilo" target="_blank" rel="noopener">
-    <img src="icons/wechat-black.svg" alt="WeChat">
-  </a>
-  <!-- AGGIUNGI QUESTA PARTE per Gmail -->
-  <a href="#" id="email-link" target="_blank" rel="noopener noreferrer">
-    <img src="icons/gmail.svg" alt="Gmail Icon">
-  </a>
-</div>
+    <div class="social-icons">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/andrea-pasqua/" target="_blank" rel="noopener">
+        <img src="icons/linkenin-black.svg" alt="LinkedIn">
+      </a>
 
+      <!-- WeChat QR code -->
+      <a href="images/wechat-qr.png" target="_blank" rel="noopener">
+        <img src="icons/wechat-black.svg" alt="WeChat QR">
+      </a>
 
-    <p>Email: <a href="#" id="email-link">[email protetta]</a></p>
+      <!-- Gmail (JS obfuscation) -->
+      <a href="#" id="email-link">
+        <img src="icons/gmail.svg" alt="Gmail">
+      </a>
+    </div>
+
+    <p>Email: <a href="#" id="email-text">[email protected]</a></p>
   </main>
 
-  <!-- JS: Menu mobile + Email -->
+  <!-- JS Email Obfuscation -->
   <script>
-    function toggleMenu() {
-      document.querySelector('.nav-menu').classList.toggle('active');
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const user = 'work.ap89';      // inserisci solo il nome
-      const domain = 'gmail.com';   // solo il dominio
-      const email = `${user}@${domain}`;
-      const link = document.getElementById('email-link');
-      link.textContent = email;
-      link.href = 'mailto:' + email;
-    });
+    const user = "work.ap89";
+    const domain = "gmail.com";
+    const email = `${user}@${domain}`;
+    
+    const link = document.getElementById("email-link");
+    const text = document.getElementById("email-text");
+    
+    link.setAttribute("href", `mailto:${email}`);
+    text.setAttribute("href", `mailto:${email}`);
+    text.textContent = email;
   </script>
+
 </body>
 </html>
