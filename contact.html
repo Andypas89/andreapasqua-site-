@@ -134,34 +134,30 @@
 
   <!-- JS Email Obfuscation -->
   <script>
-    const user = "a.pasqua89";
-    const domain = "gmail.com";
-    const email = `${user}@${domain}`;
-    
-    const link = document.getElementById("email-link");
-    const text = document.getElementById("email-text");
-    
+  const user = "a.pasqua89";
+  const domain = "gmail.com";
+  const email = `${user}@${domain}`;
+  
+  const link = document.getElementById("email-link");
+  const text = document.getElementById("email-text");
+  
+  if (link && text) {
     link.setAttribute("href", `mailto:${email}`);
     text.setAttribute("href", `mailto:${email}`);
     text.textContent = email;
-  </script>
-  <script>
-  function toggleQR(event) {
-    event.preventDefault(); // Prevent link jump
-    const qr = document.getElementById("wechatQR");
-    qr.style.display = (qr.style.display === "none") ? "block" : "none";
   }
-</script>
+
   function openWeChatQR(event) {
-    event.preventDefault(); // Evita che la pagina salti in alto
+    event.preventDefault();
     document.getElementById("wechat-overlay").style.display = "flex";
-    document.querySelector(".site-header").style.display = "none"; // Nasconde l'header
+    document.querySelector(".site-header").style.display = "none";
   }
 
   function closeWeChat() {
     document.getElementById("wechat-overlay").style.display = "none";
-    document.querySelector(".site-header").style.display = "flex"; // Mostra l'header
+    document.querySelector(".site-header").style.display = "flex";
   }
 </script>
+
 </body>
 </html>
