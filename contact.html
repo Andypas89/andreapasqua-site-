@@ -95,27 +95,37 @@
 
   <!-- CONTENUTO -->
   <main>
-    <h1>Hit me up here!</h1>
+  <h1>Hit me up here!</h1>
 
-    <div class="social-icons">
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/andrea-pasqua/" target="_blank" rel="noopener">
-        <img src="icons/linkenin-black.svg" alt="LinkedIn">
-      </a>
+  <form action="https://formspree.io/f/mnqekbvl" method="POST" class="contact-form">
+    <label>
+      Your name:
+      <input type="text" name="name" required>
+    </label>
 
-      <!-- WeChat QR code -->
-      <a href="images/wechat-qr.png" target="_blank" rel="noopener">
-        <img src="icons/wechat-black.svg" alt="WeChat QR">
-      </a>
+    <label>
+      Your email:
+      <input type="email" name="_replyto" required>
+    </label>
 
-      <!-- Gmail (JS obfuscation) -->
-      <a href="#" id="email-link">
-        <img src="icons/gmail.svg" alt="Gmail">
-      </a>
-    </div>
+    <label>
+      Message:
+      <textarea name="message" rows="5" required></textarea>
+    </label>
 
-    <p>Email: <a href="#" id="email-text">[email protected]</a></p>
-  </main>
+    <button type="submit">Send</button>
+  </form>
+
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/andrea-pasqua/" target="_blank" rel="noopener">
+      <img src="icons/linkenin-black.svg" alt="LinkedIn">
+    </a>
+    <a href="icons/wechat-black.svg" target="_blank" rel="noopener">
+      <img src="icons/wechat-black.svg" alt="WeChat QR">
+    </a>
+  </div>
+</main>
+
 
   <!-- JS Email Obfuscation -->
   <script>
