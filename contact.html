@@ -103,7 +103,7 @@
   <a href="https://www.linkedin.com/in/andrea-pasqua/" target="_blank" rel="noopener">
     <img src="icons/linkenin-black.svg" alt="LinkedIn">
   </a>
-  <a href="#" onclick="toggleQR(event)">
+  <a href="#" onclick="openQR(event)">
     <img src="icons/wechat-black.svg" alt="WeChat QR">
   </a>
 </div>
@@ -155,6 +155,25 @@
     qr.style.display = (qr.style.display === "none") ? "block" : "none";
   }
 </script>
+  <!-- Overlay per QR WeChat -->
+<div id="qrOverlay" class="overlay" style="display: none;">
+  <img src="icons/wechat_qrcode.svg" alt="WeChat QR Code" class="qr-image">
+  <button class="close-button" onclick="closeQR()">×</button>
+</div>
+  <script>
+  function openQR(event) {
+    event.preventDefault();
+    document.getElementById("qrOverlay").style.display = "flex";
+    document.querySelector('.site-header').style.display = 'none'; // nasconde l’header
+  }
+
+  function closeQR() {
+    document.getElementById("qrOverlay").style.display = "none";
+    document.querySelector('.site-header').style.display = 'flex'; // ripristina l’header
+  }
+</script>
+
+
 
 
 </body>
