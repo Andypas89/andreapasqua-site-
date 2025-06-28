@@ -100,17 +100,12 @@
 
 <!-- Icone Social -->
 <div class="social-icons">
+  <a href="#" onclick="openQR()" rel="noopener">
+    <img src="icons/wechat-black.svg" alt="WeChat QR">
+  </a>
   <a href="https://www.linkedin.com/in/andrea-pasqua/" target="_blank" rel="noopener">
     <img src="icons/linkenin-black.svg" alt="LinkedIn">
   </a>
-  <a href="#" onclick="openQR(event)">
-    <img src="icons/wechat-black.svg" alt="WeChat QR">
-  </a>
-</div>
-
-<!-- QR Code nascosto inizialmente -->
-<div id="wechatQR" class="wechat-qr" style="display: none;">
-  <img src="icons/wechat_qrcode.svg" alt="WeChat QR Code">
 </div>
 
 
@@ -155,26 +150,21 @@
     qr.style.display = (qr.style.display === "none") ? "block" : "none";
   }
 </script>
-  <!-- Overlay per QR WeChat -->
-<div id="qrOverlay" class="overlay" style="display: none;">
-  <img src="icons/wechat_qrcode.svg" alt="WeChat QR Code" class="qr-image">
-  <button class="close-button" onclick="closeQR()">×</button>
+<!-- Overlay QR Code -->
+<div id="qr-overlay" class="overlay" style="display:none;">
+  <img id="qr-image" src="icons/wechat_qrcode.svg" alt="WeChat QR Code" style="max-width:90%; max-height:90%;">
+  <button class="close-button" onclick="closeQR()" style="position:absolute; top:20px; right:30px; font-size:2rem; background:none; border:none; cursor:pointer;">×</button>
 </div>
-  <script>
-  function openQR(event) {
-    event.preventDefault();
-    document.getElementById("qrOverlay").style.display = "flex";
-    document.querySelector('.site-header').style.display = 'none'; // nasconde l’header
+<script>
+  function openQR() {
+    document.getElementById('qr-overlay').style.display = 'flex';
+    document.querySelector('.site-header').style.display = 'none';
   }
 
   function closeQR() {
-    document.getElementById("qrOverlay").style.display = "none";
-    document.querySelector('.site-header').style.display = 'flex'; // ripristina l’header
+    document.getElementById('qr-overlay').style.display = 'none';
+    document.querySelector('.site-header').style.display = 'flex';
   }
 </script>
-
-
-
-
 </body>
 </html>
