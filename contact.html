@@ -98,20 +98,21 @@
   <!-- Titolo -->
   <h1>Hit me up here!</h1>
 
-  <!-- Icone Social -->
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/andrea-pasqua/" target="_blank" rel="noopener">
-      <img src="icons/linkenin-black.svg" alt="LinkedIn">
-    </a>
-    <a href="#">
-      <img src="icons/wechat-black.svg" alt="WeChat QR">
-    </a>
-  </div>
+<!-- Icone Social -->
+<div class="social-icons">
+  <a href="https://www.linkedin.com/in/andrea-pasqua/" target="_blank" rel="noopener">
+    <img src="icons/linkenin-black.svg" alt="LinkedIn">
+  </a>
+  <a href="#" onclick="toggleQR(event)">
+    <img src="icons/wechat-black.svg" alt="WeChat QR">
+  </a>
+</div>
 
-  <!-- QR Code WeChat -->
-  <div class="wechat-qr">
-    <img src="icons/wechat_qrcode.svg" alt="WeChat QR Code">
-  </div>
+<!-- QR Code nascosto inizialmente -->
+<div id="wechatQR" class="wechat-qr" style="display: none;">
+  <img src="icons/wechat_qrcode.svg" alt="WeChat QR Code">
+</div>
+
 
   <!-- Form Contatto -->
   <form action="https://formspree.io/f/mrbkroqj" method="POST" class="contact-form">
@@ -147,6 +148,14 @@
     text.setAttribute("href", `mailto:${email}`);
     text.textContent = email;
   </script>
+  <script>
+  function toggleQR(event) {
+    event.preventDefault(); // Prevent link jump
+    const qr = document.getElementById("wechatQR");
+    qr.style.display = (qr.style.display === "none") ? "block" : "none";
+  }
+</script>
+
 
 </body>
 </html>
