@@ -128,7 +128,8 @@
   <!-- Overlay per QR Code -->
   <div id="wechat-overlay" class="overlay" style="display: none;">
     <button class="close-button" onclick="closeWeChat()">×</button>
-    <img src="icons/wechat_qrcode.svg" alt="WeChat QR Code" style="max-width: 90%; max-height: 90%;">
+    <img id="wechat-qr-img" src="icons/wechat_qrcode.svg" alt="WeChat QR Code" width="250">
+
   </div>
 </main>
 
@@ -152,12 +153,6 @@
     qr.style.display = (qr.style.display === "none") ? "block" : "none";
   }
 </script>
-<!-- Overlay per QR Code -->
-<div id="wechat-overlay" class="overlay" style="display: none;">
-  <button class="close-button" onclick="closeWeChat()">×</button>
-  <img src="icons/wechat_qrcode.svg" alt="WeChat QR Code" style="width: 250px; max-width: 90%; height: auto;">
-</div>
-<script>
   function openWeChatQR(event) {
     event.preventDefault(); // Evita che la pagina salti in alto
     document.getElementById("wechat-overlay").style.display = "flex";
