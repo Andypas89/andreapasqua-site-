@@ -39,7 +39,7 @@ html {
 body {
   font-family: 'Neutraface Book', sans-serif;
   background: white;
-  padding: 80px 40px;
+  padding: 120px 80px 40px;
 }
 
 /* ========== HEADER FISSO ========== */
@@ -48,7 +48,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: auto;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
