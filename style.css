@@ -10,6 +10,7 @@
   src: url('fonts/neutraface-book.otf') format('otf');
   font-weight: 400;
 }
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
 
 /* ========== DESIGN SYSTEM ========== */
 :root {
@@ -105,7 +106,79 @@ body {
 .logo-text .line2 {
   display: block;
 }
+/* ========== PROJECT PAGE STILI ========== */
+.project-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 120px 40px 80px;
+  text-align: center;
+}
 
+.project-page h1 {
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--space-sm);
+  text-align: center;
+}
+
+.project-page p.caption {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #000;
+  margin-bottom: var(--space-md);
+  font-weight: normal;
+  display: block;
+}
+
+.project-page .description {
+  font-family: 'Lora', serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: justify;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-weight: normal;
+  color: #333;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Reset per le immagini */
+.project-page img {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Responsività per dispositivi mobili */
+@media (max-width: 768px) {
+  .project-page h1 {
+    font-size: 2rem;
+  }
+
+  .project-page p,
+  .project-page .description {
+    font-size: 1rem;
+  }
+
+  .image-container img {
+    max-width: 100%;
+  }
+}
 /* ========== NAVIGATION ========== */
 .nav-menu {
   display: flex;
