@@ -415,4 +415,79 @@ body {
   .project-info h2 {
     font-size: 1.5rem;
   }
+  /*
+ * ===================================================================
+ *   STILI SPECIFICI per le PAGINE PROGETTO
+ *   (Aggiunti per correggere il layout)
+ * ===================================================================
+*/
+
+/*
+ * [HEADER]
+ * Allinea logo e menu a sinistra nelle pagine progetto.
+ * Per funzionare, aggiungi la classe "project-page-layout"
+ * al tag <body> delle tue pagine progetto.
+ * Esempio: <body class="project-page-layout">
+*/
+body.project-page-layout .site-header {
+  justify-content: flex-start; /* Allinea gli elementi a sinistra */
+  gap: 40px; /* Crea uno spazio tra logo e menu (puoi cambiarlo) */
+  padding-left: 80px; /* Allinea il logo con il contenuto della pagina */
+  padding-right: 80px; /* Mantiene la simmetria */
+}
+
+/*
+ * [NAVIGAZIONE PROGETTI]
+ * Posiziona le frecce ai lati dello schermo e le rende fisse.
+*/
+.project-navigation .nav-link {
+    position: fixed; /* La regola più importante: fissa l'elemento allo schermo */
+    top: 50%;
+    transform: translateY(-50%); /* Centra perfettamente in verticale */
+    z-index: 999; /* Si assicura che stia sopra il contenuto ma sotto l'header */
+    transition: transform 0.2s ease;
+}
+
+.project-navigation .nav-link:hover {
+    transform: translateY(-50%) scale(1.1); /* Leggero ingrandimento al passaggio */
+}
+
+/* Colora l'icona SVG di nero */
+.project-navigation .nav-icon path {
+  fill: #000000;
+}
+
+/* Posiziona la freccia SINISTRA */
+.project-navigation .nav-back {
+  left: 30px; /* Distanza dal bordo sinistro */
+}
+
+/* Posiziona la freccia DESTRA */
+.project-navigation .nav-next {
+  right: 30px; /* Distanza dal bordo destro */
+}
+
+/*
+ * Ruota l'icona della freccia "back", perché stai usando la stessa
+ * icona SVG per entrambe le direzioni.
+*/
+.project-navigation .nav-back .nav-icon {
+  transform: rotate(180deg);
+}
+
+
+/*
+ * [RESPONSIVE] Nasconde le frecce su schermi piccoli per non ingombrare.
+*/
+@media (max-width: 768px) {
+  .project-navigation {
+    display: none;
+  }
+  
+  /* Ripristina il padding per l'header sui cellulari */
+  body.project-page-layout .site-header {
+     padding-left: 20px;
+     padding-right: 20px;
+  }
+}
 }
