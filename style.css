@@ -48,7 +48,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 120px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,9 +60,10 @@ body {
 
 .header-wrapper {
   max-width: 1800px;
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
   padding: 0 var(--space-md);
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
