@@ -415,32 +415,4 @@ body {
   .project-info h2 {
     font-size: 1.5rem;
   }
-
-  /*
- * Corregge l'header sbilanciato nelle pagine dei progetti,
- * allineando logo e menu a sinistra.
- */
-body.single-project .whb-main-header .whb-row {
-    justify-content: flex-start; /* Allinea tutto all'inizio (sinistra) */
-    gap: 60px; /* Aggiunge uno spazio fisso tra il logo e il menu */
-}
-
-/* Aggiungo anche la soluzione per le frecce, se vuoi inserirla */
-/* Freccia SINISTRA (Progetto Precedente) */
-.single-project .post-navigation-squared .nav-previous a {
-    position: fixed;
-    left: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 999;
-}
-
-/* Freccia DESTRA (Progetto Successivo) */
-.single-project .post-navigation-squared .nav-next a {
-    position: fixed;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 999;
-}
 }
