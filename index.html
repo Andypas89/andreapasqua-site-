@@ -37,19 +37,27 @@
   <meta name="twitter:site" content="@andreaspaqua"> <!-- Cambia con il tuo handle Twitter/X -->
 </head>
 <body>
-    <!-- INTRO OVERLAY -->
+  <!-- INTRO OVERLAY -->
   <div id="intro-overlay" aria-labelledby="intro-title" role="dialog" aria-modal="true">
     <video id="intro-video" class="intro-video" playsinline muted autoplay loop preload="metadata" poster="intro-poster.jpg">
       <source src="intro.mp4" type="video/mp4" />
     </video>
 
-    <!-- Testo cliccabile -->
-    <button id="enter-btn" class="intro-enter" aria-label="Entra nel sito">
+    <!-- Testo cliccabile con fallback inline -->
+    <button
+      id="enter-btn"
+      class="intro-enter"
+      aria-label="Entra nel sito"
+      onclick="(function(){var o=document.getElementById('intro-overlay');if(o){o.style.transition='opacity .35s ease';o.style.opacity='0';setTimeout(function(){o.remove();document.documentElement.classList.remove('intro-lock');document.body.classList.remove('intro-lock');},350);}})();"
+    >
       <span id="intro-title">ENTER THE STUDIO</span>
     </button>
 
-    <!-- Pulsanti opzionali -->
-    <button id="skip-intro" class="intro-skip" aria-label="Salta intro">Salta</button>
+    <button id="skip-intro" class="intro-skip" aria-label="Salta intro"
+      onclick="(function(){var o=document.getElementById('intro-overlay');if(o){o.style.transition='opacity .35s ease';o.style.opacity='0';setTimeout(function(){o.remove();document.documentElement.classList.remove('intro-lock');document.body.classList.remove('intro-lock');},350);}})();">
+      Salta
+    </button>
+
     <button id="play-intro" class="intro-play" hidden>Play</button>
   </div>
   
