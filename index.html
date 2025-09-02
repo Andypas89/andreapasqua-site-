@@ -40,7 +40,7 @@
   <!-- INTRO OVERLAY -->
   <div id="intro-overlay" aria-labelledby="intro-title" role="dialog" aria-modal="true">
     <video id="intro-video" class="intro-video" playsinline muted autoplay loop preload="metadata" poster="intro-poster.jpg">
-      <source src="media/enterthestudio.mp4" type="video/mp4" />
+      <source src="media/enterthestudio.mp4?v=2" type="video/mp4" />
     </video>
 
     <!-- Testo cliccabile con fallback inline -->
@@ -94,59 +94,60 @@
 </header>
 
   <main class="hero">
-    <h1>Welcome to my portfolio</h1>
+    <h1>HELLO I AM ANDREA</h1>
   </main>
+
+  <!-- Script hamburger -->
   <script>
-(function() {
-  const overlay = document.getElementById('intro-overlay');
-  const video   = document.getElementById('intro-video');
-  const enter   = document.getElementById('enter-btn');
-  const skip    = document.getElementById('skip-intro');
-  const playBtn = document.getElementById('play-intro');
-
-  // Blocca lo scroll finché l’intro è viva
-  document.documentElement.classList.add('intro-lock');
-  document.body.classList.add('intro-lock');
-
-  const tryPlay = () => {
-    const p = video && video.play && video.play();
-    if (p && typeof p.then === 'function') {
-      p.catch(() => { if (playBtn) playBtn.hidden = false; });
+    function toggleMenu() {
+      const menu = document.querySelector('.nav-menu');
+      menu.classList.toggle('active');
     }
-  };
+  </script>
 
-  const closeIntro = () => {
-    if (!overlay) return;
-    overlay.style.transition = 'opacity .35s ease';
-    overlay.style.opacity = '0';
-    setTimeout(() => {
-      overlay.remove();
-      document.documentElement.classList.remove('intro-lock');
-      document.body.classList.remove('intro-lock');
-      // Se vuoi reindirizzare ad un’altra pagina invece di chiudere:
-      // window.location.href = '/works_graphic.html';
-    }, 350);
-  };
-
-  if (enter) enter.addEventListener('click', closeIntro);
-  if (skip)  skip.addEventListener('click',  closeIntro);
-  if (playBtn) playBtn.addEventListener('click', () => { video.play(); playBtn.hidden = true; });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === 'Escape') closeIntro();
-  });
-
-  tryPlay();
-})();
-</script>
-
-</body>
+  <!-- SCRIPT INTRO -->
   <script>
-  function toggleMenu() {
-    const menu = document.querySelector('.nav-menu');
-    menu.classList.toggle('active');
-  }
-</script>
+  (function() {
+    const overlay = document.getElementById('intro-overlay');
+    const video   = document.getElementById('intro-video');
+    const enter   = document.getElementById('enter-btn');
+    const skip    = document.getElementById('skip-intro');
+    const playBtn = document.getElementById('play-intro');
 
+    // Blocca lo scroll finché l’intro è viva
+    document.documentElement.classList.add('intro-lock');
+    document.body.classList.add('intro-lock');
+
+    const tryPlay = () => {
+      const p = video && video.play && video.play();
+      if (p && typeof p.then === 'function') {
+        p.catch(() => { if (playBtn) playBtn.hidden = false; });
+      }
+    };
+
+    const closeIntro = () => {
+      if (!overlay) return;
+      overlay.style.transition = 'opacity .35s ease';
+      overlay.style.opacity = '0';
+      setTimeout(() => {
+        overlay.remove();
+        document.documentElement.classList.remove('intro-lock');
+        document.body.classList.remove('intro-lock');
+        // Se vuoi reindirizzare:
+        // window.location.href = '/works_graphic.html';
+      }, 350);
+    };
+
+    if (enter) enter.addEventListener('click', closeIntro);
+    if (skip)  skip.addEventListener('click',  closeIntro);
+    if (playBtn) playBtn.addEventListener('click', () => { video.play(); playBtn.hidden = true; });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === 'Escape') closeIntro();
+    });
+
+    tryPlay();
+  })();
+  </script>
+</body>
 </html>
-
