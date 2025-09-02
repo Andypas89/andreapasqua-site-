@@ -402,6 +402,8 @@ body {
   .project-info h2 {
     font-size: 1.5rem;
   }
+}
+
   /* ========== INTRO OVERLAY ========== */
 #intro-overlay {
   position: fixed;
@@ -476,4 +478,4 @@ html.intro-lock,
 body.intro-lock {
   overflow: hidden;
 }
-}
+
