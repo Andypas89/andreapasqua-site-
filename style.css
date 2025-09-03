@@ -490,4 +490,75 @@ html.intro-lock,
 body.intro-lock {
   overflow: hidden;
 }
+/* ========== HOME HERO ========== */
+.home-hero {
+  padding-top: 140px; /* spazio sotto header fisso */
+  padding-bottom: 80px;
+}
+
+.home-wrap {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* testo | immagine */
+  gap: 48px;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.home-title {
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #000;
+}
+
+.home-figure {
+  position: relative;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-logo {
+  width: 100%;
+  height: auto;
+  max-width: 600px; /* regola la dimensione del logo */
+  display: block;
+}
+
+.vertical-text {
+  position: absolute;
+  right: -40px; /* sposta la scritta un po' fuori dal logo */
+  bottom: 20%;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg); /* testo dall’alto verso il basso */
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #000;
+  letter-spacing: 0.05em;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .home-wrap {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 0 20px;
+  }
+  .home-figure {
+    justify-content: flex-start;
+  }
+  .vertical-text {
+    right: auto;
+    left: 0;
+    bottom: -40px;
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+}
 
