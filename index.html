@@ -115,49 +115,56 @@
     }
   </script>
 
-  <!-- SCRIPT INTRO -->
-  <script>
-  (function() {
-    const overlay = document.getElementById('intro-overlay');
-    const video   = document.getElementById('intro-video');
-    const enter   = document.getElementById('enter-btn');
-    const skip    = document.getElementById('skip-intro');
-    const playBtn = document.getElementById('play-intro');
+<script>
+(function () {
+  const overlay = document.getElementById('intro-overlay');
+  const video   = document.getElementById('intro-video');
+  const enter   = document.getElementById('enter-btn');
+  const skip    = document.getElementById('skip-intro');
+  const playBtn = document.getElementById('play-intro');
 
-    // Blocca lo scroll finché l’intro è viva
-    document.documentElement.classList.add('intro-lock');
-    document.body.classList.add('intro-lock');
+  // ====== MOSTRARE SOLO UNA VOLTA PER SESSIONE ======
+  const seen = sessionStorage.getItem('introSeen');
+  if (seen && overlay) {
+    overlay.remove();
+    return; // esci, intro non mostrata
+  }
 
-    const tryPlay = () => {
-      const p = video && video.play && video.play();
-      if (p && typeof p.then === 'function') {
-        p.catch(() => { if (playBtn) playBtn.hidden = false; });
-      }
-    };
+  // Da qui in poi: intro visibile
+  document.documentElement.classList.add('intro-lock');
+  document.body.classList.add('intro-lock');
 
-    const closeIntro = () => {
-      if (!overlay) return;
-      overlay.style.transition = 'opacity .35s ease';
-      overlay.style.opacity = '0';
-      setTimeout(() => {
-        overlay.remove();
-        document.documentElement.classList.remove('intro-lock');
-        document.body.classList.remove('intro-lock');
-        // Se vuoi reindirizzare:
-        // window.location.href = '/works_graphic.html';
-      }, 350);
-    };
+  const tryPlay = () => {
+    const p = video && video.play && video.play();
+    if (p && typeof p.then === 'function') {
+      p.catch(() => { if (playBtn) playBtn.hidden = false; });
+    }
+  };
 
-    if (enter) enter.addEventListener('click', closeIntro);
-    if (skip)  skip.addEventListener('click',  closeIntro);
-    if (playBtn) playBtn.addEventListener('click', () => { video.play(); playBtn.hidden = true; });
+  const closeIntro = () => {
+    if (!overlay) return;
+    overlay.style.transition = 'opacity .35s ease';
+    overlay.style.opacity = '0';
+    setTimeout(() => {
+      overlay.remove();
+      document.documentElement.classList.remove('intro-lock');
+      document.body.classList.remove('intro-lock');
+      // marca come "visto" solo per la sessione
+      sessionStorage.setItem('introSeen', 'true');
+    }, 350);
+  };
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === 'Escape') closeIntro();
-    });
+  if (enter) enter.addEventListener('click', closeIntro);
+  if (skip)  skip.addEventListener('click', closeIntro);
+  if (playBtn) playBtn.addEventListener('click', () => { video.play(); playBtn.hidden = true; });
 
-    tryPlay();
-  })();
-  </script>
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === 'Escape') closeIntro();
+  });
+
+  tryPlay();
+})();
+</script>
+
 </body>
 </html>
