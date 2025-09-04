@@ -491,75 +491,46 @@ body.intro-lock {
   overflow: hidden;
 }
 /* ========== HOME HERO (pulito) ========== */
+/* ========== HOME HERO TEST ========== */
 .home-hero {
-  padding-top: 140px;                /* spazio sotto header fisso */
-  padding-bottom: 80px;
-  position: relative;                /* per posizionare assolutamente il figure */
-  overflow: hidden;                  /* evita scrollbar orizzontale */
+  position: relative;
+  padding-top: 140px;
+  overflow: hidden;
 }
 
 .home-wrap {
-  max-width: 1800px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* testo | area immagine (occupata dall'assoluto) */
-  gap: 48px;
-  align-items: center;
-  padding: 0 40px;
-  /* spazio di rispetto a destra per il mezzo-logo */
-  padding-right: clamp(200px, 42vw, 640px);
-}
-
-.home-title {
-  font-family: 'Neutraface', sans-serif;
-  font-weight: bold;
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  line-height: 1.05;
-  letter-spacing: 0.01em;
-  color: #000;
-}
-
-/* Figura con logo: assoluta a destra, full-height, senza margini */
-/* --- HOME: immagine metà-schermo a destra, full-height, testo verticale visibile --- */
-
-/* lo spazio per il mezzo-logo: pari a 50vw + un piccolo margine */
-.home-wrap {
-  padding-right: calc(50vw + 40px);
+  padding-right: 50vw; /* spazio per il logo a destra */
 }
 
 .home-figure {
   position: absolute;
   top: 0;
   right: 0;
-  height: 100dvh;            /* altezza reale della finestra, stabile su mobile */
-  width: 50vw;               /* metà viewport: così il logo occupa mezzo schermo */
-  margin: 0;
+  height: 100dvh;   /* altezza intera viewport */
+  width: 50vw;      /* metà viewport */
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: flex-end; /* appoggia l'immagine al bordo destro del box */
-  overflow: visible;         /* la scritta può “uscire” a sinistra del logo */
-  z-index: 0;
 }
 
 .home-logo {
-  height: 100%;              /* scala in altezza fino a riempire il box */
-  width: auto;               /* mantieni proporzioni */
+  height: 100%;
+  width: auto;
   display: block;
 }
 
 .vertical-text {
   position: absolute;
   top: 50%;
-  left: clamp(-28px, -2.2vw, -18px);  /* fianco sinistro del logo, elastico */
+  left: -24px;
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   font-family: 'Neutraface', sans-serif;
   font-weight: bold;
   font-size: 1.1rem;
-  letter-spacing: .05em;
   color: #000;
-  z-index: 1;                /* sopra l'immagine */
 }
+
 
 /* Mobile: manteniamo effetto (mezzo schermo destro) e leggibilità */
 @media (max-width: 900px) {
