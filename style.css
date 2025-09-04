@@ -517,18 +517,20 @@ body.intro-lock {
 
 /* ====== HOME con logo già tagliato ====== */
 .home-figure {
-  display: flex;
-  justify-content: flex-end;  /* incolla al bordo destro */
-  align-items: center;
-  height: 100vh;              /* il logo riempie l’altezza della finestra */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 .home-logo {
-  height: 100%;               /* scala in altezza */
-  width: auto;                /* mantiene proporzioni */
+  height: 100vh;    /* prende l’altezza intera della finestra */
+  width: auto;
   display: block;
 }
+
 
 .vertical-text {
   position: absolute;
