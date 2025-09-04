@@ -1,3 +1,5 @@
+controlla il codice per verifica:
+
 /* ========== FONT SETUP ========== */
 @font-face {
   font-family: 'Neutraface';
@@ -490,43 +492,52 @@ html.intro-lock,
 body.intro-lock {
   overflow: hidden;
 }
-/* ========== HOME HERO (pulito) ========== */
-/* ========== HOME HERO TEST ========== */
-/* HOME: mezzo-logo a destra, full height */
+/* ========== HOME HERO ========== */
 .home-hero {
-  position: relative;
-  padding-top: 140px;
-  overflow: hidden;
+  padding-top: 140px; /* spazio sotto header fisso */
+  padding-bottom: 80px;
 }
 
 .home-wrap {
-  padding-right: calc(50vw + 40px);   /* spazio per il mezzo-logo */
+  max-width: 1800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* testo | immagine */
+  gap: 48px;
+  align-items: center;
+  padding: 0 40px;
 }
 
+.home-title {
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #000;
+}
+
+/* ====== HOME con logo già tagliato ====== */
 .home-figure {
   position: absolute;
   top: 0;
   right: 0;
-  height: 100dvh;                     /* altezza reale viewport (mobile friendly) */
-  width: 50vw;                        /* metà schermo */
+  bottom: 0;
   margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;          /* appoggia l’immagine al bordo destro */
-  overflow: visible;
+  overflow: hidden;
 }
 
 .home-logo {
-  height: 100%;                       /* scala in altezza */
+  height: 100vh;    /* prende l’altezza intera della finestra */
   width: auto;
   display: block;
 }
 
-/* Scritta verticale sul fianco sinistro del logo */
+
 .vertical-text {
   position: absolute;
   top: 50%;
-  left: clamp(-26px, -2.2vw, -18px);  /* distanza elastica dal logo */
+  left: -24px;                     /* aggancia al fianco sinistro del logo */
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   font-family: 'Neutraface', sans-serif;
@@ -534,22 +545,57 @@ body.intro-lock {
   font-size: 1.1rem;
   letter-spacing: .05em;
   color: #000;
-  z-index: 1;
 }
 
-/* Mobile: manteniamo il mezzo-logo a destra e ottimizziamo gli spazi */
+/* Mobile */
 @media (max-width: 900px) {
-  .home-wrap {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 0 20px;
-    padding-right: calc(50vw + 20px);
-  }
   .home-figure {
-    height: 100dvh;
-    width: 50vw;
+    justify-content: center;
+    height: auto;
   }
-  .home-logo { height: 100%; }
-  .vertical-text { left: clamp(-22px, -3vw, -14px); font-size: 1rem; }
+  .home-logo {
+    width: min(80vw, 560px);
+    height: auto;
+  }
+  .vertical-text {
+    position: static;
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin-top: 12px;
+  }
+  /* HOME: logo full-height attaccato al bordo destro, anche su mobile */
+.home-hero { 
+  position: relative;        /* per posizionare assolutamente il figure dentro */
+  overflow: hidden; 
 }
 
+.home-figure {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;             /* intera altezza finestra */
+  margin: 0;
+  overflow: visible;         /* serve per vedere la scritta che esce a sinistra */
+}
+
+.home-logo {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+  .vertical-text {
+  position: absolute;
+  top: 50%;
+  left: -24px;               /* lato sinistro del logo */
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: .05em;
+  color: #000;
+}
+  .home-wrap { 
+  padding-right: clamp(200px, 42vw, 640px); /* spazio per il mezzo-logo a destra */
+}
+}
