@@ -492,25 +492,25 @@ html.intro-lock,
 body.intro-lock {
   overflow: hidden;
 }
-/* ========== HOME HERO ========== */
+/* ========== HOME HERO (versione pulita) ========== */
 .home-hero {
-  padding-top: 140px;   /* spazio sotto header fisso */
+  padding-top: 140px;             /* spazio sotto header fisso */
   padding-bottom: 80px;
-  position: relative;   /* << necessario per l'assoluto del figure */
-  overflow: hidden;     /* evita scrollbar orizzontale */
+  position: relative;             /* necessario per l'assoluto del figure */
+  overflow: hidden;               /* evita scrollbar orizzontale */
 }
 
 .home-wrap {
   max-width: 1800px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* testo | (area immagine, ma è assoluta) */
+  grid-template-columns: 1.1fr 0.9fr;     /* testo | (area immagine, ma è assoluta) */
   gap: 48px;
   align-items: center;
   padding: 0 40px;
-  padding-right: clamp(200px, 42vw, 640px); /* << spazio per il mezzo-logo */
+  /* spazio di rispetto a destra per il mezzo-logo */
+  padding-right: calc(50vw + 40px);
 }
-
 
 .home-title {
   font-family: 'Neutraface', sans-serif;
@@ -521,82 +521,41 @@ body.intro-lock {
   color: #000;
 }
 
-/* ====== HOME con logo già tagliato ====== */
-.logo-box{
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* tiene il logo appoggiato a destra */
-}
-
-.home-logo {
-  height: 100%;
-  width: auto;
-  display: block;
-}
-
-
-
-.vertical-text{
-  position: absolute;
-  top: 50%;
-  right: calc(100% + 24px);  /* 24px a sinistra del bordo del logo */
-  transform: translateY(-50%) rotate(180deg);
-  writing-mode: vertical-rl;
-  font-family: 'Neutraface', sans-serif;
-  font-weight: bold;
-  font-size: 1.1rem;
-  letter-spacing: .05em;
-  color: #000;
-  z-index: 2;                /* sopra al logo */
-  pointer-events: auto;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-  .home-figure {
-    justify-content: center;
-    height: auto;
-  }
-  .home-logo {
-    width: min(80vw, 560px);
-    height: auto;
-  }
-@media (max-width: 900px){
-  .vertical-text{
-    right: calc(100% + 16px);
-    top: 50%;
-    transform: translateY(-50%) rotate(180deg);
-    writing-mode: vertical-rl;
-    font-size: 1rem;
-  }
-}
-  }
-  /* HOME: logo full-height attaccato al bordo destro, anche su mobile */
-.home-hero { 
-  position: relative;        /* per posizionare assolutamente il figure dentro */
-  overflow: hidden; 
-}
-
+/* Figura con mezzo-logo a destra, full-height, appoggiato al bordo */
 .home-figure {
   position: absolute;
   top: 0;
   right: 0;
-  height: 100vh;             /* intera altezza finestra */
+  height: 100dvh;                  /* altezza reale viewport */
+  width: 50vw;                     /* metà schermo a destra */
   margin: 0;
-  overflow: visible;         /* serve per vedere la scritta che esce a sinistra */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;       /* appoggia l’immagine al bordo destro */
+  overflow: visible;
+  pointer-events: none;            /* non intercetta i click sopra */
+}
+
+/* Contenitore dell’immagine (serve l’ancora per la scritta) */
+.logo-box {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .home-logo {
-  height: 100%;
+  height: 100%;                    /* scala in altezza */
   width: auto;
   display: block;
 }
-  .vertical-text {
+
+/* Scritta verticale sul FIANCO SINISTRO del logo */
+.vertical-text {
   position: absolute;
   top: 50%;
-  left: -24px;               /* lato sinistro del logo */
+  right: calc(100% + 24px);        /* 24px a sinistra del bordo del logo */
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   font-family: 'Neutraface', sans-serif;
@@ -604,8 +563,32 @@ body.intro-lock {
   font-size: 1.1rem;
   letter-spacing: .05em;
   color: #000;
+  z-index: 2;
+  pointer-events: auto;
 }
-  .home-wrap { 
-  padding-right: clamp(200px, 42vw, 640px); /* spazio per il mezzo-logo a destra */
-}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 900px) {
+  .home-wrap {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 0 20px;
+    /* ancora spazio per il mezzo-logo a destra, ma un po’ meno */
+    padding-right: calc(50vw + 20px);
+  }
+
+  .home-figure {
+    height: 100dvh;
+    width: 50vw;
+    right: 0;
+  }
+
+  .home-logo {
+    height: 100%;
+  }
+
+  .vertical-text {
+    right: calc(100% + 16px);      /* più vicino su schermi stretti */
+    font-size: 1rem;
+  }
 }
