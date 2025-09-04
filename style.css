@@ -452,6 +452,11 @@ body {
   animation:
     enterBlink 1.4s ease-in-out infinite,
     wobble 2.4s ease-in-out infinite;
+  .intro-enter span {
+  white-space: nowrap;       /* impedisce l'andare a capo */
+  display: inline-block;     /* evita compressioni strane del testo */
+}
+
 }
 
 /* lampeggio nero/bianco */
