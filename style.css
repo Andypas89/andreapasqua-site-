@@ -520,27 +520,37 @@ body.intro-lock {
 }
 
 /* Figura con logo: assoluta a destra, full-height, senza margini */
+/* --- HOME: immagine metà-schermo a destra, full-height, testo verticale visibile --- */
+
+/* lo spazio per il mezzo-logo: pari a 50vw + un piccolo margine */
+.home-wrap {
+  padding-right: calc(50vw + 40px);
+}
+
 .home-figure {
   position: absolute;
   top: 0;
   right: 0;
-  height: 100dvh;                     /* intera altezza finestra */
+  height: 100dvh;            /* altezza reale della finestra, stabile su mobile */
+  width: 50vw;               /* metà viewport: così il logo occupa mezzo schermo */
   margin: 0;
-  overflow: visible;                  /* serve per far uscire la scritta a sinistra del logo */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* appoggia l'immagine al bordo destro del box */
+  overflow: visible;         /* la scritta può “uscire” a sinistra del logo */
+  z-index: 0;
 }
 
-/* Logo: scala in altezza, appoggiato al bordo destro */
 .home-logo {
-  height: 100%;
-  width: auto;
+  height: 100%;              /* scala in altezza fino a riempire il box */
+  width: auto;               /* mantieni proporzioni */
   display: block;
 }
 
-/* Scritta verticale sul fianco sinistro del logo (Variante A) */
 .vertical-text {
   position: absolute;
   top: 50%;
-  left: -24px;                        /* distanza dal bordo sinistro del logo */
+  left: clamp(-28px, -2.2vw, -18px);  /* fianco sinistro del logo, elastico */
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   font-family: 'Neutraface', sans-serif;
@@ -548,30 +558,26 @@ body.intro-lock {
   font-size: 1.1rem;
   letter-spacing: .05em;
   color: #000;
+  z-index: 1;                /* sopra l'immagine */
 }
 
-/* Adattamenti mobile (manteniamo logo a destra e full-height come richiesto) */
+/* Mobile: manteniamo effetto (mezzo schermo destro) e leggibilità */
 @media (max-width: 900px) {
   .home-wrap {
     grid-template-columns: 1fr;
     gap: 28px;
     padding: 0 20px;
-    padding-right: 38vw;              /* riserva spazio per il mezzo-logo anche su mobile */
+    padding-right: calc(50vw + 20px); /* un po' meno margine su mobile */
   }
-
   .home-figure {
-    height: 100dvh;                    /* resta full-height su mobile */
-    right: 0;
+    height: 100dvh;
+    width: 50vw;
   }
-
   .home-logo {
     height: 100%;
-    width: auto;
   }
-
   .vertical-text {
-    /* resta verticale anche su mobile, sul fianco sinistro del logo */
-    left: -18px;                      /* leggermente più vicino su schermi stretti */
+    left: clamp(-22px, -3vw, -14px);
     font-size: 1rem;
   }
 }
