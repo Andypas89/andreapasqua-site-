@@ -515,50 +515,66 @@ body.intro-lock {
   color: #000;
 }
 
+/* ====== HOME: logo a destra, specchiato, metà visibile e full height ====== */
 .home-figure {
   position: relative;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-self: end;
+  /* mostra solo metà destra del riquadro logo */
+  width: 50vw;                       /* metà viewport */
+  height: calc(100vh - 160px);       /* ~altezza viewport meno header/padding */
+  overflow: hidden;                  /* nasconde l’altra metà */
 }
 
+/* immagine: full height, appoggiata al bordo destro, specchiata */
 .home-logo {
-  width: 100%;
-  height: auto;
-  max-width: 600px; /* regola la dimensione del logo */
+  position: absolute;
+  right: 0;                          /* borda il lato destro della pagina */
+  top: 50%;
+  transform: translateY(-50%) scaleX(-1); /* specchio sull'asse verticale */
+  height: 100%;                      /* tutta l’altezza disponibile */
+  width: auto;                       /* mantiene proporzioni */
   display: block;
 }
 
+/* scritta verticale centrata sul logo */
 .vertical-text {
   position: absolute;
-  right: -40px; /* sposta la scritta un po' fuori dal logo */
-  bottom: 20%;
+  top: 50%;
+  right: 12px;                       /* distanza dal bordo destro */
+  transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
-  transform: rotate(180deg); /* testo dall’alto verso il basso */
   font-family: 'Neutraface', sans-serif;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  letter-spacing: .05em;
   color: #000;
-  letter-spacing: 0.05em;
 }
 
-/* Mobile */
+/* schermi molto larghi: piccola rifinitura */
+@media (min-width: 1440px) {
+  .vertical-text { right: 20px; }
+}
+
+/* mobile: mantiene specchiatura ma non taglia a metà */
 @media (max-width: 900px) {
-  .home-wrap {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 0 20px;
-  }
   .home-figure {
-    justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+  }
+  .home-logo {
+    position: static;
+    transform: scaleX(-1);           /* mantiene specchiatura */
+    width: min(80vw, 560px);
+    height: auto;
   }
   .vertical-text {
-    right: auto;
-    left: 0;
-    bottom: -40px;
+    position: static;
     writing-mode: horizontal-tb;
     transform: none;
+    margin-top: 12px;
   }
 }
-
