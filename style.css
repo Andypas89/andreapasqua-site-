@@ -533,7 +533,7 @@ body.intro-lock {
 .vertical-text {
   position: absolute;
   top: 50%;
-  right: 16px;
+  left: -24px;                     /* aggancia al fianco sinistro del logo */
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   font-family: 'Neutraface', sans-serif;
