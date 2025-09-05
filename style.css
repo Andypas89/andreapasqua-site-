@@ -191,4 +191,14 @@ html.intro-lock, body.intro-lock{ overflow:hidden; }
 /* Mobile tweak per hero */
 @media (max-width: 900px){
   .home-wrap{ padding: 0 20px; gap: 28px; }
+
+  /* Testo sotto al titolo principale */
+.home-subtitle {
+  font-family: 'Neutraface', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #000;
+  margin-top: 1rem;   /* distanza dal titolo */
+  line-height: 1.4;
 }
+
