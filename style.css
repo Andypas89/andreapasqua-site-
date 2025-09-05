@@ -194,8 +194,8 @@ html.intro-lock, body.intro-lock{ overflow:hidden; }
   font-family: 'Neutraface Book', sans-serif;
   font-weight: 400;             /* più leggero del titolo */
   font-size: clamp(1.25rem, 2.5vw, 2.5rem);
-  color: #444;                  /* grigio attenuato per non rubare la scena */
-  margin-top: 1.2rem;           /* spazio sopra */
-  line-height: 1.5;
+  color: #000;                  /* grigio attenuato per non rubare la scena */
+  margin-top: 1rem;           /* spazio sopra */
+  line-height: 1.4;
   letter-spacing: 0.02em;       /* leggero respiro */
 }
