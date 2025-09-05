@@ -166,59 +166,53 @@ body {
 html.intro-lock, body.intro-lock{ overflow:hidden; }
 
 /* ========== HOME HERO (versione pulita) ========== */
-/* HERO: testo + mezzo-logo a destra */
+/* ===== HERO pulito: testo a sinistra, mezzo-logo a destra full height ===== */
+
 .home-hero{
   position: relative;
-  padding-top: 140px;         /* spazio per l’header fisso */
+  padding-top: 140px;      /* spazio per l’header fisso */
   padding-bottom: 80px;
-  overflow: hidden;           /* evita scroll orizzontale */
+  overflow: hidden;        /* niente scroll orizzontale */
 }
 
-/* Lascia spazio al testo a sinistra.
-   Regola la cifra centrale (es. 44vw) fino a quando ti piace l’equilibrio */
 .home-wrap{
   max-width: 1800px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
   padding: 0 40px;
+  /* riserva spazio al logo a destra: regola la cifra centrale per l’equilibrio */
   padding-right: clamp(260px, 44vw, 760px);
 }
 
-/* Contenitore del logo: assoluto, attaccato a destra, a tutta altezza */
 .home-figure{
   position: absolute;
   top: 0;
   right: 0;
-  height: 100dvh;             /* = intera altezza finestra, anche mobile */
   margin: 0;
-  overflow: hidden;           /* taglia eventuali sbordi a sinistra */
+  height: 100dvh;          /* = 100% altezza finestra, anche su mobile */
+  overflow: hidden;        /* taglia eventuale eccedenza a sinistra */
   z-index: 1;
-  pointer-events: none;       /* non blocca i click sul contenuto sotto */
+  pointer-events: none;    /* non blocca i click su contenuti sotto */
 }
 
-/* Box per ancorare la caption */
 .logo-box{
   position: relative;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;  /* logo appoggiato al bordo destro */
+  justify-content: flex-end;  /* logo a filo a destra */
 }
 
-/* L’immagine ADEGUA la larghezza al suo rapporto,
-   ma resta SEMPRE alta quanto la finestra */
 .home-logo{
-  height: 100%;
-  width: auto;
+  height: 100%;     /* SEMPRE a tutta altezza finestra */
+  width: auto;      /* larghezza in base al rapporto dell’immagine */
   display: block;
 }
 
-/* Testo verticale a sinistra del logo */
+/* Testo verticale sul fianco sinistro del logo */
 .vertical-text{
   position: absolute;
   top: 50%;
-  right: calc(100% + 24px);   /* distanza dal bordo sinistro del logo */
+  right: calc(100% + 24px);  /* distanza dal bordo del logo */
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   font-family: 'Neutraface', sans-serif;
@@ -229,11 +223,19 @@ html.intro-lock, body.intro-lock{ overflow:hidden; }
   pointer-events: auto;
 }
 
-/* Mobile: stesso principio, solo un po’ meno spazio per il logo */
+/* ---------- Mobile ---------- */
 @media (max-width: 900px){
   .home-wrap{
     padding: 0 20px;
     padding-right: clamp(200px, 50vw, 560px);
+  }
+  .home-figure{
+    height: 100dvh;  /* rimane full-height anche su mobile */
+    right: 0;
+  }
+  .home-logo{
+    height: 100%;
+    width: auto;
   }
   .vertical-text{
     right: calc(100% + 16px);
