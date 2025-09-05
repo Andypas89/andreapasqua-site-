@@ -549,11 +549,11 @@ body.intro-lock {
 }
 
 .home-logo {
-  height: 100%;
-  width: auto;
-  object-fit: cover;           /* 👈 Usa "cover" per riempire lo spazio */
-  object-position: center right; /* 👈 Mostra la parte più importante a destra */
+  width: 100%;                /* riempi in larghezza il box 50vw */
+  height: 100%;               /* e in altezza 100dvh */
   display: block;
+  object-fit: cover;          /* copri tutto il box senza distorsioni */
+  object-position: right center; /* tieni “ancorata” la parte destra */
 }
 /* Scritta verticale sul FIANCO SINISTRO del logo */
 .vertical-text {
