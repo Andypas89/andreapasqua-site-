@@ -179,9 +179,23 @@ html.intro-lock, body.intro-lock{ overflow:hidden; }
   align-items: center;
   padding: 0 40px;
 }
-.home-title{
+/* Titolo principale */
+.home-title {
   font-family: 'Neutraface', sans-serif;
   font-weight: bold;
   font-size: clamp(2.5rem, 7vw, 5rem);
   line-height: 1.05;
   letter-spacing: 0.01em;
+  color: #000;
+}
+
+/* Sottotitolo (tagline) */
+.home-subtitle {
+  font-family: 'Neutraface Book', sans-serif;
+  font-weight: 400;             /* più leggero del titolo */
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  color: #444;                  /* grigio attenuato per non rubare la scena */
+  margin-top: 1.2rem;           /* spazio sopra */
+  line-height: 1.5;
+  letter-spacing: 0.02em;       /* leggero respiro */
+}
