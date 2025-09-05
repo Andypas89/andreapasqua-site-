@@ -166,67 +166,77 @@ body {
 html.intro-lock, body.intro-lock{ overflow:hidden; }
 
 /* ========== HOME HERO (versione pulita) ========== */
+/* HERO: testo + mezzo-logo a destra */
 .home-hero{
-  padding-top:140px; padding-bottom:80px;
-  position:relative;               /* serve per il layout del testo */
-  overflow:hidden;                 /* niente scroll orizzontale */
+  position: relative;
+  padding-top: 140px;         /* spazio per l’header fisso */
+  padding-bottom: 80px;
+  overflow: hidden;           /* evita scroll orizzontale */
 }
 
-/* contenitore del testo */
+/* Lascia spazio al testo a sinistra.
+   Regola la cifra centrale (es. 44vw) fino a quando ti piace l’equilibrio */
 .home-wrap{
-  max-width:1800px; margin:0 auto; display:grid; grid-template-columns: 1.1fr 0.9fr;
-  gap:48px; align-items:center; padding:0 40px;
-  /* riserva spazio a destra per il mezzo-logo fisso */
-  padding-right: calc(50vw + 40px);
+  max-width: 1800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 40px;
+  padding-right: clamp(260px, 44vw, 760px);
 }
 
-.home-title{
-  font-family:'Neutraface', sans-serif; font-weight:bold;
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  line-height:1.05; letter-spacing:.01em; color:#000;
-}
-
-/* ===== MEZZO LOGO A DESTRA: fisso, full viewport ===== */
+/* Contenitore del logo: assoluto, attaccato a destra, a tutta altezza */
 .home-figure{
-  position: fixed;              /* 👈 fisso alla finestra, ignora il padding dell'hero */
-  top: 0; right: 0;
-  height: 100dvh;               /* tutta l’altezza della finestra */
-  width: 50vw;                  /* metà schermo a destra */
-  display: flex; align-items: center; justify-content: flex-end;
-  overflow: visible; pointer-events: none; z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100dvh;             /* = intera altezza finestra, anche mobile */
+  margin: 0;
+  overflow: hidden;           /* taglia eventuali sbordi a sinistra */
+  z-index: 1;
+  pointer-events: none;       /* non blocca i click sul contenuto sotto */
 }
 
+/* Box per ancorare la caption */
 .logo-box{
-  position: relative; height: 100%; width: 100%;
-  display: flex; align-items: center; justify-content: flex-end;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;  /* logo appoggiato al bordo destro */
 }
 
+/* L’immagine ADEGUA la larghezza al suo rapporto,
+   ma resta SEMPRE alta quanto la finestra */
 .home-logo{
-  height: 100%; width: 100%; display:block;
-  object-fit: cover;                 /* riempi metà schermo senza distorsioni */
-  object-position: right center;     /* appoggia il disegno al bordo destro */
+  height: 100%;
+  width: auto;
+  display: block;
 }
 
-/* scritta verticale sul fianco sinistro del logo */
+/* Testo verticale a sinistra del logo */
 .vertical-text{
-  position: absolute; top:50%;
-  right: calc(100% + 24px);          /* 24px a sinistra del bordo del logo */
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 24px);   /* distanza dal bordo sinistro del logo */
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
-  font-family:'Neutraface', sans-serif; font-weight:bold;
-  font-size: 1.1rem; letter-spacing:.05em; color:#000;
-  z-index: 2; pointer-events: auto;
+  font-family: 'Neutraface', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: .05em;
+  color: #000;
+  pointer-events: auto;
 }
 
-/* ---------- Mobile ---------- */
+/* Mobile: stesso principio, solo un po’ meno spazio per il logo */
 @media (max-width: 900px){
   .home-wrap{
-    grid-template-columns:1fr; gap:28px; padding:0 20px;
-    padding-right: calc(50vw + 20px);   /* un po’ meno margine su mobile */
+    padding: 0 20px;
+    padding-right: clamp(200px, 50vw, 560px);
   }
-  .home-figure{
-    position: fixed; top:0; right:0; height:100dvh; width:50vw;
+  .vertical-text{
+    right: calc(100% + 16px);
+    font-size: 1rem;
   }
-  .home-logo{ height:100%; width:100%; }
-  .vertical-text{ right: calc(100% + 16px); font-size:1rem; }
 }
