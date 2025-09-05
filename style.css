@@ -167,35 +167,32 @@ html.intro-lock, body.intro-lock{ overflow:hidden; }
 
 /* ========== HERO: mezzo-logo a destra, 100% viewport, senza <img> ========== */
 
-/* Riserva spazio a destra per il mezzo-logo (logo + margine per la scritta) */
+/* Spazio a destra per mezzo-logo + scritta */
 .home-wrap{
-  padding-right: calc(var(--hero-arc-width, 50vw) + 72px);
+  padding-right: calc(min(48vw, 720px) + 72px);
 }
 
-/* Contenitore del mezzo-logo: assoluto, non influenza il layout */
+/* Mezzo-logo fisso al viewport: sempre 100% altezza finestra */
 .hero-arc{
-  position: absolute;
+  position: fixed;           /* <— fisso alla finestra */
   top: 0;
   right: 0;
-  height: 100dvh;                 /* altezza effettiva della viewport */
-  width: min(50vw, 720px);        /* max larghezza riservata (regolabile) */
+  height: 100dvh;            /* tutta l’altezza visibile */
+  width: min(48vw, 720px);   /* quanto “mangia” a destra (regolabile) */
   z-index: 0;
   pointer-events: none;
 
-  /* 👉 Qui setti lo sfondo (la tua immagine tagliata) */
-  background-image: url("media/logo_homepage_2.jpg?v=5");
+  background-image: url("media/logo_homepage_2.jpg?v=6");
   background-repeat: no-repeat;
-  background-position: right center;  /* appoggiato al bordo destro */
-  background-size: auto 100%;         /* scala in ALTEZZA, niente distorsioni */
-  /* Se vuoi che il logo “tagli” anche oltre il bordo superiore, usa:
-     background-position: right top;  */
+  background-position: right center;
+  background-size: auto 100%; /* scala in ALTEZZA senza distorsioni */
 }
 
-/* Scritta verticale sul fianco sinistro del logo */
+/* Scritta verticale a sinistra del mezzo-logo, centrata al viewport */
 .hero-side{
-  position: absolute;
+  position: fixed;                                  /* <— fisso anche lei */
   top: 50%;
-  right: calc(min(50vw, 720px) + 24px);  /* 24px a sinistra del bordo del logo */
+  right: calc(min(48vw, 720px) + 24px);
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   font-family: 'Neutraface', sans-serif;
@@ -203,21 +200,21 @@ html.intro-lock, body.intro-lock{ overflow:hidden; }
   letter-spacing: .05em;
   font-size: 1.05rem;
   color: #000;
-  z-index: 1;  /* sopra allo sfondo */
+  z-index: 1;
 }
 
-/* Header già a 120px – lo manteniamo */
+/* Il container del contenuto può anche non “tagliare” più */
 .home-hero{
   position: relative;
-  padding-top: 140px;
+  padding-top: 140px;  /* spazio sotto l’header fisso */
   padding-bottom: 80px;
-  overflow: hidden;  /* niente scrollbar orizzontale */
+  overflow: visible;   /* evita di tagliare cose fisse/assolute */
 }
 
-/* Mobile: mantieni l’effetto, ma riduci gli spazi */
+/* Mobile */
 @media (max-width: 900px){
   .hero-arc{
-    width: 50vw;       /* metà schermo */
+    width: 50vw;
     height: 100dvh;
     background-position: right center;
     background-size: auto 100%;
@@ -225,18 +222,11 @@ html.intro-lock, body.intro-lock{ overflow:hidden; }
   .home-wrap{
     padding-right: calc(50vw + 56px);
     padding-left: 20px;
-    padding-right: calc(50vw + 56px);
     grid-template-columns: 1fr;
     gap: 28px;
   }
   .hero-side{
     right: calc(50vw + 16px);
-    font-size: 0.95rem;
+    font-size: .95rem;
   }
 }
-
-/* (Safety) Se per caso rimane in pagina un vecchio blocco con <img>, lo neutralizzo */
-.home-figure, .logo-box, .home-logo, .vertical-text{
-  display: none !important;
-}
-
