@@ -529,14 +529,14 @@ body.intro-lock {
   position: absolute;
   top: 0;
   right: 0;
-  height: 100dvh;                  /* altezza reale viewport */
-  width: 50vw;                     /* metà schermo a destra */
-  margin: 0;
+  height: 100dvh;
+  width: 50vw;
   display: flex;
   align-items: center;
-  justify-content: flex-end;       /* appoggia l’immagine al bordo destro */
+  justify-content: flex-end;
   overflow: visible;
-  pointer-events: none;            /* non intercetta i click sopra */
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Contenitore dell’immagine (serve l’ancora per la scritta) */
