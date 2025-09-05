@@ -241,4 +241,84 @@ html.intro-lock, body.intro-lock{ overflow:hidden; }
     right: calc(100% + 16px);
     font-size: 1rem;
   }
+  /* ===== HERO: mezzo-logo fisso a destra, full-height ===== */
+
+/* 1) Lo sfondo (il mezzo-logo) lo disegniamo con un pseudo-elemento */
+.home-hero {
+  position: relative;
+  padding-top: 140px;
+  padding-bottom: 80px;
+  overflow: hidden;
+  z-index: 0; /* lo sfondo sta sotto al testo */
+}
+
+/* larghezza massima riservata al mezzo-logo */
+:root {
+  --logo-max-w: 640px; /* puoi alzare/abbassare questo limite */
+}
+
+/* Sfondo fissato a destra, alto 100% viewport, senza deformazioni */
+.home-hero::after {
+  content: "";
+  position: fixed;          /* fisso rispetto alla finestra */
+  top: 0;
+  right: 0;
+  height: 100dvh;           /* sempre tutta l’altezza visibile */
+  width: clamp(260px, 50vw, var(--logo-max-w)); /* ~ metà schermo ma con limiti */
+  background-image: url("media/logo_homepage_2.jpg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%; /* adatta l’altezza, mantiene proporzioni */
+  pointer-events: none;    /* non cattura click */
+  z-index: 0;
+}
+
+/* 2) Il testo a sinistra ha spazio “di rispetto” per non finire sotto al logo */
+.home-wrap {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* puramente estetico; non incide su after */
+  gap: 48px;
+  align-items: center;
+  padding: 0 40px;
+  padding-right: calc(clamp(260px, 50vw, var(--logo-max-w)) + 40px);
+  position: relative;
+  z-index: 1; /* sopra allo sfondo */
+}
+
+/* 3) Sposta la tua scritta verticale “Welcome to my space” accanto al logo */
+.vertical-text {
+  position: fixed; /* la ancoriamo alla finestra come il logo */
+  top: 50%;
+  right: calc(clamp(260px, 50vw, var(--logo-max-w)) + 24px); /* 24px a sinistra del bordo del logo */
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: .05em;
+  color: #000;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 4) Disattiva l’img del figure (non ci serve più) */
+.home-figure { display: none; }
+
+/* 5) Mobile: manteniamo metà schermo ma con limiti più stretti se vuoi */
+@media (max-width: 900px) {
+  :root { --logo-max-w: 520px; } /* opzionale: limita un po’ su mobile */
+  .home-wrap {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 0 20px;
+    padding-right: calc(clamp(200px, 50vw, var(--logo-max-w)) + 20px);
+  }
+  .vertical-text {
+    right: calc(clamp(200px, 50vw, var(--logo-max-w)) + 16px);
+    font-size: 1rem;
+  }
+}
+
 }
