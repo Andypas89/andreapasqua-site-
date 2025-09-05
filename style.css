@@ -4,13 +4,11 @@
   src: url('fonts/NeutrafaceText-Bold.woff') format('woff');
   font-weight: bold;
 }
-
 @font-face {
   font-family: 'Neutraface Book';
   src: url('fonts/neutraface-book.otf') format('opentype');
   font-weight: 400;
 }
-
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
 
 /* ========== DESIGN SYSTEM ========== */
@@ -28,7 +26,6 @@
 
 /* ========== RESET ========== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html, body { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
@@ -45,7 +42,6 @@ body {
   z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
   padding: 0 var(--space-md);
 }
-
 .header-wrapper {
   max-width: 1800px; margin: 0 auto; width: 100%;
   display: flex; justify-content: space-between; align-items: center;
@@ -56,7 +52,11 @@ body {
 .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
 .logo-img { width: 100px; height: auto; transition: opacity .2s; }
 .logo-img:hover { opacity: .8; }
-.logo-text { display: flex; flex-direction: column; font-family: 'Neutraface', sans-serif; font-weight: bold; font-size: 1.3rem; color: var(--color-black); line-height: 1.1; }
+.logo-text {
+  display: flex; flex-direction: column;
+  font-family: 'Neutraface', sans-serif; font-weight: bold; font-size: 1.3rem;
+  color: var(--color-black); line-height: 1.1;
+}
 .logo-text .line1, .logo-text .line2 { display: block; }
 
 /* ========== NAVIGATION ========== */
@@ -165,68 +165,30 @@ body {
 @media (prefers-reduced-motion: reduce){ .intro-video{ display:none; } .intro-enter span{ animation:none; } }
 html.intro-lock, body.intro-lock{ overflow:hidden; }
 
-/* ========== HERO: mezzo-logo a destra, 100% viewport, senza <img> ========== */
-
-/* Spazio a destra per mezzo-logo + scritta */
-.home-wrap{
-  padding-right: calc(min(48vw, 720px) + 72px);
-}
-
-/* Mezzo-logo fisso al viewport: sempre 100% altezza finestra */
-.hero-arc{
-  position: fixed;           /* <— fisso alla finestra */
-  top: 0;
-  right: 0;
-  height: 100dvh;            /* tutta l’altezza visibile */
-  width: min(48vw, 720px);   /* quanto “mangia” a destra (regolabile) */
-  z-index: 0;
-  pointer-events: none;
-
-  background-image: url("media/logo_homepage_2.jpg?v=6");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: auto 100%; /* scala in ALTEZZA senza distorsioni */
-}
-
-/* Scritta verticale a sinistra del mezzo-logo, centrata al viewport */
-.hero-side{
-  position: fixed;                                  /* <— fisso anche lei */
-  top: 50%;
-  right: calc(min(48vw, 720px) + 24px);
-  transform: translateY(-50%) rotate(180deg);
-  writing-mode: vertical-rl;
-  font-family: 'Neutraface', sans-serif;
-  font-weight: 800;
-  letter-spacing: .05em;
-  font-size: 1.05rem;
-  color: #000;
-  z-index: 1;
-}
-
-/* Il container del contenuto può anche non “tagliare” più */
+/* ========== HOME HERO (pulita, senza immagine) ========== */
 .home-hero{
-  position: relative;
-  padding-top: 140px;  /* spazio sotto l’header fisso */
+  padding-top: 140px;             /* spazio sotto header fisso */
   padding-bottom: 80px;
-  overflow: visible;   /* evita di tagliare cose fisse/assolute */
+}
+.home-wrap{
+  max-width: 1800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;     /* solo testo */
+  gap: 48px;
+  align-items: center;
+  padding: 0 40px;
+}
+.home-title{
+  font-family: 'Neutraface', sans-serif;
+  font-weight: bold;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #000;
 }
 
-/* Mobile */
+/* Mobile tweak per hero */
 @media (max-width: 900px){
-  .hero-arc{
-    width: 50vw;
-    height: 100dvh;
-    background-position: right center;
-    background-size: auto 100%;
-  }
-  .home-wrap{
-    padding-right: calc(50vw + 56px);
-    padding-left: 20px;
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .hero-side{
-    right: calc(50vw + 16px);
-    font-size: .95rem;
-  }
+  .home-wrap{ padding: 0 20px; gap: 28px; }
 }
