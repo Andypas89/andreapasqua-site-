@@ -165,160 +165,78 @@ body {
 @media (prefers-reduced-motion: reduce){ .intro-video{ display:none; } .intro-enter span{ animation:none; } }
 html.intro-lock, body.intro-lock{ overflow:hidden; }
 
-/* ========== HOME HERO (versione pulita) ========== */
-/* ===== HERO pulito: testo a sinistra, mezzo-logo a destra full height ===== */
+/* ========== HERO: mezzo-logo a destra, 100% viewport, senza <img> ========== */
 
-.home-hero{
-  position: relative;
-  padding-top: 140px;      /* spazio per l’header fisso */
-  padding-bottom: 80px;
-  overflow: hidden;        /* niente scroll orizzontale */
-}
-
+/* Riserva spazio a destra per il mezzo-logo (logo + margine per la scritta) */
 .home-wrap{
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 0 40px;
-  /* riserva spazio al logo a destra: regola la cifra centrale per l’equilibrio */
-  padding-right: clamp(260px, 44vw, 760px);
+  padding-right: calc(var(--hero-arc-width, 50vw) + 72px);
 }
 
-.home-figure{
+/* Contenitore del mezzo-logo: assoluto, non influenza il layout */
+.hero-arc{
   position: absolute;
   top: 0;
   right: 0;
-  margin: 0;
-  height: 100dvh;          /* = 100% altezza finestra, anche su mobile */
-  overflow: hidden;        /* taglia eventuale eccedenza a sinistra */
-  z-index: 1;
-  pointer-events: none;    /* non blocca i click su contenuti sotto */
+  height: 100dvh;                 /* altezza effettiva della viewport */
+  width: min(50vw, 720px);        /* max larghezza riservata (regolabile) */
+  z-index: 0;
+  pointer-events: none;
+
+  /* 👉 Qui setti lo sfondo (la tua immagine tagliata) */
+  background-image: url("media/logo_homepage_2.jpg?v=5");
+  background-repeat: no-repeat;
+  background-position: right center;  /* appoggiato al bordo destro */
+  background-size: auto 100%;         /* scala in ALTEZZA, niente distorsioni */
+  /* Se vuoi che il logo “tagli” anche oltre il bordo superiore, usa:
+     background-position: right top;  */
 }
 
-.logo-box{
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;  /* logo a filo a destra */
-}
-
-.home-logo{
-  height: 100%;     /* SEMPRE a tutta altezza finestra */
-  width: auto;      /* larghezza in base al rapporto dell’immagine */
-  display: block;
-}
-
-/* Testo verticale sul fianco sinistro del logo */
-.vertical-text{
+/* Scritta verticale sul fianco sinistro del logo */
+.hero-side{
   position: absolute;
   top: 50%;
-  right: calc(100% + 24px);  /* distanza dal bordo del logo */
+  right: calc(min(50vw, 720px) + 24px);  /* 24px a sinistra del bordo del logo */
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   font-family: 'Neutraface', sans-serif;
   font-weight: 800;
-  font-size: 1.1rem;
   letter-spacing: .05em;
+  font-size: 1.05rem;
   color: #000;
-  pointer-events: auto;
+  z-index: 1;  /* sopra allo sfondo */
 }
 
-/* ---------- Mobile ---------- */
-@media (max-width: 900px){
-  .home-wrap{
-    padding: 0 20px;
-    padding-right: clamp(200px, 50vw, 560px);
-  }
-  .home-figure{
-    height: 100dvh;  /* rimane full-height anche su mobile */
-    right: 0;
-  }
-  .home-logo{
-    height: 100%;
-    width: auto;
-  }
-  .vertical-text{
-    right: calc(100% + 16px);
-    font-size: 1rem;
-  }
-  /* ===== HERO: mezzo-logo fisso a destra, full-height ===== */
-
-/* 1) Lo sfondo (il mezzo-logo) lo disegniamo con un pseudo-elemento */
-.home-hero {
+/* Header già a 120px – lo manteniamo */
+.home-hero{
   position: relative;
   padding-top: 140px;
   padding-bottom: 80px;
-  overflow: hidden;
-  z-index: 0; /* lo sfondo sta sotto al testo */
+  overflow: hidden;  /* niente scrollbar orizzontale */
 }
 
-/* larghezza massima riservata al mezzo-logo */
-:root {
-  --logo-max-w: 640px; /* puoi alzare/abbassare questo limite */
-}
-
-/* Sfondo fissato a destra, alto 100% viewport, senza deformazioni */
-.home-hero::after {
-  content: "";
-  position: fixed;          /* fisso rispetto alla finestra */
-  top: 0;
-  right: 0;
-  height: 100dvh;           /* sempre tutta l’altezza visibile */
-  width: clamp(260px, 50vw, var(--logo-max-w)); /* ~ metà schermo ma con limiti */
-  background-image: url("media/logo_homepage_2.jpg");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: auto 100%; /* adatta l’altezza, mantiene proporzioni */
-  pointer-events: none;    /* non cattura click */
-  z-index: 0;
-}
-
-/* 2) Il testo a sinistra ha spazio “di rispetto” per non finire sotto al logo */
-.home-wrap {
-  max-width: 1800px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* puramente estetico; non incide su after */
-  gap: 48px;
-  align-items: center;
-  padding: 0 40px;
-  padding-right: calc(clamp(260px, 50vw, var(--logo-max-w)) + 40px);
-  position: relative;
-  z-index: 1; /* sopra allo sfondo */
-}
-
-/* 3) Sposta la tua scritta verticale “Welcome to my space” accanto al logo */
-.vertical-text {
-  position: fixed; /* la ancoriamo alla finestra come il logo */
-  top: 50%;
-  right: calc(clamp(260px, 50vw, var(--logo-max-w)) + 24px); /* 24px a sinistra del bordo del logo */
-  transform: translateY(-50%) rotate(180deg);
-  writing-mode: vertical-rl;
-  font-family: 'Neutraface', sans-serif;
-  font-weight: bold;
-  font-size: 1.1rem;
-  letter-spacing: .05em;
-  color: #000;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* 4) Disattiva l’img del figure (non ci serve più) */
-.home-figure { display: none; }
-
-/* 5) Mobile: manteniamo metà schermo ma con limiti più stretti se vuoi */
-@media (max-width: 900px) {
-  :root { --logo-max-w: 520px; } /* opzionale: limita un po’ su mobile */
-  .home-wrap {
+/* Mobile: mantieni l’effetto, ma riduci gli spazi */
+@media (max-width: 900px){
+  .hero-arc{
+    width: 50vw;       /* metà schermo */
+    height: 100dvh;
+    background-position: right center;
+    background-size: auto 100%;
+  }
+  .home-wrap{
+    padding-right: calc(50vw + 56px);
+    padding-left: 20px;
+    padding-right: calc(50vw + 56px);
     grid-template-columns: 1fr;
     gap: 28px;
-    padding: 0 20px;
-    padding-right: calc(clamp(200px, 50vw, var(--logo-max-w)) + 20px);
   }
-  .vertical-text {
-    right: calc(clamp(200px, 50vw, var(--logo-max-w)) + 16px);
-    font-size: 1rem;
+  .hero-side{
+    right: calc(50vw + 16px);
+    font-size: 0.95rem;
   }
 }
 
+/* (Safety) Se per caso rimane in pagina un vecchio blocco con <img>, lo neutralizzo */
+.home-figure, .logo-box, .home-logo, .vertical-text{
+  display: none !important;
 }
+
