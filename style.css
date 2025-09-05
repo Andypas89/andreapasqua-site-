@@ -167,15 +167,15 @@ html.intro-lock, body.intro-lock{ overflow:hidden; }
 
 /* ========== HOME HERO (pulita, senza immagine) ========== */
 .home-hero{
-  padding-top: 140px;             /* spazio sotto header fisso */
+  padding-top: 140px;
   padding-bottom: 80px;
 }
 .home-wrap{
   max-width: 1800px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr;     /* solo testo */
-  gap: 48px;
+  grid-template-columns: 1fr;
+  gap: 32px;
   align-items: center;
   padding: 0 40px;
 }
@@ -185,21 +185,3 @@ html.intro-lock, body.intro-lock{ overflow:hidden; }
   font-size: clamp(2.5rem, 7vw, 5rem);
   line-height: 1.05;
   letter-spacing: 0.01em;
-  color: #000;
-}
-
-/* Mobile tweak per hero */
-@media (max-width: 900px){
-  .home-wrap{ padding: 0 20px; gap: 28px; }
-
-  /* Testo sotto al titolo principale */
-.home-subtitle {
-  font-family: 'Neutraface', sans-serif;
-  font-weight: 400;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  color: #000;
-  margin-top: 1rem;   /* distanza dal titolo */
-  line-height: 1.4;
-}
-}
-
