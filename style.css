@@ -549,11 +549,12 @@ body.intro-lock {
 }
 
 .home-logo {
-  height: 100%;                    /* scala in altezza */
+  height: 100%;
   width: auto;
+  object-fit: cover;           /* 👈 aggiungi questa riga */
+  object-position: center right; /* 👈 aggiungi anche questa */
   display: block;
 }
-
 /* Scritta verticale sul FIANCO SINISTRO del logo */
 .vertical-text {
   position: absolute;
