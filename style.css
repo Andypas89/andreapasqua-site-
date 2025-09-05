@@ -551,8 +551,8 @@ body.intro-lock {
 .home-logo {
   height: 100%;
   width: auto;
-  object-fit: cover;           /* 👈 aggiungi questa riga */
-  object-position: center right; /* 👈 aggiungi anche questa */
+  object-fit: cover;           /* 👈 Usa "cover" per riempire lo spazio */
+  object-position: center right; /* 👈 Mostra la parte più importante a destra */
   display: block;
 }
 /* Scritta verticale sul FIANCO SINISTRO del logo */
