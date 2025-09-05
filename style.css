@@ -457,8 +457,6 @@ body {
     wobble 2.4s ease-in-out infinite;
 }
 
-}
-
 /* lampeggio nero/bianco */
 @keyframes enterBlink {
   0%, 45%   { color: #000; }
