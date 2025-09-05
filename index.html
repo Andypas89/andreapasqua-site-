@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Andrea Pasqua</title>
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -34,7 +33,7 @@
   <meta name="twitter:title" content="Andrea Pasqua | Portfolio Architettonico">
   <meta name="twitter:description" content="Portfolio personale di Andrea Pasqua - architetto e graphic designer. Scopri progetti residenziali, commerciali e render grafici.">
   <meta name="twitter:image" content="https://andreapasqua.com/logo.png ">
-  <meta name="twitter:site" content="@andreaspaqua"> <!-- Cambia con il tuo handle Twitter/X -->
+  <meta name="twitter:site" content="@andreaspaqua">
 </head>
 <body>
   <!-- INTRO OVERLAY -->
@@ -66,15 +65,14 @@
   <div class="header-wrapper">
     <button class="hamburger" aria-label="Toggle navigation" onclick="toggleMenu()">☰</button>
     <div class="logo-container">
-  <a href="index.html" class="logo-link">
-    <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
-    <div class="logo-text">
-      <span class="line1">Andrea</span>
-      <span class="line2">Pasqua</span>
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="Andrea Pasqua Logo" class="logo-img"/>
+        <div class="logo-text">
+          <span class="line1">Andrea</span>
+          <span class="line2">Pasqua</span>
+        </div>
+      </a>
     </div>
-  </a>
-</div>
-
 
     <nav>
       <ul class="nav-menu">
@@ -87,7 +85,7 @@
           </ul>
         </li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="privacy.html">Privacy</a></li> <!-- Pagina Privacy -->
+        <li><a href="privacy.html">Privacy</a></li>
       </ul>
     </nav>
   </div>
@@ -97,6 +95,7 @@
   <div class="home-wrap">
     <section class="home-copy">
       <h1 class="home-title">HI, I'M ANDREA,<br>ARCHITECTURAL DESIGNER.</h1>
+      <p class="home-subtitle">Welcome to my space</p>
     </section>
   </div>
 </main>
@@ -121,10 +120,9 @@
   const seen = sessionStorage.getItem('introSeen');
   if (seen && overlay) {
     overlay.remove();
-    return; // esci, intro non mostrata
+    return;
   }
 
-  // Da qui in poi: intro visibile
   document.documentElement.classList.add('intro-lock');
   document.body.classList.add('intro-lock');
 
@@ -143,7 +141,6 @@
       overlay.remove();
       document.documentElement.classList.remove('intro-lock');
       document.body.classList.remove('intro-lock');
-      // marca come "visto" solo per la sessione
       sessionStorage.setItem('introSeen', 'true');
     }, 350);
   };
